@@ -1,0 +1,81 @@
+/* span */.section__sprite-img {
+    display: block;
+    height: 0;
+    background-size: cover;
+
+    @each $cur-sprite-type in $sprite-types {
+        @if (not map-get($cur-sprite-type, ignore)) {
+            $cur-sprite-type-name: map-get($cur-sprite-type, name);
+            $cur-sprite-type-image-width-ratio: map-get($cur-sprite-type, individual-image-width-ratio);
+            
+            &--#{$cur-sprite-type-name} {
+                // subtract 1% to make sure that the entire image actually fits in
+                padding-top: $cur-sprite-type-image-width-ratio * 100% - 1%;
+               
+                @each $cur-section-sprite-device-type in $section-sprite-device-types {
+                    @include respond($cur-section-sprite-device-type + "-device") {
+                        background-image: url(../../../img/section-sprite-#{$cur-sprite-type-name}-#{$cur-section-sprite-device-type}.png);
+                    }
+                }
+
+                @if ($section-sprite-support-touch) {
+                    .-bowser-mobile & {
+                        background-image: url(../../../img/section-sprite-#{$cur-sprite-type-name}-touch.png);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* div */.section__sprite-img-shrinker {
+    @include respond(palm) {
+        margin: 0 auto;
+        @each $cur-sprite-type in $sprite-types {
+            @if (not map-get($cur-sprite-type, ignore)) {
+                $cur-sprite-type-name: map-get($cur-sprite-type, name);
+                $cur-sprite-type-image-width-ratio: map-get($cur-sprite-type, individual-image-width-ratio);
+                
+                &--#{$cur-sprite-type-name} {
+                    // used to set the max-width based upon the max-height
+                    $alternative-max-width: map-get($sprite-image-palm-settings, max-height) / $cur-sprite-type-image-width-ratio;
+                    // find min of max width and max height and set max width accordingly
+                    max-width: min(map-get($sprite-image-palm-settings, max-width), $alternative-max-width);
+                }
+            }
+        }
+    }
+}
+
+
+
+@each $cur-sprite-type in $sprite-types {
+    @if (not map-get($cur-sprite-type, ignore)) {
+        $cur-sprite-type-name: map-get($cur-sprite-type, name);
+        $cur-sprite-type-images: map-get($cur-sprite-type, individual-images);
+        $cur-sprite-type-delay: map-get($cur-sprite-type, animation-delay);
+        $cur-sprite-type-mask-image: map-get($cur-sprite-type, mask-image);
+        $cur-sprite-type-delay: 0% !default;
+
+        // subtract one because of how
+        // percentage background positions work (may need to google again to understand)
+        $sprite-image-height-percentage: (100% / ($cur-sprite-type-images - 1));
+        
+        /* span */.section__sprite-img--#{$cur-sprite-type-name} {
+            -skrollr-animation-name: #{$cur-sprite-type-name}-animate;
+                    background-position-y: map-get($cur-sprite-type, default-image) * $sprite-image-height-percentage;
+            @if ($cur-sprite-type-mask-image) {
+                -webkit-mask-image: $cur-sprite-type-mask-image;
+            }
+        }
+
+        @-skrollr-keyframes #{$cur-sprite-type-name}-animate {
+            @for $j from 0 through ($cur-sprite-type-images - 1) {
+                skrollr-#{(100 - (($j * round($sprite-image-height-percentage) + $cur-sprite-type-delay) / 1%))}p-top {
+                    background-position-y: #{"!" + $j * $sprite-image-height-percentage};
+                }
+            }
+        }
+    }
+}

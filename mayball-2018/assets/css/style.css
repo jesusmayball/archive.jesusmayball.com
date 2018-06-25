@@ -1,0 +1,609 @@
+/*
+ * Copyright (C) Harri Bell-Thomas - All Rights Reserved
+ * Unauthorized copying of this file, via any medium, is strictly prohibited.
+ * Written by Harri Bell-Thomas <@harribellthomas>, October 2017 - June 2018
+ */
+
+/* @font-face {
+  font-family: 'Avenir-Book';
+  src: url('../fonts/avenirltstd-book-webfont.woff') format('woff'),
+       url('../fonts/avenirltstd-book-webfont.ttf') format('truetype');
+} */
+
+/* Aux */
+.gpu {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+/* End Aux */
+
+html {
+    background-color: #0f1114 !important;
+    font-family: "Montserrat", sans-serif !important;
+    /* font-family: "Avenir-Book", sans-serif !important; */
+    font-weight: 400;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6, h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif !important;
+    /* font-family: "Avenir-Book", sans-serif !important; */
+}
+
+text {
+    font-weight: 800;
+}
+
+img {
+    background: none;
+}
+
+html body .uk-container .uk-card-title {
+    font-family: "Montserrat", sans-serif !important;
+    /* font-family: "Avenir-Book", sans-serif !important; */
+}
+
+.dynamic-aurora-container {
+    display: block; // if it is not a block element
+    overflow: hidden;
+    opacity: 0.85;
+    z-index: 1000;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.dynamic-aurora-container .auroral-stars {
+    opacity: 0.4;
+}
+
+#header-bg {
+    position: fixed;
+    z-index: 0;
+    background-color: #170727;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#header-gif {
+    position: fixed;
+    z-index: 1;
+    /* https://media.giphy.com/media/3ohjUPVkkYezDsXDzy/giphy.gif */
+    /* background-image: url("../images/aurora-sky.jpg"); */
+    display: none;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    /* background-attachment:fixed;
+    -webkit-background-attachment:fixed; */
+}
+
+#header {
+    z-index: 2000;
+    height: 100%;
+    width: 100%;
+}
+
+.backdrop {
+    position: relative;
+    z-index: 2000;
+    width: 100%;
+    margin-top: -1px;
+    height: 22em;
+    overflow:hidden;
+}
+
+.backdrop::after {
+    content: "";
+    background-image: url("../../assets/images/aurora-logo-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    opacity: 0.8;
+    z-index: -2;
+}
+
+.backdrop::before {
+    content: "";
+    background-image: url("../../assets/images/saturation-layer.jpg");
+    background-position: center;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.backdrop-flipped::before,
+.backdrop-flipped::after {
+    transform: scaleY(-1);
+}
+
+.backdrop .background {
+    width: 100%;
+}
+
+.mix-blend-mode .backdrop {
+    mix-blend-mode: color;
+    opacity: 1;
+}
+
+.backdrop-header {
+    width:100%;
+    height:100%;
+    background-position:center;
+    background-size: cover;
+    height: 26em;
+}
+
+#header #horse {
+    max-width: 300px;
+    z-index: 2001;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+    /* bring your own prefixes */
+    -webkit-transform: translate(-50%, -50%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+        -ms-transform: translate(-50%, -50%); /* IE 9 */
+            transform: translate(-50%, -50%); /* IE 10, Fx 16+, Op 12.1+ */
+}
+
+#header #horse-container {
+    margin: 0;
+    position: relative;
+    z-index: 2001;
+    width: 100%;
+    height: 100%;
+}
+
+#saturation-layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1005;
+    opacity: 0.4;
+}
+
+.particles-container {
+    margin: 0;
+    position: relative;
+    z-index: 2001;
+    width: 100%;
+    height: 100%;
+}
+
+.particles {
+    position: absolute;
+    z-index: 2000;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.below-fold {
+    position: relative;
+    z-index: 2000;
+    display: block;
+    width: 100%;
+    background-color: rgba(4, 16, 42, 0.88);
+    background: linear-gradient(-45deg, rgba(4, 16, 42, 0.88), #0e0e0e);
+}
+
+#scroll-down {
+    height: 0px;
+}
+
+#scroll-down a {
+    position: relative;
+    bottom: 80px;
+    margin: 0 auto;
+    display: block;
+    z-index: 2002;
+    height: 50px;
+}
+
+#scroll-down a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 30px;
+  height: 50px;
+  margin-left: -15px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+#scroll-down a span::before {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: sdb10 2s infinite;
+  animation: sdb10 2s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb10 {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb10 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#soundscape-control p {
+    text-align: center;
+    color: white;
+    padding: 20px 0 0 0;
+    cursor: pointer;
+}
+
+#aurora-title {
+    padding: 40px 0px 30px 0px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-family: "Montserrat", sans-serif !important;
+    /* font-family: "Avenir-Book", sans-serif !important; */
+    font-weight: 100;
+    font-size: 3em;
+    color: #fff;
+    /* color: #edc8ff; */
+}
+
+#aurora-title.uk-heading-line>::after,
+#aurora-title.uk-heading-line>::before {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);;
+    /* border-bottom: 1px solid #c094d6; */
+}
+
+#aurora-date {
+    padding: 0px 0px 30px 0px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: -30px;
+    display: block;
+    font-family: "Montserrat", sans-serif !important;
+    /* font-family: "Avenir-Book", sans-serif !important; */
+    font-weight: 100;
+    color: #fff;
+    font-size: 1.3em;
+}
+
+#entertainment-title {
+    padding: 70px 0px 30px 0px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-family: "Montserrat", sans-serif !important;
+    /* font-family: "Avenir-Book", sans-serif !important; */
+    font-weight: 400;
+    font-size: 2em;
+    color: #fff;
+    /* color: #e84d4b; */
+}
+
+#entertainment-title.uk-heading-line>::after,
+#entertainment-title.uk-heading-line>::before {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);;
+    /* border-bottom: 1px solid #ab3735; */
+}
+
+.ent-card .uk-card-body,
+.ent-card .uk-card-footer {
+    background: white;
+}
+
+.ent-card .uk-card-header,
+.ent-card.uk-card-default {
+    background: none;
+}
+
+.ent-name {
+    font-size: 2em;
+}
+
+#tickets-title {
+    padding: 70px 0px 30px 0px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-family: "Montserrat", sans-serif !important;
+    /* font-family: "Avenir-Book", sans-serif !important; */
+    font-weight: 400;
+    font-size: 2em;
+    color: #fff;
+    /* color: #d8a13b; */
+}
+
+#tickets-title.uk-heading-line>::after,
+#tickets-title.uk-heading-line>::before {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    /* border-bottom: 1px solid #946c23; */
+}
+
+.uk-card-default .uk-card-title.ticket-card-header,
+.uk-heading-line.ticket-card-price span {
+    color: #fff;
+}
+
+.uk-card.ticket-card p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#intro-text .ticket-details {
+    color: #f7f7f7;
+    margin: 0 auto;
+    display: block;
+    text-decoration: none;
+}
+
+#intro-text .ticket-details-link:hover {
+    text-decoration: none;
+    color: #e5e5e5;
+}
+
+#sponsors-title {
+    padding: 70px 0px 30px 0px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-family: "Montserrat", sans-serif !important;
+    /* font-family: "Avenir-Book", sans-serif !important; */
+    font-weight: 400;
+    font-size: 2em;
+    color: #fff;
+    /* color: #349a15; */
+}
+
+#sponsors-title.uk-heading-line>::after,
+#sponsors-title.uk-heading-line>::before {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    /* border-bottom: 1px solid #236d0d; */
+}
+
+#sponsors .uk-card-body,
+#sponsors .uk-card-title {
+    color: white;
+}
+
+#sponsors .uk-card-default {
+    background: none;
+    box-shadow: none;
+}
+
+#charities-title {
+    padding: 70px 0px 30px 0px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-family: "Montserrat", sans-serif !important;
+    /* font-family: "Avenir-Book", sans-serif !important; */
+    font-weight: 400;
+    font-size: 2em;
+    color: #fff;
+    /* color: #ea69f7; */
+}
+
+#charities-title.uk-heading-line>::after,
+#charities-title.uk-heading-line>::before {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    /* border-bottom: 1px solid #a330af; */
+}
+
+#committee-title {
+    padding: 70px 0px 30px 0px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-family: "Montserrat", sans-serif !important;
+    /* font-family: "Avenir-Book", sans-serif !important; */
+    font-weight: 400;
+    font-size: 2em;
+    color: #fff;
+    /* color: #00b4ff; */
+}
+
+#committee-title.uk-heading-line>::after,
+#committee-title.uk-heading-line>::before {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    /* border-bottom: 1px solid #0376a7; */
+}
+
+.ticket-card-header {
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+}
+
+.ticket-card-price {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#intro-text {
+    font-weight: 400;
+    color: #fff;
+    padding-bottom: 40px !important;
+    text-align: justify;
+    font-size: 1em;
+}
+
+#heading-paragraph {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 1.4em;
+    margin: 0 auto;
+    width: 50em;
+    display: block;
+    overflow: visible;
+}
+
+#loading-screen {
+    background-color: #151515;
+    background: linear-gradient(-45deg, #14041d, #222);
+    z-index: 3000;
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    height: 110%;
+    width: 110%;
+    overflow: hidden;
+}
+
+#loading-screen img {
+    max-width: 280px;
+    z-index: 3001;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+
+#footer {
+    padding: 20px;
+}
+
+#footer p {
+    width: 100%;
+    text-align: center;
+    color: #76657d;
+    margin-bottom: 0px;
+    font-weight: 400;
+    font-size: 0.8em;
+}
+
+.committee-gif {
+    -webkit-box-shadow: 0px 0px 47px 6px rgba(66, 66, 66, 0.15);
+    -moz-box-shadow: 0px 0px 47px 6px rgba(66, 66, 66, 0.15);
+    box-shadow: 0px 0px 47px 6px rgba(66, 66, 66, 0.15);
+    border-radius:10px;
+    width: 100%;
+}
+
+.committee-member {
+    background-color: rgba(0,0,0,0);
+    color: #cccccc;
+    overflow:hidden;
+}
+
+.committee-name {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 900;
+    color: #f1f1f1;
+}
+
+.committee-role {
+    text-align: center;
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: -20px;
+}
+
+.committee-email {
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-top: -20px;
+}
+
+._3em-padding {
+    height: 3em;
+    width: 100%;
+    display: block;
+}
+
+.vertical-centre {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.auroral-northern {
+    /* animation-name: b; */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    background: linear-gradient(10deg, #a1d9b4 20%, #3b8ba9 40%, #1d003c 70%);
+    /* background: linear-gradient(10deg, #a1d9b4 20%, #32988a 40%, #000e3c 70%); */
+}
+.auroral-northern, .auroral-northern-intense {
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    animation-duration: 10s;
+}
+
+.auroral-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 100vw 1vh 0 1px hsla(0, 0%, 100%, .7), 54vw 29vh 0 2px hsla(0, 0%, 100%, .7), 10vw 3vh 0 1px hsla(0, 0%, 100%, .7), 13vw 25vh 0 1px hsla(0, 0%, 100%, .7), 98vw 19vh 0 1px hsla(0, 0%, 100%, .7), 50vw 24vh 0 2px hsla(0, 0%, 100%, .7), 99vw 1vh 0 2px hsla(0, 0%, 100%, .7), 67vw 50vh 0 1px hsla(0, 0%, 100%, .7), 17vw 16vh 0 2px hsla(0, 0%, 100%, .7), 74vw 11vh 0 2px hsla(0, 0%, 100%, .7), 58vw 32vh 0 2px hsla(0, 0%, 100%, .7), 6vw 45vh 0 2px hsla(0, 0%, 100%, .7), 70vw 7vh 0 2px hsla(0, 0%, 100%, .7), 49vw 45vh 0 1px hsla(0, 0%, 100%, .7), 6vw 31vh 0 1px hsla(0, 0%, 100%, .7), 87vw 12vh 0 2px hsla(0, 0%, 100%, .7), 48vw 1vh 0 2px hsla(0, 0%, 100%, .7), 81vw 5vh 0 2px hsla(0, 0%, 100%, .7), 56vw 29vh 0 2px hsla(0, 0%, 100%, .7), 84vw 6vh 0 2px hsla(0, 0%, 100%, .7), 63vw 44vh 0 1px hsla(0, 0%, 100%, .7), 60vw 6vh 0 1px hsla(0, 0%, 100%, .7), 72vw 1vh 0 2px hsla(0, 0%, 100%, .7), 73vw 50vh 0 2px hsla(0, 0%, 100%, .7), 65vw 47vh 0 2px hsla(0, 0%, 100%, .7), 96vw 38vh 0 2px hsla(0, 0%, 100%, .7), 60vw 14vh 0 2px hsla(0, 0%, 100%, .7), 92vw 30vh 0 2px hsla(0, 0%, 100%, .7), 18vw 33vh 0 1px hsla(0, 0%, 100%, .7), 71vw 44vh 0 1px hsla(0, 0%, 100%, .7), 45vw 32vh 0 1px hsla(0, 0%, 100%, .7), 77vw 9vh 0 1px hsla(0, 0%, 100%, .7), 41vw 34vh 0 1px hsla(0, 0%, 100%, .7), 85vw 8vh 0 2px hsla(0, 0%, 100%, .7), 68vw 3vh 0 1px hsla(0, 0%, 100%, .7), 9vw 25vh 0 1px hsla(0, 0%, 100%, .7), 67vw 27vh 0 2px hsla(0, 0%, 100%, .7), 84vw 7vh 0 2px hsla(0, 0%, 100%, .7), 95vw 25vh 0 2px hsla(0, 0%, 100%, .7), 41vw 2vh 0 1px hsla(0, 0%, 100%, .7), 6vw 43vh 0 1px hsla(0, 0%, 100%, .7), 59vw 44vh 0 2px hsla(0, 0%, 100%, .7), 38vw 43vh 0 1px hsla(0, 0%, 100%, .7), 32vw 40vh 0 2px hsla(0, 0%, 100%, .7), 27vw 24vh 0 1px hsla(0, 0%, 100%, .7), 52vw 15vh 0 2px hsla(0, 0%, 100%, .7), 9vw 15vh 0 1px hsla(0, 0%, 100%, .7), 95vw 1vh 0 2px hsla(0, 0%, 100%, .7), 18vw 18vh 0 2px hsla(0, 0%, 100%, .7), 43vw 25vh 0 2px hsla(0, 0%, 100%, .7), 60vw 35vh 0 2px hsla(0, 0%, 100%, .7), 68vw 39vh 0 1px hsla(0, 0%, 100%, .7), 70vw 5vh 0 2px hsla(0, 0%, 100%, .7), 23vw 3vh 0 1px hsla(0, 0%, 100%, .7), 84vw 3vh 0 1px hsla(0, 0%, 100%, .7), 80vw 22vh 0 2px hsla(0, 0%, 100%, .7), 48vw 14vh 0 1px hsla(0, 0%, 100%, .7), 76vw 44vh 0 1px hsla(0, 0%, 100%, .7), 89vw 48vh 0 1px hsla(0, 0%, 100%, .7), 91vw 6vh 0 1px hsla(0, 0%, 100%, .7), 11vw 41vh 0 2px hsla(0, 0%, 100%, .7), 45vw 7vh 0 1px hsla(0, 0%, 100%, .7), 35vw 30vh 0 2px hsla(0, 0%, 100%, .7), 1vw 41vh 0 2px hsla(0, 0%, 100%, .7), 14vw 42vh 0 1px hsla(0, 0%, 100%, .7), 45vw 28vh 0 2px hsla(0, 0%, 100%, .7), 87vw 21vh 0 1px hsla(0, 0%, 100%, .7), 37vw 36vh 0 1px hsla(0, 0%, 100%, .7), 39vw 45vh 0 1px hsla(0, 0%, 100%, .7), 58vw 3vh 0 2px hsla(0, 0%, 100%, .7), 54vw 12vh 0 1px hsla(0, 0%, 100%, .7), 87vw 22vh 0 1px hsla(0, 0%, 100%, .7), 97vw 10vh 0 1px hsla(0, 0%, 100%, .7), 50vw 45vh 0 2px hsla(0, 0%, 100%, .7), 37vw 18vh 0 1px hsla(0, 0%, 100%, .7), 88vw 25vh 0 2px hsla(0, 0%, 100%, .7), 67vw 19vh 0 1px hsla(0, 0%, 100%, .7), 39vw 49vh 0 1px hsla(0, 0%, 100%, .7), 98vw 19vh 0 1px hsla(0, 0%, 100%, .7), 84vw 20vh 0 2px hsla(0, 0%, 100%, .7), 56vw 5vh 0 1px hsla(0, 0%, 100%, .7), 36vw 14vh 0 1px hsla(0, 0%, 100%, .7), 15vw 24vh 0 2px hsla(0, 0%, 100%, .7), 24vw 22vh 0 1px hsla(0, 0%, 100%, .7), 45vw 19vh 0 2px hsla(0, 0%, 100%, .7), 66vw 27vh 0 2px hsla(0, 0%, 100%, .7), 21vw 31vh 0 1px hsla(0, 0%, 100%, .7), 54vw 2vh 0 2px hsla(0, 0%, 100%, .7), 22vw 21vh 0 1px hsla(0, 0%, 100%, .7), 27vw 4vh 0 2px hsla(0, 0%, 100%, .7), 59vw 25vh 0 1px hsla(0, 0%, 100%, .7), 15vw 28vh 0 1px hsla(0, 0%, 100%, .7), 45vw 43vh 0 2px hsla(0, 0%, 100%, .7), 79vw 29vh 0 2px hsla(0, 0%, 100%, .7), 49vw 46vh 0 2px hsla(0, 0%, 100%, .7), 98vw 19vh 0 2px hsla(0, 0%, 100%, .7), 52vw 13vh 0 2px hsla(0, 0%, 100%, .7), 82vw 45vh 0 1px hsla(0, 0%, 100%, .7), 34vw 12vh 0 2px hsla(0, 0%, 100%, .7), 82vw 27vh 0 2px hsla(0, 0%, 100%, .7), 51vw 48vh 0 0 hsla(0, 0%, 100%, .9);
+}

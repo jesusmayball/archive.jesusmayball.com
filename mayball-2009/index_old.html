@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+	PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	function track() {
+	try {
+	var pageTracker = _gat._getTracker("UA-7094081-1");
+	pageTracker._trackPageview();
+	console.log("ytesy");
+	} catch(err) {}
+	}
+	</script>
+	<title>Jesus May Ball 2009</title>
+	<script src="jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	var month = '1';     //  '*' for next month, '0' for this month or 1 through 12 for the month 
+	var day = '22';       //  Offset for day of month day or + day  
+	var hour = 18;        //  0 through 23 for the hours of the day
+	var tz = 0;         //  Offset for your timezone in hours from UTC
+	var lab = 'countdown';    //  The id of the page entry where the timezone countdown is to show
+
+	function startCountdown() {displayTZCountDown(setTZCountDown(month,day,hour,tz),lab);}
+
+
+	function setTZCountDown(month,day,hour,tz) 
+	{
+		var toDate = new Date();
+		if (month == '*')toDate.setMonth(toDate.getMonth() + 1);
+		else if (month > 0) 
+		{ 
+			if (month <= toDate.getMonth())toDate.setYear(toDate.getYear() + 1);
+			toDate.setMonth(month-1);
+		}
+		if (day.substr(0,1) == '+') 
+		{var day1 = parseInt(day.substr(1));
+			toDate.setDate(toDate.getDate()+day1);
+		} 
+		else{toDate.setDate(day);
+		}
+		toDate.setHours(hour);
+		toDate.setMinutes(30-(tz*60));
+		toDate.setSeconds(0);
+		var fromDate = new Date();
+		fromDate.setMinutes(fromDate.getMinutes() + fromDate.getTimezoneOffset());
+		var diffDate = new Date(0);
+		diffDate.setMilliseconds(toDate - fromDate);
+		return Math.floor(diffDate.valueOf()/1000);
+	}
+	function displayTZCountDown(countdown,tzcd) 
+	{
+		if (countdown < 0) document.getElementById(tzcd).innerHTML = "Sorry, you are too late."; 
+		else {var secs = countdown % 60; 
+			if (secs < 10) secs = secs;
+			var countdown1 = (countdown - secs) / 60;
+			var mins = countdown1 % 60; 
+			if (mins < 10) mins = mins;
+			countdown1 = (countdown1 - mins) / 60;
+			var hours = countdown1 % 24;
+			var days = (countdown1 - hours) / 24;
+			document.getElementById(tzcd).innerHTML = days + " day" + (days == 1 ? '' : 's') + ', ' +hours+ ' hours, ' +mins+ ' mins, and '+secs+' secs';
+			setTimeout('displayTZCountDown('+(countdown-1)+',\''+tzcd+'\');',999);
+		}
+	}
+
+
+	$("document").ready(function() {
+		startCountdown();
+		track();
+	});
+	</script>
+	<style type="text/css">
+	body {
+		font-family: Pristina, 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
+		background-image: url("bg_parchment3.jpg");
+		text-align : center;
+	}
+	h1 {
+		text-align: center;
+	}
+	h3 {
+		text-align: center;
+	}
+	#date { text-align: center;
+		font-size: 140%;
+	}
+	#committee {
+		width: 65%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 2em;
+	}
+	#presidents {
+		text-align:center;
+		font-size: 120%;
+		margin-bottom: 1.em;
+	}
+	.role_title {
+		font-weight: bold;
+		font-family: Pristina, 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
+	}
+	#committee_members {
+		list-style-type: none;
+		padding-left: 0px;
+	}
+	p {
+		padding-top: 0px;
+		text-align: center;
+	}
+	td {
+		padding-bottom: 0.5em;
+		text-align: center;
+		font-size: 100%;
+		font-family: 'Times New Roman', Times, serif;
+		font-style: italic;
+	}
+	a {
+		text-decoration: none;
+		color: red;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	#intro {
+		width: 60%;
+		margin: auto auto auto auto;
+		font-family: 'Times New Roman', Times, serif;
+	}
+	#footer {
+		font-size: 80%;
+		color: #aaa;
+	}
+	</style>
+	<!--[if lt IE 7.]>
+		<script defer type="text/javascript" src="pngfix.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div>
+			<img id="logo" src="temp_logo.png" alt="Jesus May Ball 2009 (15th June)" />
+			<p id="intro">Welcome to the temporary website for Jesus May Ball 2009.</p>
+			<p>The Ball will be released in: <br /><span id="countdown"></span></p>
+			<h3>The Committee</h3>
+			<table id="committee">
+				<tbody>
+					<tr>
+						<td colspan="2" id="presidents"><span
+							class="role_title"><a
+							href="mailto:mayball-president@jesus.cam.ac.uk">Presidents</a></span><br />
+							Katrina Hewitt &amp; Ben Hosford
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="role_title"><a
+								href="mailto:mayball-vice-president@jesus.cam.ac.uk">Vice
+								President</a></span><br />
+								Will Knock
+						</td>
+						<td>
+							<span class="role_title"><a
+									href="mailto:mayball-food@jesus.cam.ac.uk">Food</a></span><br />
+									Em Ahlers
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="role_title"><a
+										href="mailto:mayball-treasurer@jesus.cam.ac.uk">Treasurer</a></span><br />
+										Chris Wallace
+									</td>
+									<td>
+										<span class="role_title"><a
+											href="mailto:mayball-drink@jesus.cam.ac.uk">Drink</a></span><br />
+											Rosie Wakeling
+										</td>
+									</tr>
+									<tr>
+										<td><span
+											class="role_title"><a
+											href="mailto:mayball-design@jesus.cam.ac.uk">Head of
+											Design</a></span><br />
+											Chris Finneral
+										</td>
+										<td style="width: 418px;">
+											<span class="role_title"><a
+												href="mailto:mayball-staffing@jesus.cam.ac.uk">Staffing</a></span><br />
+												Eng Seng Oh and Emily Hewlett
+											</td>
+										</tr>
+										<tr>
+											<td style="width: 418px;">
+												<span class="role_title"><a
+													href="mailto:mayball-design@jesus.cam.ac.uk">Design
+													Team</a></span><br />
+													Ewen Christie, Gill Denny, <br />
+													Rosa van Hensbergen, and Tom Leahy
+												</td>
+												<td style="width: 418px;">
+													<span class="role_title"><a
+														href="mailto:mayball-webmaster@jesus.cam.ac.uk">Ticketing
+														&amp; Web</a></span><br />
+														Robert Duncan and James Hodgson
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span class="role_title"><a
+															href="mailto:mayball-ents@jesus.cam.ac.uk">Ents</a></span><br />
+															Andy Acred, Ruth Meyer, and Miriam Sherwood
+														</td>
+														<td>
+															<span class="role_title"><a
+																href="mailto:mayball-technical@jesus.cam.ac.uk">Technical</a></span><br />
+																Ben Moores
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<span class="role_title"><a
+																	href="mailto:mayball-sponsorship@jesus.cam.ac.uk">Buildings
+																	&amp; Sponsorship</a></span><br />
+																	Alice Thwaite
+																</td>
+																<td>
+																	<span class="role_title"><a
+																		href="mailto:mayball-security@jesus.cam.ac.uk">Security</a></span><br />
+																		James Mumford
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+													<div id="footer">
+														&copy; Jesus May Ball Committee 2009
+													</div>
+												</body>
+												</html>

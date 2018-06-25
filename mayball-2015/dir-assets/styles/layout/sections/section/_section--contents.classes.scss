@@ -1,0 +1,57 @@
+.section--contents {
+    @extend %content-section;
+}
+
+/* div */.section--contents__title-container {
+    text-align: center;
+}
+
+/* hN */.section--contents__title {
+    @extend .typl8-gamma;
+
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: $lib-spacing-unit;
+    letter-spacing: 0.3em;
+    display: none;
+
+    &--lap-and-up {
+        @include respond(lap-and-up) {
+            display: block;
+        }
+    }
+
+    &--palm {
+        @extend .typl8-delta;
+
+        @include respond(palm) {
+            display: block;
+        }
+    }
+
+    &--thumb {
+        @extend .typl8-zeta;
+
+        @include respond(thumb) {
+            display: block;
+        }
+    }
+
+    &--subpage-title {
+        text-align: right;
+    }
+
+    @include respond(palm) {
+        &, .section--odd & {
+            text-align: center;
+        }
+    }
+}
+
+/* div */.section--contents__title-underline {
+    background-color: colour(heading-text);
+    height: 2px;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: $lib-spacing-unit;
+}

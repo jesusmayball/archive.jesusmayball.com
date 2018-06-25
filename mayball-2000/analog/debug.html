@@ -1,0 +1,105 @@
+<html> <head>
+<title>Readme for analog -- debugging</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="lowmem.html">Prev</a> | <a href="form.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Debugging</h2>
+
+This section lists commands to help you debug analog, if you think it's
+going wrong. There's another section later which lists all the
+<a href="errors.html">errors and warnings</a> which analog can generate,
+and what they all mean, and another section which tells you
+<a href="bugs.html">how to report bugs</a>.
+
+<p>
+First, remember the option we mentioned before, to list the current settings
+of all of analog's variables. To get this, just put <kbd>-settings</kbd> on
+the command line, or <kbd>PRINTVARS ON</kbd> in one of your configuration
+files, along with your other commands. Then analog will produce the list of
+settings instead of running in the normal way.
+
+<hr>
+There are commands which control how much debugging information and warning
+information analog gives out while it is running. By default you get all the
+warnings and no debugging, but you can change this by means of the commands
+<kbd>DEBUG</kbd> and <kbd>WARNINGS</kbd>. If you say
+<pre>
+DEBUG ON
+</pre>
+you get all the debugging. (And <kbd>DEBUG OFF</kbd> turns it off again.)
+You can also get just certain categories of debugging. The categories are
+<dl compact>
+  <dt><kbd>C</kbd><dd>list all corrupt logfile lines
+  <dt><kbd>D</kbd><dd>information about DNS lookups
+  <dt><kbd>F</kbd><dd>information about file opening and closing
+  <dt><kbd>S</kbd><dd>summary information about each logfile when it's closed
+  <dt><kbd>U</kbd><dd>list unknown domains
+</dl>
+So, for example, the command
+<pre>
+DEBUG FS
+</pre>
+would give you information about file opening and closing, and what was in
+each logfile, but none of the other sorts of debugging. Each line of debugging
+information is prepended with its code letter. You can also specify
+<pre>
+DEBUG +CD
+</pre>
+to add <kbd>C</kbd>- and <kbd>D</kbd>-category debugging, and
+<pre>
+DEBUG -CD
+</pre>
+to remove them.
+<p>
+The <kbd>WARNINGS</kbd> command acts similarly. As well as <kbd>WARNINGS
+ON</kbd> and <kbd>WARNINGS OFF</kbd>, there are warnings in the following
+categories.
+<dl compact>
+  <dt><kbd>C</kbd><dd>invalid configuration specified
+  <dt><kbd>D</kbd><dd>dubious configuration specified
+  <dt><kbd>F</kbd><dd>files missing
+  <dt><kbd>L</kbd><dd>apparent problems in logfiles
+  <dt><kbd>M</kbd><dd>possibly problems in logfiles
+  <dt><kbd>R</kbd><dd>turning off empty reports
+</dl>
+See the section on <a href="errors.html">errors and warnings</a> for more
+details about these various categories. Again, warnings are printed with
+their code letters.
+<p>
+You can also use command line abbreviations for these commands. The
+<kbd>DEBUG</kbd> command is represented by <kbd>+V</kbd> (for <kbd>ON</kbd>),
+<kbd>-V</kbd> (for <kbd>OFF</kbd>), <kbd>+VFS</kbd> (to select options
+<kbd>FS</kbd>), <kbd>+V+FS</kbd> (to add those options), and <kbd>+V-FS</kbd>
+(to remove them). Similarly the <kbd>WARNINGS</kbd> command can be given by
+<kbd>+q</kbd>, <kbd>-q</kbd>, <kbd>+q&lt;options&gt;</kbd>,
+<kbd>+q+&lt;options&gt;</kbd> or <kbd>+q-&lt;options&gt;</kbd>.
+<hr>
+There is one more command which is useful when trying to debug analog. If
+you give the command
+<pre>
+PROGRESSFREQ 20000  # say
+</pre>
+then analog will produce a little message after every 20,000 lines it reads
+from the logfile. This is useful to determine whether the program has really
+stopped or (as is more likely) is just being slow for some reason (such as
+using DNS lookups).
+<p>
+There is just one more section about analog's configuration commands and
+command line arguments, but it's a rather long one, on the
+<a href="form.html">form interface</a>. (This is a way of running analog by
+selecting options from a web page.) You might prefer to go straight onto the
+section on <cite><a href="meaning.html">What the results mean</a></cite>.
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="lowmem.html">Prev</a> | <a href="form.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

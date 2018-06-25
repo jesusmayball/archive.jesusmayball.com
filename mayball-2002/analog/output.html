@@ -1,0 +1,258 @@
+<html> <head>
+<title>Readme for analog -- configuring the output</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="include.html">Prev</a> | <a href="timereps.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Configuring the output</h2>
+
+So far we have mainly discussed commands which control how analog reads
+the logfiles. We now get on to commands for configuring the output.
+
+<p>
+There are 27 different reports which analog can produce, if your logfiles
+contain the necessary information. Each one has a short name, and a code
+letter or number, as follows:
+<pre>
+x  <kbd>GENERAL</kbd>      General Summary
+m  <kbd>MONTHLY</kbd>      Monthly Report
+W  <kbd>WEEKLY</kbd>       Weekly Report
+D  <kbd>FULLDAILY</kbd>    Daily Report
+d  <kbd>DAILY</kbd>        Daily Summary
+H  <kbd>FULLHOURLY</kbd>   Hourly Report
+h  <kbd>HOURLY</kbd>       Hourly Summary
+4  <kbd>QUARTER</kbd>      Quarter-Hour Report
+5  <kbd>FIVE</kbd>         Five-Minute Report
+S  <kbd>HOST</kbd>         Host Report
+o  <kbd>DOMAIN</kbd>       Domain Report
+r  <kbd>REQUEST</kbd>      Request Report
+i  <kbd>DIRECTORY</kbd>    Directory Report
+t  <kbd>FILETYPE</kbd>     File Type Report
+z  <kbd>SIZE</kbd>         File Size Report
+E  <kbd>REDIR</kbd>        Redirection Report
+I  <kbd>FAILURE</kbd>      Failure Report
+f  <kbd>REFERRER</kbd>     Referrer Report
+s  <kbd>REFSITE</kbd>      Referring Site Report
+k  <kbd>REDIRREF</kbd>     Redirected Referrer Report
+K  <kbd>FAILREF</kbd>      Failed Referrer Report
+B  <kbd>FULLBROWSER</kbd>  Browser Report
+b  <kbd>BROWSER</kbd>      Browser Summary
+v  <kbd>VHOST</kbd>        Virtual Host Report
+u  <kbd>USER</kbd>         User Report
+J  <kbd>FAILUSER</kbd>     Failed User Report
+c  <kbd>STATUS</kbd>       Status Code Report
+</pre>
+For details on what the various reports mean, see the section on
+<cite><a href="meaning.html">What the results mean</a></cite>. But in brief,
+the General Summary gives summary statistics, such as the total number of
+requests of each type. The next eight reports are known as <i>time
+reports</i>; they show the pattern of requests over time. The Host Report
+and the Domain Report show where people visited from. The Request Report,
+Directory Report, File Type Report and Size Report show what files people got
+from your server. The Redirection Report shows files which were redirected to
+some other file, including &quot;click-thru's.&quot; The Failure Report shows
+files which your server couldn't send out for some reason. The various
+Referrer Reports show where people followed links from to reach your files.
+(The Failed Referrer Report is good for spotting broken links.) The Browser
+Report and Browser Summary show which browsers people were using. If you
+are using virtual hosts, the Virtual Host Report shows how many requests
+there were to each virtual host. Similarly if you are using user
+authentication, the User Report and Failed User Report list the activity for
+each user. Finally, the Status Code Report shows how many requests returned
+each HTTP status code.
+
+<hr>
+You can turn each report on or off with configuration commands like
+<pre>
+FIVE OFF
+REFSITE ON
+</pre>
+or by using command line arguments like <kbd>-5</kbd> and <kbd>+s</kbd>.
+You can also turn all reports except the General Summary on or off with the
+commands <kbd>ALL ON</kbd> and <kbd>ALL OFF</kbd>, or with the command line
+arguments <kbd>+A</kbd> and <kbd>-A</kbd>.
+<p>
+You can turn the &quot;Go To&quot; lines in the report off with the command
+<pre>
+GOTOS OFF
+</pre>
+or with the <kbd>-X</kbd> command line argument; again, <kbd>GOTOS ON</kbd>
+and <kbd>+X</kbd> turn them on again.
+<p>
+The figures in parentheses in the General Summary are for the last seven days:
+either the seven days before the <kbd>TO</kbd> time, or if no <kbd>TO</kbd>
+time is given, the seven days before the time of the program start. The
+figures for the last seven days are normally included if some, but not all,
+of the requests fall in those seven days; but you can turn them off by means
+of the command
+<pre>
+LASTSEVEN OFF
+</pre>
+Of course <kbd>LASTSEVEN ON</kbd> turns them on again.
+<p>
+You can change the order of the reports by means of the <kbd>REPORTORDER</kbd>
+command. You should list the code letters for all the reports in the order
+you want them, like this:
+<pre>
+REPORTORDER xcmdDhH45WriSoEItzsfKkuJvbB
+</pre>
+
+<p>
+You can change which file the output goes to with a command like
+<pre>
+OUTFILE stats.htm
+</pre>
+or with a command line argument like <kbd>+Ostats.htm</kbd>. If you use the
+filename <kbd>-</kbd> or <kbd>stdout</kbd>, the output will go to standard
+output, which is normally the screen, but Unix users might like to redirect it
+to another file or even into a pipe. You can also use an absolute path name,
+like
+<pre>
+OUTFILE /usr/bin/httpd/htdocs/stats.html  # Unix
+OUTFILE Hard Disk:Server Apps:WebSTAR:Analog:Report.html" # Mac
+</pre>
+
+<hr>
+Now we come to some very important commands. The first is the <kbd>OUTPUT</kbd>
+command, which changes the style of the output. There are three possible output
+styles, <kbd>HTML</kbd>, <kbd>ASCII</kbd> and <kbd>COMPUTER</kbd>. The first
+produces Web pages, the second plain text files (which you could mail to
+people, for example) and the third produces output suitable for reading by a
+computer (useful for reading into a spreadsheet, or post-processing with a
+graphics package, for example). 
+There is a separate section about the <cite><a href="compout.html">Computer
+readable output</a></cite> later. As well as a command like
+<pre>
+OUTPUT ASCII
+</pre>
+you can also select <kbd>ASCII</kbd> style with the command line argument
+<kbd>+a</kbd>, and <kbd>HTML</kbd> with the command line argument
+<kbd>-a</kbd>. You can also specify <kbd>OUTPUT NONE</kbd>
+for no output, if you are producing a <a href="cache.html">cache file</a>.
+<p>
+Next, you can change the language of the output. There are two ways to do
+this. The usual way is to use the <kbd>LANGUAGE</kbd> command. For example,
+the command
+<pre>
+LANGUAGE FRENCH
+</pre>
+will give you the output in French. The possible languages at the moment
+are <kbd>ENGLISH</kbd>, <kbd>US-ENGLISH</kbd>, <kbd>FRENCH</kbd>,
+<kbd>GERMAN</kbd>, <kbd>ITALIAN</kbd>, <kbd>PORTUGUESE</kbd>,
+<kbd>BR-PORTUGUESE</kbd>, <kbd>DANISH</kbd>, <kbd>SWEDISH</kbd>,
+<kbd>CZECH</kbd>, <kbd>SLOVAK</kbd>, <kbd>HUNGARIAN</kbd>, <kbd>ROMANIAN</kbd>
+and <kbd>SLOVENE</kbd>.
+<p>
+The other way is to use the <kbd>LANGFILE</kbd> command. This is useful if
+you want to download a new language from the
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog home page</a>,
+or if you want to translate one yourself, or even if you want to change some
+words or phrases or the way the dates and times are formatted in the output.
+The <kbd>LANGFILE</kbd> command tells analog in which file to find the various
+words and phrases for a new language. For example, the command
+<pre>
+LANGFILE lang/guarani.lng
+</pre>
+would read from that file. (Note that you have to include the directory name
+if the file isn't in the directory or folder which you're running analog
+from. In particular, it's not assumed to be in the same directory as the other
+language files.)
+<p>
+Some languages also have domains files available. You can tell analog to
+use a different domains file instead of the English one using the
+<kbd><a href="domfile.html">DOMAINSFILE</a></kbd> command.
+<p>
+If you want to translate another language, I would be delighted! You'd be
+wise to contact me first to make sure that no-one else is already translating
+the same language. The English language file contains some brief instructions
+for translating new languages.
+
+<hr>
+There are a few more minor, although cosmetically important, commands
+affecting the output. First there's a command <kbd>IMAGEDIR</kbd> which tells
+analog where the various images used to make the report live. It could be a
+relative or an absolute URL: for example
+<pre>
+IMAGEDIR img/   # within the same directory as the output
+IMAGEDIR /img/  # off the root directory of your server
+</pre>
+<p>
+There are three commands which affect the top line of the output. First,
+the <kbd>LOGO</kbd> command allows you to replace the analog logo with
+another image (for example, your organisation's logo). You can say
+<pre>
+LOGO picture.gif  # for this file
+LOGO /images/picture2.gif  # a different file
+LOGO none         # for no logo
+</pre>
+The logo is assumed to be inside the <kbd>IMAGEDIR</kbd> unless it starts
+with a slash, or contains <kbd>://</kbd>
+<p>
+hen there are commands <kbd>HOSTNAME</kbd> and <kbd>HOSTURL</kbd> which
+affect the name and link at the end of the title line. For example, I might
+specify
+<pre>
+HOSTNAME "Stephen Turner"
+HOSTURL  http://www.statslab.cam.ac.uk/~sret1/
+</pre>
+to generate the title &quot;Web Server Statistics for
+<a href="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>&quot;.
+Again, you can use <kbd>none</kbd> as the <kbd>HOSTURL</kbd> to specify no
+link. Analog will normally translate characters in the hostname to HTML if
+necessary. So to include literal HTML, such as accented characters, in the
+output you need to precede them by a backslash, like this: 
+<pre>
+HOSTNAME &quot;M\&amp;uuml;ller &amp; S\&amp;ouml;hne&quot;
+</pre>
+<p>
+There are commands called <kbd>HEADERFILE</kbd> and <kbd>FOOTERFILE</kbd>.
+These let you specify files to be inserted near the top and bottom of your
+output. You can specify
+<pre>
+HEADERFILE none
+</pre>
+to cancel a previously-specified header file.
+<p>
+There are three related commands called <kbd>SEPCHAR</kbd>,
+<kbd>REPSEPCHAR</kbd> and <kbd>DECPOINT</kbd>. These specify single characters
+to be used as the thousands separator in numbers, the thousands separator
+within the columns in the reports, and the decimal point. For example, a
+French user might choose
+<pre>
+SEPCHAR " "
+REPSEPCHAR none
+DECPOINT ,
+</pre>
+to make &quot;three thousand and a quarter&quot; look like
+&quot;3&nbsp;000,25&quot; in text and &quot;3000,25&quot; in the reports.
+<p>
+There is a command called <kbd>RAWBYTES</kbd>. Specify <kbd>RAWBYTES ON</kbd>
+if you want the exact number of bytes to be listed in reports, or
+<kbd>RAWBYTES OFF</kbd> if you want the number of kilobytes or Megabytes
+as appropriate to be listed instead.
+<p>
+Finally there is a command called <kbd>PAGEWIDTH</kbd> which specifies the
+width of the page. The output is not guaranteed to fit in this width, but
+analog will take notice of it when choosing the width of the time graphs,
+and when sorting the host report alphabetically; and if the output format
+is <kbd>ASCII</kbd>, when drawing horizontal rules and printing some bits
+of text. I recommend about <kbd>PAGEWIDTH 65</kbd> for HTML output, and
+<kbd>PAGEWIDTH 75</kbd> for ASCII output.
+<hr>
+There are now some sections about configuring the output of particular
+reports, under the following headings: <cite><a href="timereps.html">Time
+reports</a></cite>, <cite><a href="othreps.html">Other reports</a></cite>
+and <cite><a href="hierreps.html">Hierarchical reports</a></cite>.
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="include.html">Prev</a> | <a href="timereps.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

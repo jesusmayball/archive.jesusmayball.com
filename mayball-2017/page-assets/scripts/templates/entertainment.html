@@ -1,0 +1,37 @@
+<!--
+--><div class="section--entertainment__act-hero"><!--
+		<div class="section--entertainment__act-logo section--entertainment__act-logo--james-bay section--entertainment__act-logo--hero"></div><!--
+		<div class="section--entertainment__act-hero-description">
+			<p></p>
+		</div>
+--></div><!--
+--><%
+var acts = [
+	{
+		title: "B & The Jukeboys",
+		label: "b-and-the-jukeboys",
+		url: "https://www.facebook.com/BJukeboys/",
+		description: "The Jesus May Ball 2017 committee are pleased to announce that former-student band B &amp; the Jukeboys will be returning to dazzle audiences with their magnificent covers of your favourite tunes<a href=\"https://www.facebook.com/BJukeboys/photos/a.1520553374882739.1073741830.1435139253424152/1559357661002310/?type=3&theater\" target=\"_blank\">.</a> Catch them on the main stage before the clock strikes 12."
+	}
+];
+%><!--
+--><div class="section--entertainment__act-list"><!--
+	--><%
+		_.each(acts, function (curAct) {
+			%><!--
+				--><div class="section--entertainment__act-info"><!--
+					--><span class="section--entertainment__act-image section--entertainment__act-image--<%= curAct.label %>"></span><!--
+					--><h5 class="section--entertainment__act-title"><!--
+						--><% if (curAct.url) { %><!--
+							--><a href="<%= curAct.url %>" class="section--entertainment__act-link"><%= curAct.title %></a></h5><!--
+						--><% } else { %><!--
+							--><%= curAct.title %><!--
+						--><% } %><!--
+					--></h5><!--
+					--><p class="section--entertainment__act-details"><%= curAct.description %></p><!--
+				--></div><!--
+			--><%
+		});
+	%><!--
+--></div><!--
+--><p class="section--entertainment__last-line">More to be announced soon&hellip; watch this space&hellip;</p>

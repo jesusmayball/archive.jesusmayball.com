@@ -1,0 +1,95 @@
+@media (max-width: 900px)  {
+
+}
+
+@media only screen and (-webkit-device-pixel-ratio : 3)
+                   /* and (max-width: 1000px)
+                   and (orientation potrait)  */
+                   {
+    #below-fold {
+        /* background-color: red; */
+    }
+
+    #header #horse {
+        max-width: 400px;
+    }
+
+    #scroll-down a {
+        bottom: 240px;
+        height: 150px;
+    }
+
+    #scroll-down a span {
+        width: 90px;
+        height: 150px;
+        margin-left: -45px;
+    }
+
+    #scroll-down a span::before {
+        top: 30px;
+        width: 18px;
+        height: 18px;
+        margin-left: -9px;
+    }
+
+    #aurora-title {
+        padding-top: 0.5em;
+        /* padding-bottom: 1em; */
+        /* padding-top: 40px; */
+        text-align: center;
+        font-size: 10em;
+        margin: 0 auto;
+        display: block;
+        overflow: visible;
+    }
+
+    #heading-paragraph {
+        padding-top: 3em;
+        padding-bottom: 3em;
+        font-size: 2.2em;
+        margin: 0 2em;
+        width: 22em;
+        height: 16em;
+    }
+
+    #loading-screen img {
+        max-width: 400px;
+    }
+
+}
+
+@media only screen and (-webkit-device-pixel-ratio : 2)
+                   and (max-width: 1000px)
+                   and (orientation potrait) {
+    #below-fold {
+        /* background-color: green; */
+    }
+
+    #header #horse {
+        max-width: 300px;
+    }
+
+    #scroll-down a {
+        bottom: 160px;
+        height: 10px;
+    }
+
+    #scroll-down a span {
+        width: 60px;
+        height: 100px;
+        margin-left: -30px;
+    }
+
+    #scroll-down a span::before {
+        top: 20px;
+        width: 12px;
+        height: 12px;
+        margin-left: -6px;
+    }
+}
+
+/* @media only screen and (orientation : portrait)  {
+    #below-fold {
+        background-color: purple;
+    }
+} */

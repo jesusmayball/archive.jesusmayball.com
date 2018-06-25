@@ -1,0 +1,132 @@
+<html> <head>
+<title>Readme for analog -- aliases</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="logfile.html">Prev</a> | <a href="include.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Aliases</h2>
+
+After analog has read each logfile entry, it then applies aliases to each
+of the items. First, if you have a case insensitive filesystem, analog
+converts the filename to lower case. Usually analog assumes that Unix
+filesystems are case sensitive and other systems are case insensitive. You
+might want to override its choice, if, for example, you have transferred files
+from one machine to another, so as to use the convention on the original
+machine. You can do this by the commands
+<pre>
+CASE INSENSITIVE
+CASE SENSITIVE
+</pre>
+
+<p>
+Next it applies built-in aliases to each item. For example, it knows that
+<kbd>%7E</kbd> in a filename or referrer is equivalent to <kbd>~</kbd> and
+translates it accordingly. It also strips off the directory suffix from any
+filenames which have it. This suffix is normally <kbd>index.html</kbd>, but
+you can specify another one instead with a command such as
+<pre>
+DIRSUFFIX default.htm
+</pre>
+(You can only have one <kbd>DIRSUFFIX</kbd>.) There are other built-in
+aliases for other items: for example, hostnames are converted to lower case
+at this point.
+
+<hr>
+After this, it applies user-specified aliases to each item. These aliases are
+useful if, for example, you know that two filenames correspond to the same
+file, or if you want to translate local hostnames to their internet
+equivalents. You specify aliases by commands like
+<pre>
+FILEALIAS /football.html /soccer.html
+HOSTALIAS lion lion.statslab.cam.ac.uk
+</pre>
+There is also the special command <kbd>FILEALIAS none</kbd>, which cancels
+any other file aliases which might have been specified.
+
+<p>
+The alias commands for the other items are called <kbd>BROWALIAS</kbd>,
+<kbd>REFALIAS</kbd>, <kbd>USERALIAS</kbd> and <kbd>VHOSTALIAS</kbd>.
+Only one alias is ever applied to any item. So after
+<pre>
+FILEALIAS /football.html /soccer.html
+FILEALIAS /soccer.html /brazil.html
+</pre>
+the file <kbd>/soccer.html</kbd> would get translated to
+<kbd>/brazil.html</kbd>, but <kbd>/football.html</kbd> would only get
+translated to <kbd>/soccer.html</kbd> and would not see the second alias.
+<p>
+You can also use wildcards (<kbd>?</kbd> and <kbd>*</kbd>) in alias commands.
+The left hand side can contain at most one <kbd>*</kbd>. If the right hand
+side contains a <kbd>*</kbd> too, then the part of the name represented by
+the <kbd>*</kbd> on the left hand side will be substituted at the position of
+the <kbd>*</kbd> on the right hand side. So, for example,
+<pre>
+FILEALIAS /football/* /soccer/
+</pre>
+would translate <kbd>football/rules.html</kbd> to <kbd>/soccer/</kbd>, but
+<pre>
+FILEALIAS /football/* /soccer/*
+</pre>
+would translate <kbd>football/rules.html</kbd> to
+<kbd>/soccer/rules.html</kbd>.
+
+<hr>
+There is another set of alias commands, called <i>output aliases</i>. There
+is one of these for each of the reports, except the time reports. Instead of
+acting on items when the logfile is being read, they act on individual lines
+in the output. So for example, the command
+<pre>
+TYPEOUTPUTALIAS .txt ".txt (Plain text files)"
+</pre>
+would provide an explanation of that line in the file type report.
+
+<p>
+There can be some confusion between some <kbd>ALIAS</kbd> and
+<kbd>OUTPUTALIAS</kbd> commands. For example, what is the difference between
+<kbd>HOSTALIAS</kbd> and <kbd>HOSTOUTPUTALIAS</kbd>? In fact, there are
+several differences, resulting from the different times at which the aliases
+are processed. The <kbd>HOSTALIAS</kbd> applies to the host <i>items</i>, but
+the <kbd>HOSTOUTPUTALIAS</kbd> only applies to the <i>lines in the host
+report</i>. This means that the <kbd>HOSTALIAS</kbd> also affects the other
+reports which use the hosts, such as the domain report, whereas the
+<kbd>HOSTOUTPUTALIAS</kbd> only affects the host report. Also the
+<kbd>HOSTOUTPUTALIAS</kbd> applies separately to each line of the host
+report. This means that if two separate hosts translate to the same thing in a
+<kbd>HOSTALIAS</kbd> command, they will become one host ever after. But if one
+were to use the same <kbd>HOSTOUTPUTALIAS</kbd> commands, there would be two
+hosts, which would just happen to have the same name in one report.
+
+<p>
+In summary, <kbd>HOSTALIAS</kbd> would normally be used if a single host had
+two different names, so might otherwise appear to be two hosts, whereas
+<kbd>HOSTOUTPUTALIAS</kbd> would normally be used to annotate or clarify the
+host report.
+<p>
+The full list of output aliases is <kbd>REQOUTPUTALIAS</kbd>,
+<kbd>REDIROUTPUTALIAS</kbd>, <kbd>FAILOUTPUTALIAS</kbd>,
+<kbd>TYPEOUTPUTALIAS</kbd>, <kbd>DIROUTPUTALIAS</kbd>,
+<kbd>HOSTOUTPUTALIAS</kbd>, <kbd>DOMOUTPUTALIAS</kbd>,
+<kbd>REFOUTPUTALIAS</kbd>, <kbd>REFSITEOUTPUTALIAS</kbd>,
+<kbd>REDIRREFOUTPUTALIAS</kbd>, <kbd>FAILREFOUTPUTALIAS</kbd>,
+<kbd>BROWOUTPUTALIAS</kbd>, <kbd>FULLBROWOUTPUTALIAS</kbd>,
+<kbd>VHOSTOUTPUTALIAS</kbd>, <kbd>USEROUTPUTALIAS</kbd> and
+<kbd>FAILUSEROUTPUTALIAS</kbd>.
+<p>
+There is one known bug with <kbd>OUTPUTALIAS</kbd>. The report is sorted
+before the <kbd>OUTPUTALIAS</kbd> is applied. This means that if the
+<kbd><a href="othreps.html">SORTBY</a></kbd> for the report is set to
+<kbd>ALPHABETICAL</kbd>, then the report will not be sorted correctly.
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="logfile.html">Prev</a> | <a href="include.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

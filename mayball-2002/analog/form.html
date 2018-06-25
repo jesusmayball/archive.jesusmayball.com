@@ -1,0 +1,233 @@
+<html> <head>
+<title>Readme for analog -- form interface</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="debug.html">Prev</a> | <a href="meaning.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Form interface</h2>
+
+The form interface provides an HTML front end to analog. That means that users
+can select options from a web page, instead of having to create a configuration
+file.
+
+<p>
+The form interface is suitable for ordinary users to use, but it <b>needs to be
+set up by a system administrator</b> or other expert. In order to set it up,
+you need to know what CGI programs are, where they live on your server, and how
+to set up their permissions properly. It would also be hepful if you can write
+HTML forms. I shall assume this level of background knowledge for the rest of
+this section.
+
+<p>
+<strong>Warning:</strong> CGI programs can contain security loopholes which
+allow an unscrupulous user to harm your system. (If you don't know about this,
+you shouldn't be running CGI programs at all.) I have tried to make this
+form interface safe, but I cannot guarantee it, and take no responsibility
+if anything goes wrong. You use it at your own risk. (See the
+<a href="Licence.txt">licence</a>.)
+
+<p>
+The form interface consists of two parts: a form to choose the options, and a
+cgi program to interpret them and pass them to the analog program. You don't
+in fact need the form at all: if you want to create a link to the cgi program,
+with the arguments passed in the URL in the usual way, then that's fine.
+
+<p>
+To compile the cgi program, you first need to edit the top of
+<kbd>anlgform.c</kbd> to indicate where analog lives on your system. Then type
+<kbd>make form</kbd>, which should compile this source into a program called
+<kbd>anlgform.cgi</kbd>. (On Windows 95 &amp; NT, the cgi program is compiled
+already: it assumes that analog is at
+<kbd>\Program&nbsp;Files\analog\analog.exe</kbd>, so you must move analog
+there if necessary.) Then put the cgi program wherever your server can find it.
+Make sure that analog is executable by the server, and that the logfile and
+domains file are readable. You will probably need to use the full path name
+for these files.
+
+<p>
+The form <kbd>anlgform.html</kbd> which is distributed with the program should
+only be regarded as an example form. Almost every configuration command has a
+counterpart in the CGI program, and so you can add to the form options to do
+almost anything you want. (The main exceptions are aliases, which are too
+complicated, and <kbd>HEADERFILE</kbd> and <kbd>FOOTERFILE</kbd>, which would
+allow people to view any file on your system.) I shall give the full list in
+a minute.
+
+<p>
+Before you use the form, you must edit the action at the top to indicate
+where <kbd>anlgform.cgi</kbd> lives on your server. I have also included
+two other important options at the top, commented out. First, it is often
+useful to set the logfile to be analysed (or allow the user to choose it),
+with a field with <kbd>name=&quot;lo&quot;</kbd>. Secondly, some servers need
+a timezone to be set in a field with <kbd>name=&quot;TZ&quot;</kbd>, or all
+the times will be wrong. If you are on Unix, you can put any of the standard
+timezones in this field: the correct one may well be in your own <kbd>TZ</kbd>
+environment variable.
+
+<p>
+You can specify other configuration files to be included.
+When analog is called by the CGI program, it first processes the
+<a href="syntax.html">default configuration file</a> as usual. Then it
+processes any configuration file specified by an argument with name
+<kbd>cg</kbd>. Then it processes all the other arguments which the CGI program
+specifies. After that, it processes any configuration file specified by an
+argument with name <kbd>cm</kbd>. Finally, it processes the
+<a href="syntax.html">mandatory configuration file</a> as usual.
+
+<p>
+If the option <kbd>qv=1</kbd> is sent to the CGI program, then analog is not
+run, but a list of the configuration commands which would have been sent to
+analog is printed instead. This is useful for checking that the CGI program
+is working properly. It can also be used for using the form to produce a
+configuration file.
+
+<h2>Troubleshooting</h2>
+
+There are lots of reasons why the form interface may not work, and I can't
+diagnose them very easily. If it doesn't work, first check the following
+points:
+<ol>
+  <li>Look in the server's error log for clues.
+  <li>Are all the file permissions set correctly? Do other CGI programs
+      work on your server?
+  <li>Include <kbd>qv=1</kbd> in the arguments as explained above. If this
+      works, then at least the CGI program is working.
+  <li>If you get a long wait, then no data returned, the server is probably
+      timing out the request before analog has finished. The remedy is to
+      increase the timeout interval.
+  <li>Try running the cgi program from the shell. Set the environment variable
+      <kbd>QUERY_STRING</kbd> to equal &quot;<kbd>xq=1</kbd>&quot;, or
+      &quot;<kbd>xq=1&qv=1</kbd>&quot;, and run <kbd>anlgform.cgi</kbd>
+      directly.
+  <li>If everything works but the images don't appear in the output, be
+      careful about the <kbd><a href="output.html">IMAGEDIR</a></kbd>.
+      It probably shouldn't be inside your <kbd>/cgi-bin/</kbd> directory,
+      or your server will try and execute the images, not send them out.
+</ol>
+ 
+<hr>
+Here is the complete list of options which can be added to the form and will
+be interpreted by the CGI program. Each has a two letter name. Values are the
+same as for the corresponding configuration command except where stated.
+
+<h2>Time reports</h2>
+
+The first letter is the <a href="output.html">standard code letter</a> for the
+report, except that the Quarter-Hour Report is <kbd>q</kbd> and the Five-Minute
+Report is <kbd>p</kbd>. The second letter is as follows. If the first letter is
+lower case, read the column marked lc; if it is upper case, read uc. So, for
+example, <kbd>FIVECOLS</kbd> is <kbd>pc</kbd>, but <kbd>WEEKCOLS</kbd> is
+<kbd>Wd</kbd>.
+<pre>
+        lc   uc    value
+ON/OFF   q    p    1 for on, 0 for off
+GRAPH    g    h
+ROWS     r    s
+COLS     c    d
+</pre>
+
+<h2>Other reports</h2>
+
+Again, the first letter is the <a href="output.html">code letter</a> for the
+report. The second letter is
+<pre>
+                lc   uc    value
+ON/OFF           q    p    1 for on, 0 for off
+FLOOR            f    g    Excluding floor method
+Floor method     h    i    r, p, b or d
+SORTBY           s    t    0 for requests, 1 for pages, 2 for bytes,
+                           3 for date, 4 for alphabetical, 5 for random
+SUB              j         (Where applicable)
+SUBFLOOR         w    x    As above
+Subfloor method  y    z    As above
+SUBSORTBY        u    v    As above
+COLS             c    d
+Report INCLUDE   l    m
+Report EXCLUDE   n    o
+</pre>
+
+<h2>Items</h2>
+
+First letter as follows:
+<pre>
+Browser       b
+Referrer      f
+File          r
+Host          s
+User          u
+Virtual host  v
+</pre>
+Second letter:
+<pre>
+LOWMEM    k
+INCLUDE   x
+EXCLUDE   z
+</pre>
+
+<h2>Miscellaneous</h2>
+
+<pre>
+Command        Code    Value/Notes
+
+ALLBACK        ab      1 for on, 0 for off
+BASEURL        ba
+CASE           ca      1 for sensitive, 0 for insensitive
+CONFIGFILE     cg/cm   See above
+COMPSEP        cp
+DNSGOODHOURS   da
+DNSBADHOURS    db
+DECPOINT       de
+DOMFILE        df
+DIRSUFFIX      di
+DNSFILE        dn      Also sets DNS READ; o/wise DNS is NONE
+FROM           fr
+MINGRAPHWIDTH  gw
+HOSTNAME       hn
+HOSTURL        hu
+IMAGEDIR       ie
+LANGUAGE       la      Name of language: LANGFILE overrides
+CACHEFILE      lc
+LANGFILE       lf      Overrides LANGUAGE
+LOGO           lg
+LOGFORMAT      lm      Format for all logfiles
+LOGFILE        lo
+LASTSEVEN      ls
+LOGTIMEOFFSET  lt      For all logfiles
+REFLINKINCLUDE lw
+LINKINCLUDE    lx
+REFLINKEXCLUDE ly
+LINKEXCLUDE    lz
+MARKCHAR       ma
+OUTPUT         ot      0 for HTML, 1 for ASCII, 2 for COMPUTER
+PAGEWIDTH      pw
+PAGEINCLUDE    px
+PAGEEXCLUDE    pz
+RAWBYTES       rb
+REPORTORDER    re
+SEPCHAR        sa
+REPSEPCHAR     sb
+TIMEOFFSET     tm
+TO             to
+WARNINGS       wa
+WEEKBEGINSON   wb      0 for Sunday, 1 for Monday, ..., 6 for Saturday
+GOTOS          xp
+GENERAL        xq
+REFARGSINCLUDE yw
+ARGSINCLUDE    yx
+REFARGSEXCLUDE yy
+ARGSEXCLUDE    yz
+</pre>
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="debug.html">Prev</a> | <a href="meaning.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

@@ -1,0 +1,127 @@
+<html> <head>
+<title>Readme for analog -- what's new in this version?</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="Readme.html">Up</a> |
+<a href="acknow.html">Prev</a> | <a href="update.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>What's new in this version?</h2>
+
+This page lists the new features in this version of analog. There's also
+another page about <a href="update.html">how to upgrade</a> from older versions
+of analog, listing which commands have changed or been abolished.
+
+<dl>
+  <dt><b>3.0</b> (15-Jun-98)
+  <dd>Fix for broken <kbd>strcmp()</kbd> function on SunOS 5.
+      <br>Portuguese, Brazilian Portuguese, Danish and Hungarian language
+      files included.
+      <br>Precompiled executable for OS/2 available.
+  <dt><b>2.91beta1</b> (04-Jun-98)
+  <dd>Uses less memory when compiling reports.
+      <br>New operating system, BS2000/OSD, and code for EBCDIC character set.
+      <br>New command <kbd><a href="logfile.html">DEFAULTLOGFORMAT</a></kbd>.
+      <br><kbd><a href="output.html">LASTSEVEN</a></kbd> and
+      <kbd><a href="othreps.html">BASEURL</a></kbd> reinstated.
+      <br>More information added to <kbd>PRINTVARS</kbd> output.
+      <br>AppleScript support for Unix-style command lines added to Mac
+      version.
+      <br>Now works on SunOS 4, and other small bug fixes.
+      <br>French, German, Swedish, Czeck, Slovak, Slovene and Romanian
+      language files included.
+      <br>One page version of the Readme included in the documentation.
+  <dt><b>2.90beta4</b> (09-Apr-98)
+  <dd>Mended DNS cache file reading, which I broke in yesterday's release.
+  <dt><b>2.90beta3</b> (08-Apr-98)
+  <dd>Fixed bug that caused a crash while giving warning messages on SunOS;
+      bug that caused configuration files that called other configuration
+      files not to be completed; and other smaller bugs.
+      <br>Italian language files included.
+  <dt><b>2.90beta2</b> (03-Apr-98)
+  <dd>Separate <kbd>LOGFORMAT</kbd>s for North American and international
+      date formats, when using Microsoft or Netpresenz logs.
+      <br>Understands the AppleShare IP server's attempt at the WebSTAR format.
+      <br>Directory report now works properly even if you use the second
+      argument to the <kbd><a href="logfile.html">LOGFILE</a></kbd> command.
+      <br>Wild cards in filenames work properly on the Mac.
+      <br>Other small bug fixes.
+      <br>One speed improvement (I gain about 3%).
+      <br>Several corrections and clarifications to the documentation.
+  <dt><b>2.90beta1</b> (27-Mar-98)
+  <dd>This version is a completely rewritten version. Every single line of
+      code is new. The whole code is shorter despite considerable improvements
+      in functionality. Several people have reported that it is significantly
+      faster. The most important new features are:
+      <ul>
+	<li>Eleven new reports (Quarter-Hour, Five-Minute, Redirection,
+	    Failure, File Size, Referring Site, Redirected Referrer, Failed
+	    Referrer, Virtual Host, User, User Failure).
+	<li>Reads logfiles in user-customisable format.
+	<li>Analyses user and virtual host data, and failed requests.
+	<li>Hierarchical reports list subdirectories under directories, and
+	    allow analysis of browser version numbers.
+	<li>Faster sorting of long reports.
+	<li>Floor and sort method made independent.
+	<li>&quot;Last date&quot; column in reports, and can floor and sort by
+	    date.
+	<li>Busiest time period at bottom of time reports.
+	<li>&quot;Not listed&quot; line at bottom of other report.
+	<li>Knows HTTP/1.1 status codes.
+	<li>General Summary can go anywhere in the report.
+	<li>General Summary and &quot;Go To&quot;s can now be turned on and
+	    off independently.
+	<li>Status Code Report can be sorted in different ways.
+	<li><a href="logfile.html">Time offset</a> commands.
+	<li>Much better checking of invalid configuration options and invalid
+	    logfile lines.
+	<li>Only reads logfiles it might need.
+	<li>Improvements in DNS functionality: can now read the DNS file
+	    without further lookups: also, separate recheck intervals for
+	    successful and failed lookups.
+	<li>Hash sizes now chosen automatically.
+	<li>More flexible language support.
+	<li>Mac version reads gzipped logfiles.
+	<li>Mac version supports drag-and-drop onto program icon.
+	<li>Readme files completely re-written. Broken into lots of files,
+	    and new sections on <cite><a href="start.html">Starting to use
+	    analog</a></cite> and <cite><a href="meaning.html">What the
+	    results mean</a></cite>, as well as an
+	    <a href="indx.html">index</a>.
+      </ul>
+      The following features have been abolished.
+      <ul>
+	<li>No Error Report. The error log was always intended for humans
+	    rather than computers to read. Moreover, its format varied from
+	    server to server, and even between different versions of the same
+	    server. The place of the Error Report has largely been taken by
+	    the new reports, particularly the Failure Report.
+	<li>The approximate host counting has been abolished for the time
+	    being. I can put it back if there is a significant demand for it.
+	<li>Only one <kbd>*</kbd> can now appear on the left-hand side of
+	    aliases. This is to avoid ambiguities.
+	<li>For changes in the names and syntax of configuration options and
+	    command line arguments, see the page about
+	    <a href="update.html">upgrading</a>.
+      </ul>
+      The following features are not yet present, but will be added by
+      version 3.
+      <ul>
+	<li>The form interface.
+	<li>Most of the languages.
+      </ul>
+  <dt><b><a href="wasnew2.html">What was new in version 2?</a></b>
+  <dt><b><a href="wasnew1.html">What was new in version 1?</a></b>
+</dl>
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="Readme.html">Up</a> |
+<a href="acknow.html">Prev</a> | <a href="update.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

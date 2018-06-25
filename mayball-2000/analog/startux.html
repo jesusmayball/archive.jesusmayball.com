@@ -1,0 +1,123 @@
+<html> <head>
+<title>Readme for analog -- starting to use analog (other platforms)</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="start.html">Up</a> |
+<a href="start.html">Prev</a> | <a href="custom.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<p>
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Starting to use analog on other platforms</h2>
+
+If you're not using a Mac or a PC, you'll have to compile your own
+version of analog from the source. But don't worry -- it's written in
+standard C throughout, so it will compile out of the box on most platforms.
+(The source code is the same for all platforms.)
+
+<p>
+First, you will want to look at the file analhead.h. These are all
+user-settable options, but most of them you can override later. You will
+probably want to check the first few options in the file, but you can even
+leave most of them until later.
+
+<p>
+When you have done that, you need to compile the program. How to do that
+depends on which system you're using.
+
+<hr>
+<b>Compiling under Unix</b>. Just type
+<pre>
+make
+</pre>
+to compile the program. On most systems, that will be sufficient. If it
+fails to compile, have a look in the Makefile to see if there's anything that
+you need to change to suit your configuration, and try again. It says in that
+file what to do. In particular, <b>Solaris 2 (SunOS 5)</b> users need to
+change the <kbd>LIBS=</kbd> line (and may need to change the <kbd>DEFS=</kbd>
+line -- see below).
+<p>
+If you haven't got gcc, you will need to change the compiler - try acc or cc
+instead. If it still doesn't compile, try <kbd>DEFS=-DNODNS</kbd> to ignore the
+DNS lookup code.
+<p>
+There is a known problem with <b>HP-UX 10</b> and some versions of gcc. If it
+complains about an error in the <kbd>&lt;sys/stat.h&gt;</kbd> library, you
+need to upgrade to gcc version 2.7.2.3 or later, or use HP's cc compiler.
+HP's compiler is not an ANSI C compiler by default, so you need to specify
+<kbd>-Ae</kbd> in the <kbd>CFLAGS</kbd> to tell the compiler to use ANSI C.
+<p>
+<b>SunOS 4</b>'s cc doesn't seem to have the necessary header files for
+ANSI C. Often gcc doesn't work either -- you will probably need to use acc.
+<p>
+<b>SunOS 5</b> sometimes seems to have a broken <kbd>strcmp()</kbd> function.
+If you get an "illegal instruction" error when running analog, compile it
+with the <kbd>-DNOSTRCMP</kbd> in the <kbd>DEFS=</kbd> line.
+<p>
+<b>Compiling under VMS</b>. Type
+<pre>
+MMS
+</pre>
+to compile analog. Under <b>VMS 7.0 &amp; 7.1</b>, there is a VMS bug that
+stops analog compiling.
+The fix is to add &quot;<kbd>/define=(_VMS_V6_SOURCE)</kbd>&quot; to the
+cflags definitions at the top of the file <kbd>descrip.mms</kbd>.
+<p>
+<b>Compiling under Acorn RiscOS</b>. The Makefile is called
+<kbd>Make.Risc</kbd>, and you will have to rename it to <kbd>Makefile</kbd>
+before running make. Also you have to make directories called <kbd>C</kbd>,
+<kbd>H</kbd> and <kbd>O</kbd>, and move the sources files into the appropriate
+directories: e.g., <kbd>alias.c</kbd> must be renamed <kbd>C.alias</kbd>. And
+you will find that there are some filenames in the header file
+<kbd>analhead.h</kbd> that you want to change to fit into the RiscOS directory
+structure.
+<p>
+<b>Compiling under OS/2</b>. Although there is a precompiled version of
+analog for OS/2, if you want to compile your own you will need the
+<a href="ftp://hobbes.nmsu.edu/pub/os2/dev/emx/">EMX package</a>. You should
+edit the Makefile to have <kbd>OS=OS2</kbd>. Then after running Make, you
+need to run the command
+<pre>
+EMXBIND -b ANALOG
+</pre>
+to generate the analog.exe executable.
+<hr>
+After you've made the program, just type
+<pre>
+analog
+</pre>
+to run the program. (Or <kbd>./analog</kbd> if for some reason <kbd>.</kbd>
+isn't in your <kbd>$PATH</kbd>.)
+
+<p>
+You can configure analog by putting commands in the configuration file,
+which is called <kbd>analog.cfg</kbd> by default. Two commands you will need
+straight away are
+<pre>
+LOGFILE logfilename      # to set where your logfile lives
+OUTFILE outputfile.html  # to send the output to a file instead of the screen
+</pre>
+The logfile must live on your local disk -- analog doesn't fetch it from
+across the network. There's a sample logfile supplied with the program.
+
+<p>
+There's a list of <a href="basiccmd.html">basic commands</a> later in the
+Readme. Also there are a few to get you started in the configuration file
+already, but there are lots of others available. You can read about all the
+commands in the section on <a href="custom.html">customising analog</a>.
+
+<p>
+There is one other way to give options to analog, via command line arguments,
+given on the command line after the program name. These are just shortcuts for
+configuration file commands.
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="start.html">Up</a> |
+<a href="start.html">Prev</a> | <a href="custom.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

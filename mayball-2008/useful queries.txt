@@ -1,0 +1,63 @@
+#paid tickets
+SELECT applications.ApplicationID, applications.FirstName, applications.Surname, applications.TotalCost,
+       tickets.TicketID, tickets.FirstName, tickets.TicketType
+       FROM applications
+       INNER JOIN tickets 
+       ON applications.ApplicationID = tickets.ApplicationID
+       WHERE applications.Paid != '0';
+
+#count paid tickets
+SELECT COUNT(*)
+       FROM applications
+       INNER JOIN tickets 
+       ON applications.ApplicationID = tickets.ApplicationID
+       WHERE applications.Paid != '0';
+       
+SELECT COUNT(*)
+       FROM applications
+       INNER JOIN tickets 
+       ON applications.ApplicationID = tickets.ApplicationID
+       WHERE applications.College = 'Jesus';
+
+SELECT applications.ApplicationID, applications.FirstName, applications.Surname, applications.TotalCost,
+       tickets.TicketID, tickets.FirstName, tickets.TicketType
+       FROM applications
+       INNER JOIN tickets 
+       ON applications.ApplicationID = tickets.ApplicationID
+       WHERE applications.Paid = '0' 
+       AND NOW() > DATE_ADD(applications.DateTime, INTERVAL 2 DAY);
+
+SELECT *
+       FROM applications
+       INNER JOIN tickets 
+       ON applications.ApplicationID = tickets.ApplicationID
+       WHERE applications.Paid = '0' 
+       AND NOW() > DATE_ADD(applications.DateTime, INTERVAL 6 DAY)
+       AND applications.College != 'Jesus';
+       
+SELECT COUNT(*)
+       FROM applications
+       INNER JOIN tickets 
+       ON applications.ApplicationID = tickets.ApplicationID;
+       
+SELECT SUM(applications.TotalCost)
+       FROM applications
+       WHERE applications.Paid != '0';
+       
+SELECT applications.ApplicationID, applications.FirstName, applications.Surname, applications.DateTime, applications.Paid,
+       tickets.TicketID, tickets.FirstName
+       FROM applications
+       INNER JOIN tickets 
+       ON applications.ApplicationID = tickets.ApplicationID;
+       
+SELECT applications.ApplicationID, applications.FirstName, applications.Surname, applications.DateTime, applications.Paid,
+       COUNT(tickets.TicketID) Number
+       FROM applications, tickets
+       WHERE applications.ApplicationID = tickets.ApplicationID
+       GROUP BY applications.ApplicationID;
+// Find tickets with the same Name
+SELECT *
+	COUNT(FirstName) AS NumOccurrences
+	FROM tickets
+	GROUP BY FirstName
+	HAVING ( COUNT(FirstName) > 1 )

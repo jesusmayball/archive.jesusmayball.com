@@ -1,0 +1,42 @@
+.info__faqs {
+	padding-bottom: 24px;
+	border-style: solid none;
+	border-width: 1px;
+	border-color: #aaa;
+}
+
+.info__faq-question {
+	display: block;
+	font-weight: bold;
+	margin: 24px 0 12px;
+}
+.info__faq-answer {
+	margin: 0;
+}
+
+.info__payment-deadline-table {
+	margin: 12px 0;
+}
+
+.info__payment-deadline-table {
+	width: 90%;
+	margin: 12px 5%;
+}
+
+.info__payment-deadline-table-heading {
+	text-align: left;
+}
+
+.info__payment-deadline-table-cell {
+	width: 33.333%;
+}
+
+.info__payment-deadline-table-cell-content {
+	display: inline-block;
+	padding: 0.5em 0;
+}
+
+.info__final {
+    margin-top: 20px;
+    font-weight: bold;
+}

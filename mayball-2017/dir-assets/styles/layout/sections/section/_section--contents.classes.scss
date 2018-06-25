@@ -1,0 +1,43 @@
+.section--contents {
+    @extend %content-section;
+}
+
+/* div */.section--contents__title-container {
+    text-align: center;
+}
+
+/* hN */.section--contents__title {
+    @extend .typl8-gamma;
+
+    // text-transform: uppercase;
+    // letter-spacing: 0.3em;
+    font-family: "Old English Text MT", "UnifrakturCook", $lib-combined-font-family;
+    margin-bottom: $lib-spacing-unit;
+
+    &--palm {
+        @extend .typl8-delta;
+
+    }
+
+    &--thumb {
+        @extend .typl8-zeta;
+    }
+
+    &--subpage-title {
+        text-align: right;
+    }
+
+    @include respond(palm) {
+        &, .section--odd & {
+            text-align: center;
+        }
+    }
+}
+
+/* div */.section--contents__title-underline {
+    background-color: colour(heading-text);
+    height: 2px;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: $lib-spacing-unit;
+}

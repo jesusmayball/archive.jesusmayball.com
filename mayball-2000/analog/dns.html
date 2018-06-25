@@ -1,0 +1,78 @@
+<html> <head>
+<title>Readme for analog -- DNS lookups</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="cache.html">Prev</a> | <a href="lowmem.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>DNS lookups</h2>
+
+Sometimes a logfile contains numerical IP addresses - like 131.111.20.59 -
+for the computers that have visited you, instead of names like
+lion.statslab.cam.ac.uk. This section describes how you can get analog
+to do so-called <i>DNS lookups</i> to translate these numbers into names.
+This relies on you having a suitably configured system: DNS lookups are
+not possible on some systems.
+<p>
+Unfortunately DNS lookups are typically very slow, because your computer
+has to ask across the network to find out the names of the hosts. For this
+reason, analog saves the addresses it has looked up in a file, so that you
+don't have to look them up again next time. (Even so, you may find the DNS
+lookups too slow to be usable.) The file is specified by a command like
+<pre>
+DNSFILE dnsfile.txt
+</pre>
+(The first time you use this command, you will get a missing-file warning,
+but it will exist the next time.)
+
+<p>
+There are four possible levels of DNS activity. If you specify
+<kbd>DNS NONE</kbd>, no numerical addresses will be resolved. If you specify
+<kbd>DNS READ</kbd>, then analog will read the DNS file for old lookups, but
+no new lookups will take place. This mode is suitable if you are running
+analog while not connected to the internet. The third level is
+<kbd>DNS WRITE</kbd>. This reads the old file, looks up new addresses,
+and adds them to the file. The fourth level is <kbd>DNS LOOKUP</kbd>. This
+reads the old file and looks up new addresses, but doesn't add the new
+addresses to the file, so that they will not be remembered for next time.
+The reason for this is that if two copies of analog were running at once,
+both with <kbd>DNS WRITE</kbd>, then it is possible that the DNS file could
+become corrupted (although the chance is quite small).
+
+<p>
+Jason Linhart has written an application for the Mac called
+<a href="http://summary.net/soft/dnstran.html">DNSTran</a>, which creates
+DNS files for analog to read. Because it uses Mac-specific code, it's faster
+than getting analog to create the file, and I recommend it.
+
+<p>
+Analog never deletes anything from the DNS file: this means that the DNS
+file will grow, and can become quite large. You should delete the top of
+it every so often.
+
+<p>
+There are two parameters which say how long to trust old lookups for.
+If you set
+<pre>
+DNSGOODHOURS 672
+</pre>
+for example, then successful lookups will be checked again after 672 hours
+(4 weeks). You can also set the <kbd>DNSBADHOURS</kbd> similarly, to check
+failed lookups again after a certain time.
+
+<p>
+Finally, there is a <a href="debug.html">debugging</a> command,
+<kbd>DEBUG +D</kbd> to show all the DNS lookups that analog is making.
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="cache.html">Prev</a> | <a href="lowmem.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

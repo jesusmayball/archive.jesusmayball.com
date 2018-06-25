@@ -1,0 +1,127 @@
+<html> <head>
+<title>Readme for analog -- time reports</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="output.html">Prev</a> | <a href="othreps.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Time reports</h2>
+
+This section is about commands which control the appearance of the time
+reports. There are eight such reports, which show the pattern of usage
+over time. Six of them show the usage at specific times, whilst the Hourly
+Summary and the Daily Summary show the total (not average) activity at
+particular times of day and week over the whole time period of the report.
+<p>
+Each time report can contain columns listing the requests, requests for
+pages, and bytes transferred at that time, using the following code letters.
+<dl compact>
+  <dt><kbd>R</kbd><dd>Number of requests
+  <dt><kbd>r</kbd><dd>Percentage of the requests
+  <dt><kbd>P</kbd><dd>Number of page requests
+  <dt><kbd>p</kbd><dd>Percentage of the page requests
+  <dt><kbd>B</kbd><dd>Number of bytes transferred
+  <dt><kbd>b</kbd><dd>Percentage of the bytes
+</dl>
+Which columns appear in which reports is controlled by various <kbd>COLS</kbd>
+commands. For example, the command
+<pre>
+HOURCOLS Pb
+</pre>
+tells analog to include the number of page requests and percentage of the
+bytes, in that order, as the columns for the Hourly Summary. The other
+<kbd>COLS</kbd> commands are <kbd>MONTHCOLS</kbd>, <kbd>WEEKCOLS</kbd>,
+<kbd>DAYCOLS</kbd> (Daily Summary), <kbd>FULLDAYCOLS</kbd> (Daily Report),
+<kbd>FULLHOURCOLS</kbd> (Hourly Report), <kbd>QUARTERCOLS</kbd> and
+<kbd>FIVECOLS</kbd>. There is also a <kbd>TIMECOLS</kbd> command, which
+specifies that all the time reports are to have the specified columns.
+<hr>
+Similarly, analog can plot the bar charts in the time reports according to
+the number of requests, number of page requests, or number of bytes. This
+is controlled by the <kbd>GRAPH</kbd> family of commands. So, for example,
+<pre>
+FULLDAYGRAPH P
+</pre>
+tells analog to plot the bar charts in the Daily Report by the number of page
+requests. This also controls how analog decides which is the busiest time
+period in the bottom line of the report.
+Using a lower case letter tells analog to plot the bar charts with
+ASCII characters instead of the normal red bars. (This produces shorter
+output, and it is how they appear anyway in <kbd>ASCII</kbd> output style,
+or when viewed with a non-graphical browser.) So, for example,
+<pre>
+FULLDAYGRAPH b
+</pre>
+would plot the Daily Report by bytes, without using the graphics. The other
+<kbd>GRAPH</kbd> commands are <kbd>MONTHGRAPH</kbd>, <kbd>WEEKGRAPH</kbd>,
+<kbd>DAYGRAPH</kbd>, <kbd>HOURGRAPH</kbd>, <kbd>FULLHOURGRAPH</kbd>,
+<kbd>QUARTERGRAPH</kbd> and <kbd>FIVEGRAPH</kbd>. There's also an
+<kbd>ALLGRAPH</kbd> command to set all of them simultaneously.
+<hr>
+You can plot the graphs either forwards in time (starting from the earliest
+date) or backwards (starting from the latest date). Use commands
+like
+<pre>
+MONTHBACK ON  # Monthly Report backwards
+WEEKBACK OFF  # Weekly Report forwards
+</pre>
+The other <kbd>BACK</kbd> commands are <kbd>FULLDAYBACK</kbd>,
+<kbd>FULLHOURBACK</kbd>, <kbd>QUARTERBACK</kbd> and <kbd>FIVEBACK</kbd>.
+It tends to be confusing to mix directions (and analog will warn you if you
+attempt it) so usually you want to use the <kbd>ALLBACK</kbd> command which
+will set all of them at once.
+<hr>
+For the more detailed time reports, you usually only want to list the last
+few time periods. (Every five minutes for the last three years?? I think not.)
+So analog provides some <kbd>ROWS</kbd> commands to let you specify how many
+rows you want in the time reports. For example
+<pre>
+QUARTERROWS 96  # only the last day's worth
+MONTHROWS 0 # 0 means no restriction: show all time
+</pre>
+The other <kbd>ROWS</kbd> commands are <kbd>WEEKROWS</kbd>,
+<kbd>FULLDAYROWS</kbd>, <kbd>FULLHOURROWS</kbd> and <kbd>FIVEROWS</kbd>.
+Even if a <kbd>ROWS</kbd> command is given, the line at the bottom of the
+report will still show the busiest time period ever, not just the busiest
+one in that many rows.
+<hr>
+The character which is used for plotting the graphs in ASCII style or on a
+non-graphical browser is specified by means of the <kbd>MARKCHAR</kbd>
+command. For example,
+<pre>
+MARKCHAR =
+</pre>
+tells analog to use the equals sign.
+<p>
+There is a parameter called <kbd>MINGRAPHWIDTH</kbd> which sets the minimum
+nominal size of the graphs. For example, if you set
+<pre>
+MINGRAPHWIDTH 10
+</pre>
+then the graph will be allowed to be up to 10 characters wide, even if
+that would exceed the <kbd>PAGEWIDTH</kbd>.
+<p>
+There is one more command which affects the time reports. You can specify
+which day should be counted as the first day of the week. This affects the
+layout of the Daily Report, Daily Summary and Weekly Report. For example,
+our local student newspaper publishes a new edition on the web every Friday,
+so they like to specify
+<kbd>
+WEEKBEGINSON FRIDAY
+</kbd>
+for their reports.
+<p>
+In the next section, we'll look at commands relating to the
+<a href="othreps.html">non-time reports</a>.
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="output.html">Prev</a> | <a href="othreps.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

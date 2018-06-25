@@ -1,0 +1,85 @@
+<html> <head>
+<title>Readme for analog -- computer output style</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="domfile.html">Prev</a> | <a href="cache.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Computer-readable output style</h2>
+
+This section describes the computer-readable output style. You can select
+this style by means of the command
+<pre>
+OUTPUT COMPUTER
+</pre>
+This style is designed to be easy to read into spreadsheets, or post-process
+with graphics creation tools, for example.
+
+<p>
+Each line in the output is separated into fields by means of a special string.
+You can specify this string by means of the <kbd>COMPSEP</kbd> command; for
+example
+<pre>
+COMPSEP :::
+</pre>
+if for some reason you wanted three colons between each column. Make sure not
+to use anything that might occur in the output: for example, a single or
+double space would not be suitable.
+
+<p>
+Each line in the preformatted output begins with a letter indicating which
+report the line is part of. (The code letters for the reports are listed in
+the section on <cite><a href="output.html">Configuring the Output</a></cite>.)
+After that, there follows a field indicating the remaining columns in the
+report (using the letters <kbd>RrPpBbD</kbd> as usual). Then there are the
+numerical data and then the name of the item. Times actually take up several
+fields: year, month, date, hour &amp; minute, or as many of those as are
+necessary to identify the time.
+
+<p>
+The general summary is a bit different. After an initial <kbd>x</kbd>, there is
+a two-character code saying what the line contains. The possible codes are
+<dl compact>
+  <dt><kbd>HN</kbd><dd><kbd>HOSTNAME</kbd>
+  <dt><kbd>HU</kbd><dd><kbd>HOSTURL</kbd>
+  <dt><kbd>PS</kbd><dd>Program start time
+  <dt><kbd>FR</kbd><dd>Time of first request
+  <dt><kbd>LR</kbd><dd>Time of last request
+  <dt><kbd>L7</kbd><dd>Time last 7 days starts after
+  <dt><kbd>SR</kbd><dd>Total successful requests
+  <dt><kbd>S7</kbd><dd>Total successful requests in last 7 days
+  <dt><kbd>PR</kbd><dd>Total successful requests for pages
+  <dt><kbd>P7</kbd><dd>Total successful requests for pages in last 7 days
+  <dt><kbd>FL</kbd><dd>Total failed requests
+  <dt><kbd>F7</kbd><dd>Total failed requests in last 7 days
+  <dt><kbd>RR</kbd><dd>Total redirected requests
+  <dt><kbd>R7</kbd><dd>Total redirected requests in last 7 days
+  <dt><kbd>NC</kbd><dd>Logfile lines without status code
+  <dt><kbd>C7</kbd><dd>Lines without status code in last 7 days
+  <dt><kbd>NF</kbd><dd>Number of distinct files requested
+  <dt><kbd>N7</kbd><dd>Number of distinct files requested in last 7 days
+  <dt><kbd>NH</kbd><dd>Number of distinct hosts served
+  <dt><kbd>H7</kbd><dd>Number of distinct hosts served in last 7 days
+  <dt><kbd>CL</kbd><dd>Number of corrupt lines in the logfile
+  <dt><kbd>UL</kbd><dd>Number of unwanted lines in the logfile
+  <dt><kbd>BT</kbd><dd>Total number of bytes transferred
+  <dt><kbd>B7</kbd><dd>Total number of bytes transferred in last 7 days
+</dl>
+
+<p>
+If you do anything interesting with this output style, I should be delighted
+to hear about it. Anyone want to write a program to turn it into those pretty
+charts that executives seem to love?
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="domfile.html">Prev</a> | <a href="cache.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

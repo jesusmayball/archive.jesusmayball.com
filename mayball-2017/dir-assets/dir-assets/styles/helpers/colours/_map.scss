@@ -1,0 +1,18 @@
+$colours: ();
+
+@function colour($colourName) {
+    @if (not map-has-key($colours, $colourName)) {
+        @warn "Unknown `#{$colourName}` in $colours.";
+        @return null;
+    }
+
+    @return map-get($colours, $colourName);
+}
+
+@mixin add-colour($colourName, $colour) {
+    @if (map-has-key($colours, $colourName)) {
+        @warn "Colour `#{$colourName}` already set in $colours.";
+    } @else {
+        $colours: map-merge($colours, ($colourName: $colour)) !global;
+    }
+}

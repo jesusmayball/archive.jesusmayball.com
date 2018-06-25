@@ -1,0 +1,15 @@
+.form__jump-link {
+    opacity: 0.5;
+}
+
+.form__jump-link:hover {
+    opacity: 1;
+}
+
+.form__prompt {
+    margin-bottom: 30px;
+}
+
+.form__deadline {
+    margin-top: 20px;
+}

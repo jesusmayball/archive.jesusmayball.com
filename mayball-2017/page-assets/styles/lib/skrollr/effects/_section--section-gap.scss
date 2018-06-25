@@ -1,0 +1,21 @@
+.section--section-gap__img--parallax {
+    // introduced this to force hardware acceleration (not sure if it was effective or not)
+    transform: translate3d(0, 0, 0);
+    -skrollr-animation-name: gap-parallax;
+}
+
+@-skrollr-keyframes gap-parallax {
+    // this actually only runs from when bottom hits bottom of viewport to when bottom hits top
+
+    // when the top of the image hits the bottom of the viewport
+    skrollr-bottom-top {
+        background-position: 0 100%;
+    }
+
+    // when the bottom of the image hits the top of the viewport
+    skrollr-top-bottom {
+        background-position: 0 0%;
+    }
+}
+
+@include animated-layers($parallax-image-layers, gap-, section--section-gap-, __img--layer-, $animation-field : null);

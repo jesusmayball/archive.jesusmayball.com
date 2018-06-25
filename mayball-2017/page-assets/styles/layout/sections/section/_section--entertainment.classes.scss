@@ -1,0 +1,42 @@
+/* p */.section--entertainment__act-info {
+    position: relative;
+}
+
+/* h5 */.section--entertainment__act-title {
+    text-align: center;
+}
+
+/* h5 */.section--entertainment__act-title,
+/* p */.section--entertainment__act-details {
+    margin-right: 30%;
+}
+
+/* a */.section--entertainment__act-link,
+/* a */.section--entertainment__act-link:link,
+/* a */.section--entertainment__act-link:hover,
+/* a */.section--entertainment__act-link:visited {
+    color: inherit;
+}
+
+/* a */.section--entertainment__act-link:hover {
+    text-decoration: underline;
+}
+
+/* span */.section--entertainment__act-image {
+    position: absolute;
+    width: 25%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &--b-and-the-jukeboys {
+        background-image: url(../img/b-and-the-jukeboys.jpg);        
+    }
+}
+
+/* p */.section--entertainment__last-line {
+    text-align: right;
+}

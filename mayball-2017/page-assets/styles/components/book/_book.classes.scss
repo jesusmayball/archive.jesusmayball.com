@@ -1,0 +1,647 @@
+/*
+    container
+*/
+
+.book {
+    position: relative;
+    left: map-get($book-size, normal-left);
+    width: map-get($book-size, normal-width);
+    padding-top: map-get($book-size, normal-height);
+    height: 0;
+
+    transition: transform 1s;
+    transform: rotate(0);
+    transform-origin: -100% -100%;
+
+    &--hidden {
+        @extend %hidden;
+    }
+
+    &--animated {
+        @if (variable-exists("perspective")) {
+            perspective: $perspective;
+        }
+        &.book--high-perspective {
+            @if (variable-exists("high-perspective")) {
+                perspective: $high-perspective;
+            }
+        }
+        transform-style: preserve-3d;
+        // if touch or small page -- display none
+    }
+
+
+    &--start {
+        transform: rotate(-90deg);
+        // if no touch or large page -- display none
+    }
+
+    @include respond(lap) {
+        left: map-get($book-size, lap-left);
+        width: map-get($book-size, lap-width);
+        padding-top: map-get($book-size, lap-height);        
+    }
+
+    @include respond(palm) {
+        left: map-get($book-size, palm-left);
+        width: map-get($book-size, palm-width);
+        padding-top: map-get($book-size, palm-height);        
+    }
+}
+
+
+/*
+    background colours
+*/
+
+.hardcover_front li:first-child,
+.hardcover_front li:last-child,
+.hardcover_back li:first-child,
+.hardcover_back li:last-child {
+    background-color: #f6f2db;
+}
+
+/* thickness of cover */
+
+.hardcover_front li:first-child:after,
+.hardcover_front li:first-child:before,
+.hardcover_front li:last-child:after,
+.hardcover_front li:last-child:before,
+.hardcover_back li:first-child:after,
+.hardcover_back li:first-child:before,
+.hardcover_back li:last-child:after,
+.hardcover_back li:last-child:before,
+.book_spine li:first-child:after,
+.book_spine li:first-child:before  {
+    background: colour(book-background);
+}
+
+/* page */
+
+.page {
+    box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
+    border-radius: 0 map-get($pages, "rounding") map-get($pages, "rounding") 0;
+    background-size: cover;
+}
+
+
+
+.hardcover_front li:after,
+.hardcover_front li:before,
+.hardcover_back li:after,
+.hardcover_back li:before,
+.book_spine li:after,
+.book_spine li:before,
+.page:before,
+.page:after {
+    content: "";
+}
+
+$num-pages: map-get($page-images, count);
+@for $i from 1 through $num-pages {
+    .page:nth-child(#{$num-pages + "n + " + ($i - 1)}) {
+        background-image: url(#{map-get($page-images, url) + $i + "." + map-get($page-images, format)});
+    }
+}
+
+/*
+    position, transform & transition
+*/
+
+
+// make everything the size of the book
+.hardcover_front,
+.hardcover_back,
+.book_spine,
+.hardcover_front li,
+.hardcover_back li,
+.book_spine li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.hardcover_front,
+.hardcover_back,
+.page {
+    transform-origin: left center;
+}
+
+/* HARDCOVER front */
+.hardcover_front li:first-child {
+    transform: translateZ(map-get($book-cover, "nudge"));
+}
+
+.hardcover_front li:last-child {
+    // see the back side
+    transform: rotateY(180deg) translateZ(map-get($book-cover, "depth") - map-get($book-cover, "nudge"));
+}
+
+/* HARDCOVER back */
+.hardcover_back li:first-child {
+    transform: translateZ(- map-get($book-cover, "nudge"));
+}
+
+.hardcover_back li:last-child {
+    transform: translateZ(- map-get($book-cover, "nudge") - map-get($book-cover, "depth"));
+}
+
+/* thickness of cover */
+
+/* HARDCOVER */
+.hardcover_front li:first-child:before,
+.hardcover_back li:first-child:before {
+    right: 0;
+}
+
+.hardcover_front li:first-child:after,
+.hardcover_back li:first-child:after {
+    left: 0;
+}
+
+.hardcover_front li:first-child:after,
+.hardcover_back li:first-child:after,
+.hardcover_front li:first-child:before,
+.hardcover_back li:first-child:before {
+    position: absolute;
+    width: map-get($book-cover, "depth");
+    height: 100%;
+}
+
+// depth of cover on back side
+.hardcover_back li:first-child:after,
+.hardcover_front li:first-child:after {
+    transform: rotateY(90deg) translateZ(- map-get($book-cover, "depth") / 2) translateX(map-get($book-cover, "depth") / 2);
+}
+
+// depth of cover on near side
+.hardcover_back li:first-child:before,
+.hardcover_front li:first-child:before {
+    transform: rotateY(90deg) translateZ(map-get($book-cover, "depth") / 2) translateX(map-get($book-cover, "depth") / 2);
+}
+
+
+// shadow for the front and back covers
+.hardcover_front li:last-child:before,
+.hardcover_back li:last-child:before {
+    $shadow: map-get($book-cover, "shadow");
+    $width: map-get($shadow, "width");
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $width;
+    margin-bottom: -($width / 2);
+    box-shadow: 0 0 30px 5px #333;
+    // rotate to flat and underneath the cover
+    transform: rotateX(90deg) translateZ(- map-get($shadow, "space"));
+}
+
+
+/* BOOK SPINE */
+.book_spine {
+    // rotated at about 90degrees to the front and back covers
+    // same z value as the front cover + two times its depth
+    transform: rotateY(-120deg) translateZ(map-get($spine, "width") / 2 + map-get($spine, depth) * 2);
+    width: map-get($spine, width);
+}
+
+
+// spine on inside of book
+.book_spine li:first-child {
+    background: #333;
+    transform: translateZ(map-get($spine, depth) / 2);
+}
+
+// spine on outside of book
+.book_spine li:last-child {
+    background: #eee;
+    transform: translateZ(- map-get($spine, depth) / 2);
+}
+
+/* thickness of book spine */
+.book_spine li:first-child:after,
+.book_spine li:first-child:before {
+    position: absolute;
+    left: 0;
+    width: map-get($spine, depth);
+    height: 100%;
+}
+
+.book_spine li:first-child:before {
+    transform: rotateY(-90deg) translateZ(- map-get($spine, width) + (map-get($spine, depth) / 2))  translateX(- map-get($spine, depth) / 2);
+}
+
+.book_spine li:first-child:after {
+    transform: rotateY(90deg) translateZ(- (map-get($spine, depth) / 2)) translateX(map-get($spine, depth) / 2);
+}
+
+// shadow for the spine
+.book_spine li:last-child:before {
+    $shadow: map-get($spine, shadow);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: map-get($spine, width);
+    height: map-get($shadow, width);
+    margin-top: - (map-get($shadow, width) / 2);
+    background: #999;
+    box-shadow: 5px -1px 50px 20px rgba(0, 0, 0, 0.2);
+    // rotate to flat and underneath the cover
+    transform: rotateX(90deg) translateZ(- map-get($shadow, space));
+}
+
+.pages,
+.page {
+    position: absolute;
+    transform-style: preserve-3d;
+    width: 100%;
+}
+
+.pages {
+    $vertical-space: map-get($pages, "vertical-space");
+    $horizontal-space: map-get($pages, "horizontal-space");
+    height: 100% - 2 * $vertical-space;
+    top: $vertical-space;
+    left: $horizontal-space;
+}
+
+.page {
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+
+// specify general transition details
+
+.hardcover_front, .page {
+    transition-property: transform;
+    transition-timing-function: ease;
+}
+
+.page:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/*
+    specify closed conditions
+*/
+
+.hardcover_back {
+    transform: rotateY(map-get($animation, rotate-back)) translateZ(- map-get($spine, "width") / 2);
+}
+
+$opened-page: map-get($pages, open);
+
+$closed-animation: map-get($animation, 'closed');
+$cur-rotate: map-get($closed-animation, 'start-rotate');
+$rotate-interval: map-get($closed-animation, 'rotate-interval');
+
+$duration-interval: map-get($closed-animation, 'duration-interval');
+$cur-duration: check-duration(map-get($closed-animation, 'min-duration') + ($duration-interval * $opened-page));
+
+$overlay-opacity-interval: map-get($closed-animation, 'overlay-opacity-interval');
+$overlay-opacity-difference: map-get($closed-animation, 'overlay-opacity-difference');
+$cur-overlay-opacity: check-opacity(map-get($closed-animation, 'min-overlay-opacity') + ($overlay-opacity-interval * $opened-page));
+
+@for $i from 1 through $opened-page {
+    .page:nth-child(#{$i}) {
+        transform: rotateY($cur-rotate);
+        transition-duration: $cur-duration;
+        &::after {
+            background-image: -webkit-linear-gradient(0deg, rgba(0, 0, 0, $cur-overlay-opacity) 0%, rgba(0, 0, 0, check-opacity($cur-overlay-opacity - $overlay-opacity-difference)) 100%);
+        }
+    }
+    $cur-rotate: $cur-rotate + $rotate-interval;
+    $cur-duration: check-duration($cur-duration - $duration-interval);
+    $cur-overlay-opacity: check-opacity($cur-overlay-opacity - $overlay-opacity-interval);
+}
+
+@for $i from $opened-page + 1 through map-get($pages, count) {
+    .page:nth-child(#{$i}) {
+        transform: rotateY($cur-rotate);
+        transition-duration: $cur-duration;
+        &::after {
+            background-image: -webkit-linear-gradient( 0deg, rgba(0, 0, 0, $cur-overlay-opacity) 0%, rgba(0, 0, 0, check-opacity($cur-overlay-opacity - $overlay-opacity-difference)) 100%);
+        }
+    }
+    $cur-rotate: $cur-rotate + $rotate-interval;
+    $cur-duration: check-duration($cur-duration + $duration-interval);
+    $cur-overlay-opacity: check-opacity($cur-overlay-opacity + $overlay-opacity-interval);
+}
+
+.hardcover_front {
+    transform: rotateY($cur-rotate) translateZ(map-get($spine, "width") / 2);
+    transition-duration: $cur-duration;
+}
+
+/*
+    specify open conditions
+*/
+
+$open-animation: map-get($animation, 'open');
+$behind-start-rotate: map-get($open-animation, 'behind-start-rotate');
+$behind-rotate-interval: map-get($open-animation, 'behind-rotate-interval');
+
+$max-duration: map-get($open-animation, 'max-duration');
+$duration-interval: map-get($open-animation, 'duration-interval');
+
+$cur-rotate: $behind-start-rotate;
+@for $i from 1 through $opened-page {
+    $cur-duration: check-duration($max-duration - (($opened-page - $i) * $duration-interval));
+    .book--open .page:nth-child(#{$i}) {
+        transform: rotateY($cur-rotate);
+        transition-duration: $cur-duration;
+    }
+    $cur-rotate: $cur-rotate + $behind-rotate-interval;
+}
+
+$front-start-rotate: map-get($open-animation, 'front-start-rotate');
+$front-rotate-interval: map-get($open-animation, 'front-rotate-interval');
+
+$cur-rotate: $front-start-rotate;
+$cur-duration: check-duration($max-duration - $duration-interval);
+@for $i from $opened-page + 1 through map-get($pages, count) {
+    .book--open .page:nth-child(#{$i}) {
+        transform: rotateY($cur-rotate);
+        transition-duration: $cur-duration;
+    }
+    $cur-rotate: $cur-rotate + $front-rotate-interval;
+    $cur-duration: check-duration($cur-duration - $duration-interval);
+}
+
+.book--open .hardcover_front {
+    transform: rotateY($cur-rotate) translateZ(map-get($spine, "width") / 2);
+    transition-duration: $cur-duration;
+}
+
+/*
+    6. Bonus
+*/
+
+/* cover CSS */
+
+.book--animated .coverDesign, .page--preceding {
+    cursor: pointer;
+}
+
+.page--with-close-link-background {
+    overflow: hidden;
+}
+
+.coverDesign {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: z(bump);
+    text-align: center;
+
+    @if (map-get($book-cover, "stretch")) {
+        background-size: 100% 100%;
+    } @else {
+        background-size: contain;
+    }
+
+    .book--animated & {
+        background-image: url(map-get($book-cover, "url-animated"));
+    }
+    .book--static & {
+        @each $device-width in map-get($book-cover, "static-device-widths") {
+            @include respond($device-width + "-device") {
+                background-image: url(#{map-get($book-cover, "url-static") + "-" + $device-width + "." + map-get($book-cover, "static-format")});
+            }
+        }
+    }
+}
+
+// diagonal whitening overlay
+@if (map-get($book-cover, "overlay")) {
+    .coverDesign:after {
+        content: "";
+        background-image: -webkit-linear-gradient( -135deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    top: 25%;
+}
+
+.logo-figure {
+    width: 80%;
+    display: inline-block;;
+}
+
+.logo {
+    padding-top: 100% * (1103px/2040px);
+    background-image: url(../img/book-logo.png);
+    display: block;
+    background-size: contain;
+}
+
+
+.contents {
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    right: 10%;
+    left: 10%;
+    border: solid 10px colour($contents-text-colour);
+
+    z-index: z(bump);
+
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+.contents_head_first_letter,
+.section--book-hero__intro-line .first-letter {
+    font-size: $contents-head-first-letter-boost;
+}
+
+.section--book-hero__intro-line .first-word {
+    white-space: nowrap;
+}
+
+.contents_head_rest,
+.section--book-hero__intro-line .rest {
+    display: inline-block;
+    position: relative;
+    top: -($contents-head-first-letter-boost / 10);
+}
+
+.contents_header {
+    @extend .typl8-gamma;
+    margin: $contents-heading-margin 0;
+
+    font-family: $fancy-text;
+    color: colour($contents-text-colour);
+    text-align: center;
+}
+
+.contents_list {
+    list-style: lower-roman;
+    margin-left: 20%;
+    text-align: left;
+    font-variant: small-caps;
+}
+
+
+.contents_list li {
+    padding: 0 0 0 $contents-list-item-left-margin;
+    margin: $contents-list-item-spacing 0;
+    color: colour($contents-text-colour);
+}
+
+
+.book__list-link,
+.book__list-link:link,
+.book__list-link:visited {
+    text-decoration: none;
+    color: inherit;
+    opacity: 1;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.book__sprite-figure {
+    $sprite-side-padding: map-get($sprite, side-padding);
+    $sprite-side-padding-left-right-ratio: map-get($sprite, side-padding-left-right-ratio);
+    $sprite-bottom-padding: map-get($sprite, bottom-padding);
+    $sprite-width: 100% - 2 * $sprite-side-padding;
+    $individual-image-width-ratio: null;
+    @for $i from 0 through (length($sprite-types) - 1) {
+        $cur-sprite-type: nth($sprite-types, $i + 1);
+        @if (map-get($cur-sprite-type, name) == $book-sprite) {
+            $individual-image-width-ratio: map-get($cur-sprite-type, individual-image-width-ratio);
+        }
+    }
+    width: $sprite-width;
+    padding-top: $sprite-width * $individual-image-width-ratio;
+    position: absolute;
+    bottom: $sprite-bottom-padding;
+    // don't forget that the page is inverted, so this is effectively the padding on the right
+    left: (2 * $sprite-side-padding) * (1 - $sprite-side-padding-left-right-ratio);
+}
+
+.section--book-hero__intro-line-container {
+    position: absolute;
+    top: 35%;
+    width: map-get($book-size, normal-left);
+    float: left;
+
+    @include respond(lap) {
+        width: map-get($book-size, lap-left);
+    }
+
+    @include respond(palm) {
+        // position exactly behind the book
+        width: map-get($book-size, palm-width);
+        left: map-get($book-size, palm-left);
+    }
+}
+
+.section--book-hero__intro-line {
+    @extend .typl8-beta;
+    display: block;
+
+    font-family: $fancy-text;
+    color: black;
+    text-align: left;
+
+    transition: all 1250ms;
+
+    margin: 0;
+    opacity: 1;
+
+    &--hidden {
+        margin: 15px 0 0;
+        opacity: 0;
+    }
+}
+
+
+.tagline {
+    @extend .typl8-delta;
+
+    $colour: colour(heading-text);
+
+    color: $colour;
+    font-variant: small-caps;
+    font-weight: bold;
+    text-shadow: 1px 1px black;
+
+    &:before, &:after {
+        transition: width 0.5s;
+        content: "";
+        display: inline-block;
+        width: 1.5em;
+        background: $colour;
+        height: 2px;
+        vertical-align: middle;
+        margin: 0 0.5em;
+        transition: width 1000ms;
+
+        @include respond(palm) {
+            width: 1em;
+            margin: 0.25em;
+        }
+    }
+
+    @include respond(palm) {
+        white-space: nowrap;
+        letter-spacing: normal;
+    }
+}
+
+.tagline--date {
+    margin: 0 0.4em;
+
+    &:before, &:after {
+        width: 1em;
+    }
+}
+
+
+.book__close-link-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    padding-top: 50%;
+    margin-right: -15%;
+    margin-bottom: -15%;
+}
+
+.book__close-link {
+    display: inline-block;
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    transform: translateY(.75em) rotateZ(-45deg) rotateY(180deg);
+    &--with-background {
+        background: rgba(0, 0, 0, 0.2);
+    }
+}

@@ -1,0 +1,44 @@
+// settings for all library packages
+// don't edit any other library css files directly
+@import "lib/lib-settings.declarations";
+
+// settings
+@import "lib/inuit/defaults/settings.defaults";
+
+// tools
+@import "lib/inuit/functions/tools.functions";
+
+// generic
+@import "lib/inuit/normalize/generic.normalize";
+@import "lib/inuit/reset/generic.reset";
+@import "lib/inuit/box-sizing/generic.box-sizing";
+
+// trumps
+@import "lib/inuit/spacing/trumps.spacing";
+@import "lib/inuit/clearfix/trumps.clearfix";
+
+// objects
+@import "lib/inuit/list-inline/objects.list-inline";
+@import "lib/inuit/list-block/objects.list-block";
+@import "lib/inuit/list-bare/objects.list-bare";
+
+// base
+@import "lib/inuit/page/base.page";
+@import "lib/inuit/images/base.images";
+@import "lib/inuit/lists/base.lists";
+
+
+// typeplate typography overrides inuit
+// including this from dir and page leads to quite a lot
+// of duplication, but helper classes may be necessary
+@import "lib/typeplate/typeplate";
+
+// helpers
+@import "helpers/helpers.main";
+@import "helpers/colours.main";
+@import "helpers/images.main";
+@import "helpers/respond.main";
+@import "helpers/zindex.main";
+
+// components
+@import "components/button.classes";

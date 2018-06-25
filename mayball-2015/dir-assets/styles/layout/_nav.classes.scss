@@ -1,0 +1,100 @@
+/* nav */.nav {
+    @extend %page-background;
+
+    top: 0;
+    text-align: center;
+    padding: $lib-spacing-unit--tiny $lib-spacing-unit--large * 2;
+    border-bottom: solid 1px transparent;
+    
+    @include respond(palm) {
+        padding: $lib-spacing-unit--tiny $lib-spacing-unit;
+    }
+
+    @include respond(thumb) {
+        padding: $lib-spacing-unit--tiny;
+    }
+
+    &--hidden {
+        @extend %hidden;
+    }
+
+    &--fixed {
+        z-index: z(nav);
+        position: fixed;
+        width: 100%;
+        // hide box shadow of items
+        overflow: hidden;
+        border-color: colour(heading-text);
+    }
+}
+
+/* ul */.nav__list {
+    @extend %list-block--small;
+    @extend %list-inline;
+
+    margin: 0 auto;
+    max-width: 650px;
+}
+
+/* a */.nav__list-link {
+    &, &:link, &:visited {
+        @extend %button;
+        color: colour(heading-text);
+
+        &:hover {
+            color: colour(highlighted-heading-text);
+        }
+    }
+
+    &--selected {
+        &, &:link, &:visited {
+            &:hover {
+                color: colour(heading-text);
+                background-image: none;
+                background-color: transparent;
+                box-shadow: none;
+                border-radius: none;
+            }
+        }
+    }
+
+    &--important {
+        font-weight: bold;
+        letter-spacing: 0.25em;
+
+        &,
+        &:link,
+        &:visited,
+        &.nav__list-link--selected,
+        &.nav__list-link--selected:link,
+        &.nav__list-link--selected:visited {
+            color: colour(subtitle-text);
+        }
+    }
+
+    text-transform: uppercase;
+    
+    &, &:link, &:visited {
+        @include respond(palm) {
+            padding: $lib-spacing-unit--tiny;
+            margin: 0 $lib-spacing-unit--tiny;
+            font-size: $lib-small-print-size;
+        }
+
+        @include respond(thumb) {
+            padding: $lib-spacing-unit--mini;
+        }
+    }
+}
+
+/* span */.nav__link-underline {
+    display: block;
+    height: 1px;
+    background-color: transparent;
+    margin-left: 25%;
+    margin-right: 25%;
+
+    .nav__list-link--selected  & {
+        background-color: colour(heading-text);
+    }
+}

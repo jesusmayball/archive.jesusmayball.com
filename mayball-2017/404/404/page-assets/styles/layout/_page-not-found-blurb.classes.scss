@@ -1,0 +1,11 @@
+.page-not-found-blurb__prompt {
+	@extend .typl8-gamma;
+
+	color: inherit;
+	margin: $lib-spacing-unit--large 0;
+}
+
+.page-not-found-blurb__home-link-container {
+	text-align: right;
+	font-weight: bold;
+}

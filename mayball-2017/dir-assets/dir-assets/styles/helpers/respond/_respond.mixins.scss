@@ -1,0 +1,26 @@
+@mixin respond($breakpoint-name) {
+    @media #{breakpoint($breakpoint-name)} {
+        @content;
+    }
+}
+
+@mixin responsive-classes($breakpoint-name, $class-names) {
+    $selectors: ();
+
+    @each $cur-class-name in $class-names {
+        $cur-selectors: #{"." + $cur-class-name + ", " + "%" + $cur-class-name};
+
+        @if (length($selectors) > 0) {
+            $cur-selectors: unquote(", " + $cur-selectors);
+        }
+
+        $selectors: append($selectors, $cur-selectors);
+    }
+
+
+    #{$selectors} {
+        @media #{breakpoint($breakpoint-name)} {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,4 @@
+// colors used in the layout elements
+@include add-colour(hero-background, #f4eee1);
+@include add-colour(section-background, #121212);
+@include add-colour(border, colour(content));

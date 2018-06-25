@@ -1,0 +1,52 @@
+.form__jump-link {
+    opacity: 0.5;
+}
+
+.form__jump-link:hover {
+    opacity: 1;
+}
+
+.form__prompt {
+    margin-bottom: 30px;
+}
+
+.form__deadline {
+    margin-top: 20px;
+}
+
+.form__text--large-print {
+	font-weight: bold;
+}
+
+.job-descriptions {
+	border-style: solid none;
+	border-width: 1px;
+	border-color: #aaa;
+}
+
+
+.job-descriptions__job-links {
+	text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.job-descriptions__job-link {
+	display: inline-block;
+	opacity: 0.5;
+	font-size: small;
+	margin-right: 10px;
+}
+
+.job-descriptions__job-link:last-child {
+	margin: 0;
+}
+
+.job-descriptions__job-link:hover {
+	opacity: 1;
+}
+
+.job-descriptions__job-pay {
+	font-weight: normal;
+}

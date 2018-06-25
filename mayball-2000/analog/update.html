@@ -1,0 +1,142 @@
+<html> <head>
+<title>Readme for analog -- upgrading from earlier versions</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="Readme.html">Up</a> |
+<a href="whatsnew.html">Prev</a> | <a href="wasnew2.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Upgrading from earlier versions</h2>
+
+This page lists those commands which existed in older versions of analog, but
+which have been changed or abolished in this version. The new features in this
+version are listed on the page <cite><a href="whatsnew.html">What's new in
+this version?</a></cite>.
+
+<h2>Upgrading from 2.90beta1</h2>
+<ul>
+  <li><kbd>LOGFORMAT MICROSOFT</kbd> has been replaced by
+      <kbd>LOGFORMAT MICROSOFT-NA</kbd> and <kbd>LOGFORMAT MICROSOFT-INT</kbd>;
+      and similarly for <kbd>LOGFORMAT NETPRESENZ</kbd>.
+</ul>
+
+<h2>Upgrading from 2.11 and earlier</h2>
+<ul>
+  <li>It is possible that there may be small discrepancies between the results
+      from previous versions and the results from this version because the
+      parsing code has changed, but any such differences should be minor.
+      However...
+  <li>If you used to use <kbd>REFEXCLUDE</kbd> or <kbd>BROWEXCLUDE</kbd>, you
+      most likely now want <kbd><a href="include.html">REFREPEXCLUDE</a></kbd>
+      or <kbd><a href="include.html">BROWREPEXCLUDE</a></kbd> instead, or you
+      will exclude lots of lines that were previously included.
+  <li>It is possible that this version may not automatically parse a logfile
+      that previous versions could parse, because it checks more carefully
+      that the logfile is in the format claimed. If so, you will have to use a
+      <kbd><a href="logfile.html">LOGFORMAT</a></kbd> command.
+  <li>Approximate host counting has been abolished, unless there's a
+      significant demand for it.
+  <li>The Error Report has been abolished (together with the configuration
+      commands <kbd>ERROR</kbd>, <kbd>ERRLOG</kbd> and <kbd>ERRMINOCCS</kbd>).
+      See the <cite><a href="whatsnew.html">What's new?</a></cite> page.
+  <li>The <kbd>BROWLOG</kbd> and <kbd>REFLOG</kbd> commands have also been
+      abolished: just use <kbd><a href="logfile.html">LOGFILE</a></kbd>
+      instead.
+  <li>The <kbd>HASHSIZE</kbd> commands have been abolished: analog now chooses
+      the size of the hash tables itself.
+  <li>The <kbd>MINREQS</kbd> and similar options have been replaced by the
+      <kbd><a href="othreps.html">FLOOR</a></kbd> commands.
+  <li>Only one <kbd>*</kbd> is now allowed on the left-hand side of aliases,
+      to avoid ambiguities.
+  <li>Automatic detection of log type is now on a per-file rather than a
+      per-line basis.
+  <li><kbd>ISPAGE</kbd> is now called
+      <kbd><a href="include.html">PAGEINCLUDE</a></kbd>.
+  <li><kbd>WITHARGS</kbd> and <kbd>REFWITHARGS</kbd> are now called
+      <kbd><a href="include.html">ARGSINCLUDE</a></kbd> and
+      <kbd><a href="include.html">REFARGSINCLUDE</a></kbd>.
+  <li><kbd>MONTHLYBACK</kbd> is now called <kbd>MONTHBACK</kbd>, and
+      <kbd>MONTHLYUNIT</kbd> is now called <kbd>MONTHUNIT</kbd> (and the same
+      for the other <a href="timereps.html">time reports</a>).
+  <li><kbd>FULLHOSTS</kbd> is now just called <kbd>HOST</kbd>.
+  <li><kbd>LASTSEVEN</kbd> is abolished: you get the statistics for the last
+      seven days in the General Summary automatically now.
+  <li><kbd>LOGOURL</kbd> is now called <kbd>LOGO</kbd>, and is assumed to be
+      within the <kbd><a href="output.html">IMAGEDIR</a></kbd>.
+  <li>The <kbd>UNIT</kbd> commands have been abolished. They weren't very
+      useful, and they didn't make much sense with the different ways of
+      displaying the time report bar charts. The unit is now always chosen
+      automatically.
+  <li><kbd>DIRLEVEL</kbd> has been abolished, because the
+      <kbd><a href="hierreps.html">SUBDIR</a></kbd> command is more general.
+      Use <kbd>SUBDIR */*</kbd> or whatever instead.
+  <li>Comments aren't allowed in the <a href="domfile.html">domains file</a>.
+      I don't think this should cause a problem.
+  <li><kbd>BASEURL</kbd> is abolished. Use the second argument to the
+      <kbd><a href="logfile.html">LOGFILE</a></kbd> command as a close
+      alternative.
+  <li><kbd>GRAPHICAL</kbd> is abolished. Instead, use lower case letters with
+      the <kbd>GRAPH</kbd> commands.
+  <li><kbd>NUMLOOKUP</kbd> has been replaced by
+      <kbd><a href="dns.html">DNS</a></kbd>, and <kbd>DNSFRESHHOURS</kbd>
+      by the commands <kbd><a href="dns.html">DNSGOODHOURS and
+      DNSBADHOURS</a></kbd>.
+  <li>DNS cache files from previous versions are not compatible with this
+      version.
+  <li>You can't use <kbd>PAGES</kbd> in the columns or <kbd>SORTBY</kbd> or
+      <kbd>FLOOR</kbd> for the Request Report. Use <kbd>REQINCLUDE pages</kbd>
+      instead.
+  <li><kbd>-</kbd> as a synonym for <kbd>none</kbd> has been abolished in some
+      places, e.g., <kbd>HOSTURL</kbd>.
+  <li>The following command line arguments have been abolished from earlier
+      versions, many of the letters getting new meanings: <kbd>7</kbd>,
+      <kbd>l</kbd>, <kbd>n</kbd>, <kbd>p</kbd>, <kbd>s</kbd>, <kbd>u</kbd>,
+      <kbd>v</kbd>, <kbd>w</kbd>. (<kbd>-v</kbd> has moved to
+      <kbd>-settings</kbd>.) Others have been changed since version 1.2 as
+      well.
+</ul>
+
+<h2>Upgrading from 2.0, Win32 users</h2>
+
+<ul>
+  <li>Filenames for logfiles etc. should now be given DOS-style, with
+      backslashes, rather than Unix-style with forward slashes.
+</ul>
+
+<h2>Upgrading from 1.92 and earlier, Mac users</h2>
+
+<ul>
+  <li>There is no longer an automatic progress report. Use the
+     <kbd><a href="debug.html">PROGRESSFREQ</a></kbd> command instead.
+</ul>
+
+<h2>Upgrading from 1.9beta's</h2>
+
+<ul>
+  <li>Use <kbd><a href="include.html">REQINCLUDE</a></kbd> and
+      <kbd><a href="include.html">LINKINCLUDE</a></kbd> instead of
+      <kbd>REQTYPE</kbd> and <kbd>PAGELINKS</kbd>.
+</ul>
+
+<h2>Upgrading from 1.2's and earlier</h2>
+
+<ul>
+  <li>Use <a href="include.html"><kbd>*INCLUDE</kbd> and
+      <kbd>*EXCLUDE</kbd></a> instead of <kbd>*ONLY</kbd> and
+      <kbd>*IGNORE</kbd>.
+  <li>The syntax of the <kbd>*FLOOR</kbd> commands has changed.
+  <li>Use <kbd>*SORTBY REQUESTS</kbd> or <kbd>BYTES</kbd> instead of
+      <kbd>*SORTBY BYREQUESTS</kbd> or <kbd>BYBYTES</kbd>.
+</ul>
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="Readme.html">Up</a> |
+<a href="whatsnew.html">Prev</a> | <a href="wasnew2.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

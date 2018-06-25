@@ -1,0 +1,48 @@
+<%
+	var sponsors = _.shuffle([
+		{
+			title: "Lafayette Photography",
+			url: "http://www.lafayettephotography.com/"
+		}, {
+			title: "Fireball",
+			url: "http://www.fireballwhisky.com/"
+		}
+	]), easterEgg = {
+		selector: ".section--sponsors__sponsor-link--fireball",
+		fireballVideoUrl: "https://www.youtube.com/watch?v=HMqgVXSvwGo",
+		numClicks: 0,
+		numClicksNecessary: 4,
+		supportCtrlShiftClick: true
+	};
+
+	$(document).on('click', easterEgg.selector, function (e) {
+		var buttonsPressed = easterEgg.supportCtrlShiftClick && e.shiftKey && (e.ctrlKey || e.metaKey),
+			clicksSurpassed;
+		e.stopPropagation();
+		easterEgg.numClicks += 1;
+		clicksSurpassed = easterEgg.numClicks >= easterEgg.numClicksNecessary;
+		if (clicksSurpassed || buttonsPressed) {
+			window.location = easterEgg.fireballVideoUrl;
+		}
+	});
+
+%><!--
+--><p>We are grateful to the following sponsors for helping us to deliver a fantastic event:</p><!--
+--><div class="section--sponsors__sponsor-link-container"><!--
+	--><%
+		_.each(sponsors, function (curSponsor) {
+			var curLabel = curSponsor.title.split(" ").join("-").toLowerCase();
+			%><!--
+			--><figure class="section--sponsors__item"><!--
+				--><a
+					href="<%= curSponsor.url %>"
+					class="section--sponsors__sponsor-link section--sponsors__sponsor-link--<%= curLabel %>"
+					title="<%= curSponsor.title %>"
+					onclick="window.trackOutboundLink('<%= curSponsor.url %>'); return false;"
+				></a><!--
+			--></figure><!--
+			--><%
+		});
+	%><!--
+--></div><!--
+--><p>For sponsorship enquiries, please contact Matthew Seccombe at <a href="mailto:sponsorship@jesusmayball.com">sponsorship<wbr>@jesusmayball<wbr>.com</a>.</p>

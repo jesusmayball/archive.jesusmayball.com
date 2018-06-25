@@ -1,0 +1,243 @@
+## Language file for analog2.11 for mail. May not (or may) work with any other version.
+Sun
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Nov
+Dec
+week beg.
+month
+day
+days
+hr
+minute
+minutes
+second
+seconds
+byte
+bytes
+mail sent
+mails sent
+date
+date        time
+last date
+last time
+file
+files
+user or host
+users and hosts
+virtual host
+virtual hosts
+user or host
+users and hosts
+domain
+domains
+extension
+extensions
+URL
+URLs
+browser
+browsers
+size
+site
+sites
+user
+users
+status code
+status codes
+Mail Server Statistics for
+General Summary
+Monthly Report
+Busiest month:
+Weekly Report
+Busiest week: week beginning
+Daily Summary
+Daily Report
+Busiest day:
+Hourly Report
+Hourly Summary
+Busiest hour:
+Quarter-Hour Report
+Busiest quarter of an hour:
+Five-Minute Report
+Busiest five minutes:
+Who sent mail
+user or internet host
+users or internet hosts
+n
+Who got mail
+user or internet host
+users or internet hosts
+n
+File Type Report
+extension
+extensions
+n
+Request Report
+file
+files
+n
+Redirection Report
+file
+files
+n
+Failure Report
+file
+files
+n
+Referrer Report
+referring URL
+referring URLs
+n
+Referring Site Report
+referring site
+referring sites
+n
+Redirected Referrer Report
+referring URL
+referring URLs
+n
+Failed Referrer Report
+referring URL
+referring URLs
+n
+Virtual Host Report
+virtual host
+virtual hosts
+n
+User Report
+user
+users
+n
+User Failure Report
+user
+users
+n
+Browser Summary
+browser
+browsers
+n
+Browser Report
+browser
+browsers
+n
+Domain Report
+domain
+domains
+n
+Status Code Report
+status code
+status codes
+n
+Mail Size Report
+This analysis was produced by
+Running time
+Less than 1
+Each unit
+represents
+or part thereof
+mail sent
+mails sent
+not listed
+not listed
+not listed
+Program started at
+Analyzed mails sent from
+to
+Successful mails sent
+Average successful mails sent per day
+Ignore me
+Ignore me
+Logfile lines without status code
+Failed mails
+Redirected mails
+Requests with informational status code
+Distinct people mail was sent to
+Distinct hosts mail was sent to
+Corrupt logfile lines
+Unwanted logfile entries
+Data transferred
+Average data transferred per day
+Figures in parentheses refer to the
+7 days to
+last 7 days
+Go To
+Top
+#reqs
+%reqs
+pages
+%pages
+bytes
+%bytes
+*
+*
+Listing the first %s
+*
+*
+Listing the first %d %s
+*
+*
+Listing %s
+by
+with at least
+redirected request
+redirected requests
+failed request
+failed requests
+%% of the traffic
+%% of the maximum amount of traffic
+bytes of traffic
+requested since
+with a redirected request since
+with a failed request since
+*
+*
+sorted by
+the amount of traffic
+%% of the requests
+%% of the maximum number of mails sent
+the number of mails sent
+%% of the mails sent
+%% of the maximum number of mails sent
+the number of mails sent
+%% of the redirected mails
+%% of the maximum number of redirected mails
+the number of redirected mails
+%% of the failed mails
+%% of the maximum number of failed mails
+the number of failed mails
+the time of the last mail
+the time of the last redirected mail
+the time of the last failed mail
+*
+*
+sorted alphabetically
+*
+*
+sorted numerically
+*
+*
+unsorted
+:
+%m-%D-%Y %H:%n
+%w %m/%D/%Y %H:%n
+%m/%d/%y
+%m/%d/%y %H:%n-%I:%o
+%m/%d/%y %H:%n-%I:%o
+%m/%d/%y
+%m %Y
+%m/%d/%y %H:%n
+%m/%d/%y at %H:%n

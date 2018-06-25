@@ -1,0 +1,111 @@
+<html> <head>
+<title>Readme for analog -- analog's definitions</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="meaning.html">Up</a> |
+<a href="webworks.html">Prev</a> | <a href="errors.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Analog's Definitions</h2>
+
+This page describes how analog defines its terms, and exactly what is counted
+in each category. We start with some basic definitions.
+
+<p>
+The <i>host</i> is the computer which has asked you for a file. The file
+might be a <i>page</i> (i.e., an HTML document) or it might be something
+else, such as an image. The <i>total requests</i> counts all the files which
+have been requested, including pages, graphics, etc. (Some people call this
+the number of hits, but that word is used in different ways by different
+people, so I avoid it). The <i>requests for
+pages</i> obviously only counts pages. The <i>referrer</i> for a request
+is the place that the user (or his computer) heard about your file from. If
+he followed a link to reach a page, it will be the previous page. In the
+case of a graphic on a page, the referrer will be the page containing the
+graphic.
+
+<hr>
+Analog recognises four categories of request, based on the HTTP status code of
+the request. You can see the total number of requests for each status code,
+and what the codes mean, in the Status Code Report. (Or see the
+<a href="http://www.w3.org/Protocols/rfc2068/rfc2068">HTTP spec</a> for a
+detailed description.)
+<p>
+First, <i>successful requests</i> are those with HTTP status codes in the 200's
+(where the document was returned) or with code 304 (where the document was
+requested but was not needed because it had not been recently modified and the
+user could use a cached copy). Sometimes the logfile line doesn't contain a
+status code. These lines are also assumed by analog to be successes.
+<p>
+<i>Redirected requests</i> are those with other codes in the 300's, indicating
+that the user was directed to a different file instead. The most common cause
+of these requests is that the user has incorrectly requested a directory name
+without the trailing slash. The server replies with a redirection (&quot;you
+probably mean the following&quot;) and the user then makes a second connection
+to get the correct document (although usually the browser does it automatically
+without the user's intervention or knowledge). The other common cause of
+redirected requests is their use as &quot;click-thru&quot; advertising
+banners.
+<p>
+<i>Failed requests</i> are those with codes in the 400's (error in request) or
+500's (server error). They come about for a variety of reasons, but the most
+common are when the requested file is not found or is read-protected.
+<p>
+Finally, <i>requests returning informational status code</i> are those with
+status codes in the 100's. These are very rare at the moment.
+<p>
+There are a few other types of logfile lines listed in the General Summary.
+<i>Lines without status code</i> refers to those logfile lines without a
+status code, and the successful requests in the General Summary only counts
+the ones with a status code: except if the line contains the name of the file
+requested, and the filename is being counted (not starred in the
+<kbd><a href="logfile.html">LOGFORMAT</a></kbd>), then it's listed in the
+successes.
+<i>Corrupt logfile lines</i> are those which analog didn't manage to parse. And
+<i>unwanted logfile entries</i> are ones which we have specifically
+<a href="include.html">excluded</a>. Successful requests for pages refers to
+those lines on which the file requested was given and was defined as a page
+by the <kbd><a href="include.html">PAGEINCLUDE</a></kbd> command.
+<hr>
+Most reports only include successful requests in calculating the number of
+requests, requests for pages, bytes, and last date: unless, of course, the
+report is a redirection or failure report. There is a further restriction on
+the time reports, the status code report and the file size report: the logfile
+line must also contain the name of the file requested, and the filename must
+be being counted. This is necessary to stop double counting if the server uses
+separate logs.
+<p>
+The &quot;not listed&quot; line at the bottom of each of the
+<a href="othreps.html">non-time reports</a> includes both those items which
+were explicitly excluded at the output stage with an
+<kbd><a href="include.html">OUTPUTEXCLUDE</a></kbd> command, and those which
+were not listed because they were below the floor for the report.
+<p>
+The figures in parentheses in the General Summary are for the last seven days:
+either the seven days before the <kbd>TO</kbd> time, or if no <kbd>TO</kbd>
+time is given, the seven days before the time of the program start. (It would
+be nicer to use the seven days before the last time in the logfile, but we
+don't know when this is until we've read the whole logfile, and by then it's
+too late.) The figures for the last seven days are not included if all, or
+none, of the requests fall in the last seven days.
+<p>
+In the Domain Report, &quot;domain not given&quot; means that the hostname did
+not contain a dot. &quot;Unknown domain&quot; means that it did contain a dot,
+but that the domain name was not in the <a href="domfile.html">domains
+file</a>.
+<hr>
+There are probably some other things which I could include on this page. If you
+have any suggestions, then feel free to <a href="bugs.html">contact me</a>.
+Next I shall give an explanation of all the <a href="errors.html">errors and
+warnings</a> which analog can generate.
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="meaning.html">Up</a> |
+<a href="webworks.html">Prev</a> | <a href="errors.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

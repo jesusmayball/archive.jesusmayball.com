@@ -1,0 +1,35 @@
+html {
+    overflow-y: scroll;
+    min-height: 100%;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+     -webkit-font-smoothing: antialiased;
+
+    background-color: colour(section-background);
+    background-image: url(../img/section-background.jpg);
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	color: colour(lighter-content);
+}
+
+// comes after the above to take precedence
+// don't combine selectors as precedence becomes too high
+a:hover {
+	text-decoration: underline;
+	color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    // no longer using DaunPenh as the letters are positioned weirdly on the line
+    // font-family: DaunPenh, "Times New Roman", serif;
+    letter-spacing: 0.15em;
+    font-weight: normal;
+}
+
+
+@include selection {
+    background-color: colour(highlight-text);
+}

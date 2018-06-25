@@ -1,0 +1,7 @@
+@function z($name) {
+    @if not map-has-key($zValues, $name) {
+        @warn "No z-index found for `#{$name}` in $zValues map. Property omitted.";
+    }
+
+    @return map-get($zValues, $name);
+}

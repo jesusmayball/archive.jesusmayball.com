@@ -1,0 +1,105 @@
+<html>
+<head>
+<style>
+a.menu:visited {
+	color: 	#FFFFFF;
+	text-decoration: none;
+	}
+a.menu: active {
+	color: 	#FFFFFF;
+	text-decoration: none;
+	}
+a.menu:link {
+	color: 	#FFFFFF;
+	text-decoration: none;
+	}
+
+.fadetext {
+	font: 14pt English; 
+	}
+	
+</style>
+<script language='javascript'>
+
+
+function fade(time) {
+	if(time<=33) {
+		i=0;
+		while(i<23) {
+			v=(time-i);
+			if(v<0) v=-v;
+			document.getElementById(i).style.filter="alpha(opacity=" + (100-(15*v)) + ")";
+			i++;
+			}
+		t=time+1;
+		setTimeout('fade(t)',400);
+		}
+	else {
+		setTimeout('fade(-5)',200);
+		}
+	}
+
+</script>
+</head>
+<body bgcolor="#190058" onLoad='fade(-5)'>
+
+<div style="position: absolute; left: 0; height: 0; width: 100;"><img src="harl2.gif"></div>
+<div style="position: absolute; left: 125; top: 0; width: 650; font: 14pt Times; font-style: italic; color: #FFFFFF; text-align: center; font-weight: bold;"><hr/><center><img src='foodanddrink.gif'></center><hr/>
+<a href='intro.html' class='menu' style='color: #FFFFFF'>Introduction</a> | 
+<a href='foodanddrink.html' class='menu' style='color: #FFCECE'>Food and Drink</a> | 
+<a href='masks.html' class='menu' style='color: #FFABAB'>Masks</a> | 
+<a href='tickets.html' class='menu' style='color: #FF8686'>Tickets</a> | 
+<a href='contacts.html' class='menu' style='color: #FF5353'>Contacts</a> | 
+<a href='sponsors.html' class='menu' style='color: #FF3131'>Sponsorship</a> | 
+<a href='work.html' class='menu' style='color: #FF0000'>Work</a>
+</div>
+
+
+
+<div style="position: absolute; left: 125; top: 170; width: 650; font-size: 14pt; font-family: Times New Roman; font-style: italic; color: #FFFFFF">
+
+<div id='har1' style='position: absolute; filter: alpha(opacity=0)'>Cheese</div>
+
+<div id='18' class='fadetext' style='position: absolute; left: 0; top: 0; filter: alpha(opacity=0)' color='#FFFF00'>Cheese</div>
+<div id='1' class='fadetext' style='position: absolute; left: 58; top: 0; filter: alpha(opacity=0)' color='#aa2089'>Wine</div>
+<div id='17' class='fadetext' style='position: absolute; left: 98; top: 0; filter: alpha(opacity=0)' color='#672891'>HogRoast</div>
+<div id='10' class='fadetext' style='position: absolute; left: 180; top: 0; filter: alpha(opacity=0)' color='#FFFF00'>Champagne</div>
+<div id='4' class='fadetext' style='position: absolute; left: 275; top: 0; filter: alpha(opacity=0)' color='#FFFF00'>Cookies</div>
+<div id='5' class='fadetext' style='position: absolute; left: 342; top: 0; filter: alpha(opacity=0)' color='#FFFF00'>Fajitas</div>
+<div id='6' class='fadetext' style='position: absolute; left: 400; top: 0; filter: alpha(opacity=0)' color='#FFFF00'>Fudge</div>
+<div id='3' class='fadetext' style='position: absolute; left: 455; top: 0; filter: alpha(opacity=0)' color='#FFFF00'>Chocolates</div>
+<div id='8' class='fadetext' style='position: absolute; left: 20; top: 25; filter: alpha(opacity=0)' color='#FFFF00'>Ale</div>
+<div id='9' class='fadetext' style='position: absolute; left: 540; top: 25; filter: alpha(opacity=0)' color='#FFFF00'>Canapes</div>
+<div id='7' class='fadetext' style='position: absolute; left: 57; top: 25; filter: alpha(opacity=0)' color='#FFFF00'>FruitJuices</div>
+<div id='11' class='fadetext' style='position: absolute; left: 155; top: 25; filter: alpha(opacity=0)' color='#FFFF00'>FullContinentalBreakfast</div>
+<div id='19' class='fadetext' style='position: absolute; left: 375; top: 25; filter: alpha(opacity=0)' color='#FFFF00'>Waffles</div>
+<div id='13' class='fadetext' style='position: absolute; left: 435; top: 25; filter: alpha(opacity=0)' color='#FFFF00'>CandyFloss</div>
+<div id='22' class='fadetext' style='position: absolute; left: 40; top: 50; filter: alpha(opacity=0)' color='#FFFF00'>Alcopops</div>
+<div id='14' class='fadetext' style='position: absolute; left: 115; top: 50; filter: alpha(opacity=0)' color='#FFFF00'>Coffee</div>
+<div id='16' class='fadetext' style='position: absolute; left: 542; top: 0; filter: alpha(opacity=0)' color='#FFFF00'>Tea</div>
+<div id='15' class='fadetext' style='position: absolute; left: 170; top: 50; filter: alpha(opacity=0)' color='#FFFF00'>FreshFruit</div>
+<div id='2' class='fadetext' style='position: absolute; left: 265; top: 50; filter: alpha(opacity=0)' color='#FFFF00'>IceCream</div>
+<div id='12' class='fadetext' style='position: absolute; left: 350; top: 50; filter: alpha(opacity=0)' color='#FFFF00'>Cocktails</div>
+<div id='20' class='fadetext' style='position: absolute; left: 430; top: 50; filter: alpha(opacity=0)' color='#FFFF00'>FrenchBread</div>
+<div id='0' class='fadetext' style='position: absolute; left: 545; top: 50; filter: alpha(opacity=0)' color='#FFFF00'>Port</div>
+<div id='21' class='fadetext' style='position: absolute; left: 585; top: 50; filter: alpha(opacity=0)' color='#872376'>Cigars</div>
+
+<div style='position: absolute; left: 0; top: 100; width: 100%'>
+<br>
+<center><img border='5' src='venice2.jpg' width='300' height='204'><img border='5' src='venice9.jpg' width='300' height='204'></font></center>
+<br><br>
+<center>Harlequin will have a fantastic variety of food and drink. From the delicious canapés as you enter to the full continental breakfast 
+at dawn, guests will be offered a sumptuous array of food to satisfy all tastes. Our drinks will be centred around a selection of champagne 
+cocktails, fine beers and real ales as well as the more traditional Ball fare. With such a wide variety on offer we are confident we will 
+satisfy your every need.</center>
+
+<br><br>
+
+<center><img src='mask7.gif'></center>
+
+
+
+</div>
+</div>
+</body>
+</html>

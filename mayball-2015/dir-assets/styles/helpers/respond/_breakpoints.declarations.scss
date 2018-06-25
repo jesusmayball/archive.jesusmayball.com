@@ -1,0 +1,42 @@
+$breakpoints: (
+    thumb:          (
+        condition:      "screen and (max-width: 299px)"
+    ),
+    palm:          (
+        condition:      "screen and (max-width: 719px)"
+    ),
+    lap:           (
+        condition:      "screen and (min-width: 720px) and (max-width: 1023px)"
+    ),
+    lap-and-up:    (
+        condition:      "screen and (min-width: 720px)"
+    ),
+    portable:      (
+        condition:      "screen and (max-width: 1023px)"
+    ),
+    desk:          (
+        condition:      "screen and (min-width: 1024px)"
+    ),
+    thumb-device:          (
+        condition:      "screen and (max-device-width: 299px)"
+    ),
+    palm-device:          (
+        condition:      "screen and (max-device-width: 719px)"
+    ),
+    lap-device:           (
+        condition:      "screen and (min-device-width: 720px) and (max-device-width: 1023px)"
+    ),
+    lap-device-and-up:    (
+        condition:      "screen and (min-device-width: 720px)"
+    ),
+    portable-device:      (
+        condition:      "screen and (max-device-width: 1023px)"
+    ),
+    desk-device:          (
+        condition:      "screen and (min-device-width: 1024px)"
+    ),
+    retina:        (
+        condition:      "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)",
+        exclude-widths: true
+    )
+);

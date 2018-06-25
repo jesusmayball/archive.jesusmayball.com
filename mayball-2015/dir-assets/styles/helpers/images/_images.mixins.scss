@@ -1,0 +1,47 @@
+@mixin image($img-name, $img-width: null, $img-height: null) {
+    @if (not map-has-key($images, $img-name)) {
+        @warn "Unknown `#{$img-name}` in $images.";
+    } @else {
+        $cur-image: map-get($images, $img-name);
+        $cur-image-file: map-get($image-files, map-get($cur-image, file));
+        
+        background-image: url(map-get($cur-image-file, url));
+        
+        // may be percentages (hopefully) or pixels
+        $cur-image-background-x: map-get($cur-image, background-position-x);
+        $cur-image-background-y: map-get($cur-image, background-position-y);
+
+        @if ($img-width != null) {
+            $img-width-ratio: $img-width / map-get($cur-image-file, width);
+            $cur-image-background-x: $cur-image-background-x * $img-width-ratio;
+        }
+        
+        @if ($img-height != null) {
+            $img-height-ratio: $img-height / map-get($cur-image-file, height);
+            $cur-image-background-y: $cur-image-background-y * $img-height-ratio;
+        }
+
+        @if ($cur-image-background-x != null) {
+            @if ($cur-image-background-y != null) {
+                background-position: $cur-image-background-x $cur-image-background-y;
+            }
+        }
+    }
+}
+
+@mixin add-image($image-name, $image-properties) {
+    @if (map-has-key($images, $image-name)) {
+        @warn "Colour `#{$image-name}` already set in $images.";
+    } @else {
+        $images: map-merge($images, ($image-name: $image-properties));
+    }
+}
+
+
+@mixin add-image-file($image-name, $image-file-properties) {
+    @if (map-has-key($image-files, $image-name)) {
+        @warn "Colour `#{$image-name}` already set in $image-files.";
+    } @else {
+        $image-files: map-merge($image-files, ($image-name: $image-file-properties));
+    }
+}

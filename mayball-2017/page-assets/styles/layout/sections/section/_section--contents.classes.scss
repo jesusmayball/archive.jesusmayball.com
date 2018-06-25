@@ -1,0 +1,118 @@
+/* figure */.section--contents__img-figure {
+    // 5% padding on the text
+    width: $section-image-width;
+    
+    @include respond(palm) {
+        &, .section--odd & {
+            margin: 0 auto $lib-spacing-unit;
+        }
+    }
+
+    .section--even & {
+        left: 0;
+    }
+
+    .section--odd & {
+        right: 0;
+    }
+}
+
+/* span */.section--contents__img {
+    display: block;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 100%;
+}
+
+/* figure */.section--contents__img-figure,
+/* span */.section--contents__img {
+    position: absolute;
+    bottom: 0;
+
+    z-index: z(content-section-sprite-image);
+    
+    @for $i from 0 through (length($force-height-sections) - 1) {
+        $forced-height-section-name: nth($force-height-sections, $i + 1);
+        .section--#{$forced-height-section-name} & {
+            top: 0;
+        }
+    }
+
+    @each $section-label, $overrides in $sprite-image-overrides {
+        &.section--#{$section-label}__img-figure {
+            @if (map-has-key($overrides, "width")) {
+                width: map-get($overrides, "width");
+            }
+            @if (map-has-key($overrides, "bottom")) {
+                bottom: map-get($overrides, "bottom");
+            }
+            @if (map-has-key($overrides, "left") and map-has-key($overrides, "right")) {
+                @warn "Set left or right, depending on which side the image appears!";
+            }
+            @if (map-has-key($overrides, "left")) {
+                left: map-get($overrides, "left");
+            }
+            @if (map-has-key($overrides, "right")) {
+                right: map-get($overrides, "right");
+            }
+            @include respond(palm) {
+                width: auto;
+            }
+        }
+    }
+
+    @include respond(palm) {
+        &, .section--odd & {
+            position: relative;
+        }
+        
+    }
+}
+
+/* figure */.section--contents__img-figure.section--contents__img-figure,
+/* span */.section--contents__img.section--contents__img {
+    @include respond(palm) {
+        right: auto;
+        bottom: auto;
+    }
+}
+
+.section--contents__text.section--image__text {
+    .section--even & {
+        margin-left: $section-image-width + $section-image-padding;
+    }
+
+    .section--odd & {
+        margin-right: $section-image-width + $section-image-padding;
+    }
+
+    position: relative;
+    z-index: z(content-section-text);
+
+    @include respond(palm) {
+        .section--even & {
+            margin-left: 0;
+        }
+
+        .section--odd & {
+            margin-right: 0;
+        }
+    }
+}
+
+.section--contents dl {
+    margin: 0;
+}
+
+.section--contents dt {
+    margin: $lib-spacing-unit--small 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section--contents dd {
+    margin: $lib-spacing-unit--tiny 0;
+}

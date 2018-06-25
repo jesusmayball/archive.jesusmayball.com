@@ -1,0 +1,269 @@
+@media (max-width: 900px)  {
+
+}
+
+@media only screen and (-webkit-device-pixel-ratio : 3)
+                   /* and (max-width: 1000px)
+                   and (orientation potrait)  */
+                   {
+    #below-fold {
+        /* background-color: red; */
+    }
+
+    #header #horse {
+        max-width: 480px;
+    }
+
+    #saturation-layer {
+        opacity: 0;
+    }
+
+    #scroll-down a {
+        bottom: 240px;
+        height: 150px;
+    }
+
+    #scroll-down a span {
+        width: 90px;
+        height: 150px;
+        margin-left: -45px;
+    }
+
+    #scroll-down a span::before {
+        top: 30px;
+        width: 18px;
+        height: 18px;
+        margin-left: -9px;
+    }
+
+    #aurora-title {
+        font-size: 6em;
+    }
+
+    #aurora-date {
+        font-size: 3.5em;
+    }
+
+    #intro-text {
+        font-size: 2em;
+        padding: 0 2em;
+    }
+
+    #loading-screen img {
+        max-width: 400px;
+    }
+
+    #footer p {
+        font-size: 2em;
+    }
+
+    .ent-name {
+        font-size: 4em;
+    }
+
+    .ent-card .uk-button-text {
+        font-size: 2em;
+    }
+
+    #entertainment-title,
+    #tickets-title,
+    #sponsors-title,
+    #committee-title,
+    #charities-title {
+        font-size: 4em;
+    }
+
+    .ticket-card-price {
+        font-size: 6em;
+    }
+
+    .ticket-card-header {
+        font-size: 3em;
+    }
+
+    .ticket-card p {
+        font-size: 2em;
+        padding: 1em;
+    }
+
+    .buy-tickets-button {
+        font-size: 2em !important;
+        padding: 0.4em !important;
+    }
+
+    button.uk-close-large svg {
+        width:50px;
+        height:50px;
+        padding:30px;
+    }
+
+    .uk-modal-dialog h1 {
+        font-size: 5.125rem;
+    }
+
+    .uk-modal-dialog p {
+        font-size: 1.7em;
+    }
+
+    .uk-modal-dialog .uk-padding-large {
+        padding: 80px;
+    }
+
+    .uk-modal-dialog .uk-background-cover {
+        display: none;
+    }
+
+    .uk-grid .uk-card .uk-card-footer {
+        padding: 40px 60px;
+    }
+
+    .uk-card h3.uk-card-title {
+        font-size: 2.5em;
+        padding: 20px;
+    }
+
+    .uk-button.buy-tickets-button {
+        margin-top: 50px;
+        width: 100%;
+        padding: 40px 20px !important;
+        font-weight: 700 !important;
+        font-size: 2.5rem !important;
+    }
+
+    #sponsors .uk-first-column,
+    #charities .uk-first-column {
+        width: 40%;
+    }
+
+    #sponsors h3.uk-card-title,
+    #charities h3.uk-card-title {
+        padding-left: 0px;
+        font-size: 3.5em;
+    }
+
+    #sponsors .uk-card-body,
+    #charities .uk-card-body {
+        padding: 60px 60px;
+    }
+
+    #sponsors .uk-card-body p,
+    #charities .uk-card-body p {
+        font-size: 2em;
+    }
+
+    #sponsors .hidpi-shrink,
+    #charities .hidpi-shrink {
+        display: none
+    }
+
+    #sponsors .hidpi-expand,
+    #charities .hidpi-expand {
+        width: 100%;
+    }
+
+    .hidpi-header {
+        display: block !important;
+    }
+
+    .committee-name {
+        font-size: 4.2em;
+        padding: 40px;
+    }
+
+    .committee-title {
+        font-size: 3.8em;
+        padding: 40px;
+    }
+
+    .committee-presidents,
+    .committee-rest {
+        padding: 0 140px;
+    }
+
+    .committee-role {
+        font-size: 3.5em;
+        margin-top: -70px;
+    }
+
+    #music-play #play {
+        font-size: 2.5em;
+        padding: 60px 0 20px 0;
+    }
+
+    #music-play .play-text {
+        padding-left: 20px;
+    }
+
+    #music-play svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .backdrop {
+        height:35em;
+    }
+
+    .backdrop-header {
+        height: 40em;
+    }
+
+    .ticket-card p {
+        text-align: center;
+    }
+
+    .ticket-details-link button.uk-button.ticket-details {
+        font-size: 1.5em;
+        margin-top: 70px !important;
+        padding: 0.5em;
+        width: 100%;
+    }
+
+
+}
+
+@media only screen and (-webkit-device-pixel-ratio : 3)
+                   and (max-width: 1000px) {
+    div.committee-member-parent {
+       width: 100%;
+    }
+}
+
+@media only screen and (-webkit-device-pixel-ratio : 2)
+                   and (max-width: 1200px)
+                   and (orientation potrait) {
+    #below-fold {
+        /* background-color: green; */
+    }
+
+    #header #horse {
+        max-width: 400px;
+    }
+
+    #scroll-down a {
+        bottom: 160px;
+        height: 10px;
+    }
+
+    #scroll-down a span {
+        width: 60px;
+        height: 100px;
+        margin-left: -30px;
+    }
+
+    #scroll-down a span::before {
+        top: 20px;
+        width: 12px;
+        height: 12px;
+        margin-left: -6px;
+    }
+
+    .ticket-card p {
+        text-align: center;
+    }
+}
+
+/* @media only screen and (orientation : portrait)  {
+    #below-fold {
+        background-color: purple;
+    }
+} */

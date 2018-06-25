@@ -1,0 +1,99 @@
+body {
+	position:relative;
+	width:100%;
+	height:100%;
+	font-family:Baskerville,Georgia,serif;
+	background:#000;
+	color:#FFF;
+	
+	margin:0px;
+}
+div#main_wrapper{
+background-image: url("../res/background.png");
+background-repeat:repeat;
+height:800px;
+width:100%;
+	background-position: center center;
+}
+div#main {
+    background-attachment: scroll;
+    background-color: transparent;
+    background-image: url("../res/main_grad.png");
+    background-position: 0 0;
+    background-repeat: repeat;
+    height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    position: relative;
+    width: 1000px;
+	z-index:1;
+}
+div#footer_wrapper {
+    width: 100%;
+	text-align:center;
+	    background-attachment: scroll;
+    background-color: transparent;
+    background-image: url("../res/base_rep.png");
+    background-position: 0 0;
+    background-repeat: repeat;
+    height: 200px;
+    position: absolute;
+	bottom:0px;
+}
+div#top{
+    background-attachment: scroll;
+    background-color: transparent;
+    background-image: url("../res/top_rep.png");
+    background-position: 0 0;
+    background-repeat: repeat;
+    height: 200px;
+    position: absolute;
+    width: 100%;
+}
+
+div#footer_message{
+	margin-top:170px;
+}
+div#logo {
+    height: 150px;
+    width: 1000px;
+	background-image: url("../res/logo.png");
+}
+div#content{
+	text-align:center;
+	    font-size: 16px;
+    line-height: 20px;
+}
+div#left, div#right{
+width:500px;
+position:relative;
+}
+div#left{
+float:left;
+}
+div#right{
+float:right;
+}
+div#clear{
+clear:both;
+padding-top:20px;
+}
+
+a:link, a:active, a:visited {
+color:#fff;
+font-weight:bold;
+text-decoration:none;
+}
+
+a:hover {
+text-decoration:underline;
+}
+
+div#ents {
+position:absolute;
+right:10px;
+top:10px;
+width:100px;
+border:1px solid;
+}

@@ -1,0 +1,170 @@
+<html> <head>
+<title>Readme for analog -- how the web works</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="meaning.html">Up</a> |
+<a href="meaning.html">Prev</a> | <a href="defns.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>How the web works</h2>
+
+This page is about what happens when somebody connects to your web site, and
+what statistics you can and can't calculate. There is a lot of confusion
+about this. It's not helped by statistics programs which claim to calculate
+things which cannot really be calculated, only estimated, with varying degrees
+of accuracy. The simple fact is that certain data which we are used to knowing
+for traditional print and even broadcast media are simply not available on the
+web.
+
+<p>
+I should say that these ideas
+are not new to me. In particular, I can recommend four excellent articles
+about this subject:
+<cite><a
+href="http://gopher.nara.gov:70/0h/what/stats/webanal.html">Interpreting
+WWW Statistics</a></cite> by Doug Linder;
+<cite><a href="http://www.piperinfo.com/pl01/usage.html">Making Sense of Web
+Usage Statistics</a></cite> by Dana Noonan;
+<cite><a href="http://www.wprc.com/wpl/stats.html">Getting Real about Usage
+Statistics</a></cite> by Tim Stehle;
+and, the most negative of all,
+<cite><a href="http://www.cranfield.ac.uk/stats/">Why Web Usage Statistics are
+(Worse Than) Meaningless</a></cite> by Jeff Goldberg.
+
+<hr>
+<b>1. The basic model.</b> Let's suppose I visit your web site. I follow a
+link from somewhere else to your front page, read some pages, and then follow
+one of your links out of your site.
+<p>
+So, what do you know about it? First, I make one request for your front
+page. You know the date and time of the request and which page I asked for
+(of course), and the internet address of my computer (my <i>host</i>). I also
+usually tell you which page referred me to your site, and the make and model
+of my browser. I do not tell you my user name or my e-mail address.
+<p>
+Next, I look at the page (or rather my browser does) to see if it's got any
+graphics on it. If so, and if I've got image loading turned on in my browser,
+I make a separate connection to retrieve each of these graphics. I never log
+into your site: I just make a sequence of requests, one for each new file I
+want to download. The referring page for each of these graphics is your front
+page. Maybe there are 10 graphics on your front page. Then so far I've made 11
+requests to your server.
+<p>
+After that, I go and visit some of your other pages, making a new request for
+each page and graphic that I want. Finally, I follow a link out of your site.
+You never know about that at all. I just connect to the next site without
+telling you.
+
+<hr>
+<b>2. Caches.</b> It's not always quite as simple as that. One major problem
+is cacheing. There are two major types of cacheing. First, my browser
+automatically caches files when I download them. This means that if I visit
+them again, the next day say, I don't need to download the whole page
+again. Depending on the settings on my browser, I might check with you that
+the page hasn't changed: in that case, you do know about it, and analog will
+count it as a new request for the page. But I might set my browser not to
+check with you: then I will read the page again without you ever knowing about
+it.
+<p>
+The other sort of cache is on a larger scale. I'm in the UK. Because the link
+across the Atlantic is sometimes very congested, we've set up a national
+cache. (Many individual ISP's also do the same thing.) I can set my browser to
+get your pages from the national cache instead of directly from you. If anyone
+else in the country has used the cache to look at your pages recently, the
+cache will have saved them, and will give them out to me without ever telling
+you about it. So hundreds of people could read your pages, even though you'd
+only sent it out once. Also, if the page I wanted wasn't already stored in the
+cache, the cache would ask for it from you on my behalf. This would mean that
+the request appeared to come from the cache, rather than from me. If several
+people did this, you would think that only one host was accessing the cache,
+rather than lots of different ones.
+
+<hr>
+<b>3. What you can know.</b> The only things you can know for certain are the
+number of requests made to your server, when they were made, which files were
+asked for, and which host asked you for them.
+<p>
+You can also know what people told you their browsers were, and what the
+referring pages were. You should be aware, though, that many browsers lie
+deliberately about what sort of browser they are, or even let users configure
+the browser name. Also, some browsers send incorrect referrers, telling you
+the last page that the user was on even if they weren't referred by that page.
+
+<hr>
+<b>4. What you can't know.</b>
+<ol type=i>
+  <li><i>You can't tell the identity of your readers</i>.
+      Unless you explicitly require users to provide a password, you don't
+      know who's connected or what their e-mail addresses are.
+  <li><i>You can't tell how many visitors you've had</i>.
+      You can guess by looking at the number of distinct hosts that have
+      requested things from you. But this is not always a good estimate for
+      three reasons. First, if users get your pages from a local cache server,
+      you will never know about it. Secondly, sometimes many users connect
+      from the same host: either users from the same company or ISP, or users
+      using the same cache server. Finally, sometimes one user connects from
+      many different hosts. In most countries, 'phone calls are not free. So
+      users sometimes download one page, disconnect from their ISP, and then
+      reconnect to follow a link: but when they reconnect, they will often be
+      allocated a different hostname by their ISP. The same can happen if users
+      access the web from their company through a firewall.
+  <li><i>You can't tell how many visits you've had</i>.
+      Many programs, under pressure from advertisers' organisations, define a
+      &quot;visit&quot; (or &quot;session&quot;) as a sequence of requests
+      from the same host until there is a half-hour gap. This is an unsound
+      method for several reasons. First, it assumes that each host corresponds
+      to a separate person and vice versa. This is simply not true in the real
+      world, as discussed in the last paragraph. Secondly, it assumes that
+      there is never a half-hour gap in a genuine visit. This is also untrue.
+      I quite often follow a link out of a site, then step back in my browser
+      and continue with the first site from where I left off. Should it really
+      matter whether I do this 29 or 31 minutes later? Finally, to make the
+      computation tractable, such programs also need to assume that your
+      logfile is in chronological order: it isn't always, and analog will
+      produce the same results however you jumble the lines up.
+  <li><i>You can't follow a person's path through your site</i>.
+      Even if you assume that each person corresponds one-to-one to a host,
+      you don't know their path through your site. It's very common for people
+      to go back to pages they've downloaded before. You never know about
+      these subsequent visits to that page, because their browser has cached
+      them. So you can't track their path through your site accurately.
+  <li><i>You often can't tell where they entered your site, or where they
+      found out about you from</i>.
+      If they are using a cache server, they will often be able to retrieve
+      your home page from their cache, but not all of the subsequent pages
+      they want to read. Then the first page you know about them requesting
+      will be one in the middle of their true visit.
+  <li><i>You can't tell how they left your site, or where they went next</i>.
+      They never tell you about their connection to another site, so there's no
+      way for your to know about it.
+  <li><i>You can't tell how long people spent reading each page</i>.
+      The same comments apply as in the previous paragraph. You can't tell
+      which pages they are reading between successive requests for pages. They
+      might be reading some pages they downloaded earlier. They might have
+      followed a link out of your site, and they might or might not return
+      later. They might have interrupted their reading for a quick game of
+      Minesweeper. You just don't know.
+</ol>
+The bottom line is that HTTP is a stateless protocol. People don't log in
+and retrieve several documents: they make a separate connection for each
+file they want. And a lot of the time they don't even behave as if they
+were logged into one site. Hence analog's emphasis on requests, rather
+than visits.
+<hr>
+I've presented a somewhat negative view on this page, emphasising what you
+can't find out. Web statistics are still informative: it's just important not
+to slip from &quot;this page has received 30,000 requests&quot; to
+&quot;30,000 people have read this page.&quot; In the
+<a href="defns.html">next section</a>, I'll tell you exactly how analog
+defines its terms, and what counts in each category.
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="meaning.html">Up</a> |
+<a href="meaning.html">Prev</a> | <a href="defns.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

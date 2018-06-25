@@ -1,0 +1,118 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+	position:relative;
+	font-family: "Open Sans", Arial, serif;
+    color: #ddd;
+	margin: 0px;
+    background-color: rgb(17, 17, 17);
+    background-image: url(../img/background.png);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+}
+
+.cf:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main {
+    position: relative;
+    min-height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    position: relative;
+    width: 1200px;
+    max-width: 100%;
+	z-index: 1;
+}
+
+.header__emblem {
+    background-image: url(../img/jesus-emblem.png);
+    background-repeat: no-repeat;
+    background-size: 32px;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.header {
+    text-align: center;
+}
+
+.header__main-heading, .header__nav {
+    margin: 0 auto 20px;
+}
+
+.header__nav-link.header__nav-link--ticketing, .header__nav-link.header__nav-link--auditions {
+    display: none;
+}
+
+.header__main-heading {
+    font-size: 3em;
+    color: #fafafa;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.header__nav-link {
+    display: inline-block;
+    margin: 0 2%;
+    opacity: 0.5;
+}
+
+.header__nav-link:hover {
+    opacity: 1;
+}
+
+.header__subtitle {
+    opacity: 0.8;
+}
+
+.header__years {
+    font-size: 18px;
+    padding: 0;
+    font-family: inherit;
+    font-weight:bold;
+}
+
+.content {
+    margin: 0 auto;
+}
+
+.content-section {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.content-section--padded {
+    padding: 20px;
+    margin: 0 2.5%;
+}
+
+.footer {
+    text-align: center;
+    margin: 50px 0;
+    font-size: smaller;
+}
+
+a:link, a:active, a:visited {
+    color: #ddd;
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}

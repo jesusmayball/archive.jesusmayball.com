@@ -1,0 +1,8 @@
+@function breakpoint($name) {
+    @if not map-has-key($breakpoints, $name) {
+        @warn "No breakpoint found for `#{$name}` in $breakpoints map.";
+        @return null;
+    }
+
+    @return map-get(map-get($breakpoints, $name), condition);
+}

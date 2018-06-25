@@ -1,0 +1,27 @@
+$force-height-sections: (work);
+$section-image-width: 30%;
+$section-image-padding: 5%;
+
+$sprite-image-overrides: (
+    night: (
+        right: -5%,
+    ),
+    ticket-info: (
+        width: 100%,
+        bottom: 20%,
+        right: -8%,
+    ),
+    entertainment: (
+        width: 35%,
+    ),
+    charities: (
+        width: 40%,
+        bottom: 30%,
+    ),
+    committee: (
+        bottom: 30%,
+    ),
+    sponsors: (
+        ignore: true
+    )
+)

@@ -1,0 +1,11 @@
+.section--footer__spaceship {
+    -skrollr-animation-name: spaceship;
+}
+@-skrollr-keyframes spaceship {
+    end {
+        transform: rotate(-30deg);
+    }
+    start {
+        transform: rotate(115deg);
+    }
+}

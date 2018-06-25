@@ -1,0 +1,40 @@
+html, body {
+    height: 50%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+h1, h2{
+	text-shadow: 1px 1px #ff0000;
+}
+
+body{
+	background: #FFFFFF;
+	font-family: "Times New Roman","sans-serif";
+	text-align:center;
+	color: #000000;
+	padding: 100;
+	display: table-cell;
+    vertical-align: middle;
+}
+
+a{color: #BB1111;}
+a:visited{color: #551111;}
+
+div#committeeLeft{
+	float: left;
+	width: 200px;
+}
+
+div#committeeRight{
+	float: left;
+	width: 200px;
+}
+
+.committeeCentre{
+	float: left;
+	width: 200px;
+	}

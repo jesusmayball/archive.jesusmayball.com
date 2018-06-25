@@ -1,0 +1,28 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+	Alessandra Bittante, George Bryan -- President
+	Elka Humphrys -- Food
+	Fred Richards -- Drinks
+	Claire Nichols -- Security
+	Kate Gerhard -- Buildings
+	Chris Stuart -- Tech
+	Chris Brown -- Treasurer
+	Rob Cronshaw -- Main Ents
+	Bethany Hutchison -- Student Ents
+	Lare Erogbogbo -- Non-Music Ents
+	Charlie Benson -- Staffing
+	Isobel MacAuslan -- Secretary
+	Helen Broadbridge -- Head of Design
+	Rachel Rees-Middleton, Rory Luscombe, Julia Cabanas, Jen Sutherland -- Design Team
+	Antony Graff -- Ticketing
+	Josh Bambrick -- Webmaster
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Sass, inuitcss, Typeplate
+    HTML5Boilerplate, html5shiv
+    jQuery, Backbone, Underscore, RequireJS

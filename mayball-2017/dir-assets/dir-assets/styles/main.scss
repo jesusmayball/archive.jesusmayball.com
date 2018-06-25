@@ -1,0 +1,12 @@
+// include declarations for libraries
+// may be referred to by directory styles
+@import "lib/lib-settings.declarations";
+
+@import "includes.main";
+
+// page base
+@import "base/page.classes";
+
+// layout
+@import "layout/nav.classes";
+@import "layout/sections.main";

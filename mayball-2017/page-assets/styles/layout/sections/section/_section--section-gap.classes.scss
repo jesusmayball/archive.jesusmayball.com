@@ -1,0 +1,32 @@
+.section--section-gap {
+    // the approach to height with 'rosa' is to have it at 66%
+    // this would require setting `height: 100%` on all ancestors up to <html>
+    // the approach I've used has the advantage of keeping scale with the width, meaning
+    // that you can always be sure that it will work on all screen sizes (background
+    // doesn't get shifted off the edge) since the same part of the image will be visible 
+    // on all screen sizes at the top of scroll and similarly, at the bottom of scroll
+    height: 0;
+    padding-top: $parallax-image-container-height-width-ratio * 100%;
+    position: relative;
+    overflow: hidden;
+    .-bowser-mobile & {
+        padding-top: $parallax-image-container-height-width-ratio-touch * 100%;
+    }
+}
+
+.section--section-gap__img {
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.section--section-gap__img--parallax {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    .-bowser-mobile & {
+        background-position: center center;
+    }
+}
+
+@include animatable-layers($parallax-image-layers, section--section-gap-, __img--layer-, "../img/section-gap-", -layer-);

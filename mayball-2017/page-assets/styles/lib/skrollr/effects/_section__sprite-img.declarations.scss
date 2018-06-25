@@ -1,0 +1,64 @@
+$section-sprite-device-types: (desk, lap, palm);
+
+$section-sprite-support-touch: true;
+
+$sprite-image-palm-settings: (
+    max-width: 90%,
+    // given as a percentage of the width, used to set max-width (which then determines the padding-top)
+    max-height: 70%
+);
+
+$book-sprite: romance;
+
+$sprite-types: (
+    (
+        name: gothic,
+        individual-image-width-ratio: 860px / 605px,
+        individual-images: 16,
+        default-image: 3,
+        animation-delay: 20%
+    ),
+    (
+        name: fantasy,
+        individual-image-width-ratio: 705px / 1230px,
+        individual-images: 12,
+        default-image: 6,
+        animation-delay: 30%,
+        mask-image: -webkit-gradient(linear, left top, right top,
+                color-stop(0, rgba(0,0,0,0)),
+                color-stop(0.1, rgba(0,0,0,0.2)),
+                color-stop(0.6, rgba(0,0,0,0.4)),
+                color-stop(0.7, rgba(0,0,0,1)),
+                color-stop(1, rgba(0,0,0,1)))
+    ),
+    (
+        name: romance,
+        individual-image-width-ratio: 1000px / 940px,
+        individual-images: 12,
+        default-image: 4,
+        animation-delay: 20%
+    ),
+    (
+        name: mystery,
+        // individual-image-width-ratio: 1170px  / 530px,
+        // individual-images: 24,
+        individual-image-width-ratio: 780px  / 345px,
+        individual-images: 5,
+        default-image: 1,
+        animation-delay: 20%
+    ),
+    (
+        name: modernism,
+        individual-image-width-ratio: 780px  / 370px,
+        individual-images: 6,
+        default-image: 4,
+        animation-delay: 20%
+    ),
+    (
+        name: steampunk,
+        individual-image-width-ratio: 850px  / 450px,
+        individual-images: 10,
+        default-image: 4,
+        animation-delay: 20%
+    )
+);

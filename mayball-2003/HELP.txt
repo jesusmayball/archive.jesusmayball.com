@@ -1,0 +1,11 @@
+INSTRUCTIONS:
+
+To add Aqua Energizer to your website, just upload:
+
+	aqua.html
+	loader.swf
+	aqua.swf
+
+to the same location on your server.
+
+If you are having problems please email us at webmaster@miniclip.com

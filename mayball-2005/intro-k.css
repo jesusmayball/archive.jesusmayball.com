@@ -1,0 +1,41 @@
+body {
+	height: 100%;
+	text-align: center;
+	background-color: #000000;
+	}
+
+#box {
+	border: 1px solid #FFFFFF;
+	color: #FFFFFF;
+	width: 710px;
+	height: 400px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: left;
+	background: #000000;
+	overflow: hidden;
+	}
+
+.intro {
+	color: #FFFFFF;
+	position: absolute;
+	left: 100px;
+	top: 30px;
+	overflow: visible;
+	display: none;
+	}
+
+#close {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding-right: 10;
+	padding-top: 10;
+	}
+a {
+	color: #FFFFFF;
+	}

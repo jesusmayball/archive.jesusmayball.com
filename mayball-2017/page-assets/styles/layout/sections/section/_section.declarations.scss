@@ -1,0 +1,35 @@
+$section-labels: (night, entertainment, ticket-info, sponsors, charities, work, committee);
+
+$section-images: (
+    (
+        section-label: night,
+        url: "../img/night.jpg",
+        width: 720px,
+        height: 882px
+    ), (
+        section-label: entertainment,
+        url: "../img/entertainment.jpg",
+        width: 960px,
+        height: 720px
+    ), (
+        section-label: ticket-info,
+        url: "../img/ticket-info.jpg",
+        width: 720px,
+        height: 882px
+    ), (
+        section-label: sponsors,
+        url: "../img/sponsors.jpg",
+        width: 417px,
+        height: 556px
+    ), (
+        section-label: charities,
+        url: "../img/charities.jpg",
+        width: 320px,
+        height: 214px
+    ), (
+        section-label: work,
+        url: "../img/work.jpg",
+        width: 320px,
+        height: 214px
+    )
+);

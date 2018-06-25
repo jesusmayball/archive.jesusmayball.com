@@ -1,0 +1,21 @@
+@mixin selection {
+    ::-moz-selection {
+        @content;
+    }
+
+    ::selection {
+        @content;
+    }
+}
+
+@mixin blink($period: 1s) {
+    animation: blink $period steps(5, start) infinite;
+}
+
+@keyframes blink {
+    to { visibility: hidden; }
+}
+
+@-webkit-keyframes blink {
+    to { visibility: hidden; }
+}

@@ -1,0 +1,32 @@
+%hidden {
+    position: absolute !important;
+    // no need for this line & did not play nicely with highcharts
+    // visibility: hidden !important;
+    display: block !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: none !important;
+    outline: none !important;
+}
+
+%ellipsis-text-overflow {
+    white-space: nowrap;
+    text-overflow: clip;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+%unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+body.unselectable {
+    @extend %unselectable;
+}

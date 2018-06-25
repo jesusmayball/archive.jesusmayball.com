@@ -1,0 +1,88 @@
+/*------------------------------------*\
+    #COMMON
+\*------------------------------------*/
+
+/**
+ * common variables which can be used by any plugins, these will be defined below
+ */
+
+
+$lib-standard-default-font-size: 16px !default;
+
+$lib-pixel-default-font-size: 18px !default;
+// percentage value (112.5%)
+$lib-percentage-font-size: ($lib-pixel-default-font-size / $lib-standard-default-font-size) * 100 !default;
+// standard font-weight
+$lib-font-weight: normal !default;
+// (1.65 * 18px = 29.7px)
+$lib-line-height: 1.65 !default;
+// Serif font face
+$lib-font-serif-boolean: true !default;
+// Custom font-face stack, if set will be added to the $font-family
+$lib-custom-font-family: Garamond, 'Times New Roman' !default;
+$lib-font-family: if($lib-font-serif-boolean, serif, sans-serif) !default;
+$lib-combined-font-family: $lib-custom-font-family, $lib-font-family;
+// add spacing between consecutive paragraphs
+$lib-paragraph-spacing: true !default;
+
+$lib-spacing-unit: $lib-line-height * $lib-pixel-default-font-size !default;
+// not actually used by any library
+$lib-spacing-unit--mini:    round($lib-spacing-unit / 8) !default;
+// not actually used by any library
+$lib-spacing-unit--tiny:    round($lib-spacing-unit / 4) !default;
+$lib-spacing-unit--small:    round($lib-spacing-unit / 2) !default;
+$lib-spacing-unit--large:    round($lib-spacing-unit * 2) !default;
+// not actually used by any library
+$lib-spacing-unit--huge:    round($lib-spacing-unit * 4) !default;
+
+$lib-enable-list-block--small: true !default;
+$lib-enable-list-block--tiny: true !default;
+
+$lib-body-color: #e7e3d8 !default;
+$lib-heading-color: #c49458 !default;
+
+$lib-small-print-size: 65% !default;
+
+/*------------------------------------*\
+    #TYPEPLATE
+\*------------------------------------*/
+
+/**
+ * variables for the typeplate plugin, for typography
+ */
+
+$typl8-font-weight: $lib-font-weight;
+$typl8-line-height: $lib-line-height;
+$typl8-font-size: $lib-percentage-font-size;
+$typl8-font-base: $lib-pixel-default-font-size / ($lib-pixel-default-font-size * 0 + 1);
+$typl8-serif-boolean: $lib-font-serif-boolean;
+$typl8-custom-font: $lib-custom-font-family;
+$typl8-font-family: $lib-font-family;
+
+$typl8-heading-color: $lib-heading-color;
+$typl8-copy-color: $lib-body-color;
+$typl8-paragraph-spacing: $lib-paragraph-spacing;
+$typl8-small-print-size: $lib-small-print-size;
+
+
+/*------------------------------------*\
+    #INUIT
+\*------------------------------------*/
+
+/**
+ * variables for the inuit plugin
+ */
+
+
+$inuit-base-font-size:              $lib-pixel-default-font-size !default;
+// inuit converts this back to non-pixel equivalent
+$inuit-base-line-height:            $lib-line-height * $lib-pixel-default-font-size !default;
+
+$inuit-base-text-color:             $lib-body-color !default;
+
+$inuit-base-spacing-unit:			$lib-spacing-unit !default;
+$inuit-base-spacing-unit--small:    $lib-spacing-unit--small !default;
+$inuit-base-spacing-unit--large:    $lib-spacing-unit--large !default;
+
+$inuit-enable-list-block--small: $lib-enable-list-block--small !default;
+$inuit-enable-list-block--tiny: $lib-enable-list-block--tiny !default;

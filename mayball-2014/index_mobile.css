@@ -1,0 +1,333 @@
+@font-face{
+font-family: titleFont;
+src: url(media/episode1.ttf);
+}
+
+body{
+	margin: 0px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background: black;
+	font-family: Georgia, serif;
+}
+
+h1, h2, h4, h3{
+	font-family: titleFont, Georgia, serif;
+}
+
+#mobileBody{
+	background-image: url('media/mobileBackground2.png');
+	background-size: 100% 102%;
+	background-repeat: no-repeat;
+	padding: 2%;
+	text-align: center;
+	margin: 0px;
+	height: auto;
+	width: 96%;
+	display: block;
+	position: absolute;
+	color: white;
+}
+#mobileLogo{
+	width: 100%;
+}
+
+h1{
+	margin-top: 50px;
+	color: #E6E6FF;
+}
+h2{
+	margin: 5px auto;
+	color: #E6E6FF;
+}
+h3{
+	color: #E6E6FF;
+	margin-top: 17px;
+	margin-bottom: 10px;
+}
+h4{
+	color: #E6E6FF;
+	margin-top: 17px;
+	margin-bottom: 10px;
+}
+a{
+	color: #E6E6FF;
+}
+p{
+	margin: 0px auto;
+}
+p.snug{
+	margin: 2px;
+}
+
+/*
+@media only screen and (min-width: 300px){
+#mobile{
+	display: none;
+}
+#small{
+	display: block;
+	background-color: black;
+	color: white;
+}
+#smallBody{
+	background-image: url('media/mobileBackground.jpg');
+	width: 70%;
+	margin: 0px 15%;
+	padding-bottom: 30px;
+	min-width: 210px;
+	text-align: center;
+}
+p{
+	width: 100%;
+	word-wrap: normal;
+}
+#splash{
+	display: none;
+}
+#site{
+	display: none;
+}
+#smallLogo{
+	max-height: 300px;
+	max-width: 70%;
+	height: 80%;
+	margin: 5px auto;
+}
+
+	
+}
+
+@media only screen and (min-width: 800px) and (min-height: 600px) {
+#mobile{
+	display: none;
+}
+#small{
+	display: none;
+}
+#splash{
+	display: block;
+}
+#site{
+	display: block;
+}
+div {
+	//terquoise: #008E8F;
+	//dark blue: #244163;
+	//lighter dark blue: #1D4560;
+	//light blue: #E6E6FF;
+	//grey: #F5F5FF;
+	min-width: 10px;
+	min-height: 10px;
+	display: block;
+}
+
+body{
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+.bodydiv {
+	width: 10000px;
+	overflow: hidden;
+	display: block;
+	margin: 0px;
+	height: 100%;
+	position: absolute;
+}
+
+.page {
+	float: left;
+	overflow: hidden;
+	width: 700px;
+	height: 500px;
+	display: table;
+	margin: 20px 395px;
+	padding: 15px 40px;
+	background: rgb(189,189,209);
+	background: rgba(230,230,255,0.75);
+	border-radius: 15px;
+	box-shadow: 0 0 20px 5px rgb(189,189,209);
+	box-shadow: 0 0 20px 5px rgba(230,230,255,0.9);
+	color: black;
+	font-family: Georgia, serif;
+	text-align: center;
+	font-size: 17px;
+}
+
+.strip {
+	top: 0px;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	background-color: transparent;
+}
+
+#pages {
+	z-index: 0;
+	display: table;
+	height: 100%;
+}
+
+#background{
+	width: 9000px;//5910px; // 11820 * 0.5 + 1800+500
+	height: 100%;
+	z-index: -1;
+	display: block;
+	float: left;
+	background-image: url('media/aspen_dark.jpg');
+	background-size: auto 100%;
+}
+
+.screen{
+	pointer-events: none;
+	top: 0px;
+	height: 100%;
+	overflow: hidden;
+	background-color: transparent;
+	float: left;
+	position: absolute;
+	display: block;
+	font-size: 0px;
+}
+.screenlayer1{
+	width: 400%;
+	z-index: 1;
+}
+.screenlayer2{
+	width: 600%;
+	z-index: 2;
+}
+.screenlayer3{
+	width: 1300%;
+	z-index: 3;
+}
+
+.atree{
+	height: 100%;
+	top: 0px;
+	display: inline-block;
+	background-size: 100%; 
+}
+
+.stretch{
+	width: 100%;
+	height: 100%;
+}
+
+.columns {
+	display: inline-block;
+}
+#left {
+	float: left;
+	margin-left: 10px
+}
+#center{
+	float: left;
+	margin-left: auto;
+	margin-right: auto;
+}
+#right{
+	float: right;
+	margin-right: 10px;
+}
+.two-column {
+	width: 315px;
+	text-align: center;
+}
+.three-column {
+	width: 190px;
+	text-align: center;
+}
+
+div#footer_wrapper {
+	z-index: 10;
+	width: 100%;
+	text-align:center;
+	background: rgb(189,189,209);
+	background: rgba(230,230,255,0.7);
+	box-shadow: 0 0 20px 5px rgb(189,189,209);
+	box-shadow: 0 0 20px 5px rgba(230,230,255,0.9);
+	position: fixed;
+	left: 0px;
+    bottom: 2%;
+    font-size: 20px;
+}
+div#floating-menu {
+	padding: 5px;	
+}
+#footer_message {
+	color: #F5F5FF;
+}
+
+.floating-menu-link {
+	padding: 5px 20px;
+	margin: 30px 0px;
+}
+.floating-menu-link:link {
+	color: #244163;
+	text-decoration: none;
+}
+.floating-menu-link:visited {
+	color: #1D4560;	
+	text-decoration: none;
+}
+.floating-menu-link:hover {
+	color: #E6E6FF;
+	text-decoration: underline;
+}
+
+.charity-logo {
+	opacity: 1.0;
+	border: 1px;
+	margin: 12px;
+	display: block;
+}
+
+img {
+	height: 100%;
+	display: inline;
+}
+
+a{
+	color: #244163;
+	text-decoration: none;
+}
+a:visited{
+	color: #1D4560;
+	text-decoration: none;
+}
+a:hover{
+	color: #E6E6FF;
+	text-decoration: underline;
+}
+
+.header-link {
+	width: 100%;
+	float: center;
+	display: block;
+}
+
+h1 {
+	display: block;
+	text-align: center;
+	color: #0e3855;
+}
+h2 {
+	margin: 20px 0px;
+}
+.title {
+	color: #0e3855;
+}
+.splash {
+ color: #008E8F
+}
+h4 {
+	color: #0e3855;
+	margin: 5px;
+	margin-top: 15px;
+}
+
+}
+
+*/

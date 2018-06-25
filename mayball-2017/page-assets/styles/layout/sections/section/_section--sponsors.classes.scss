@@ -1,0 +1,25 @@
+.section--sponsors__sponsor-link-container {
+    @include grid-section;
+
+    margin: $lib-spacing-unit 0;
+}
+
+.section--sponsors__item {
+    @include grid-section-item((desk: 2, lap: 2, palm-only: 2, thumb: 1), 1);
+}
+
+.section--sponsors__sponsor-link {
+    @include grid-section-item-link(true);
+
+    &--lafayette-photography {
+        &:before {
+            background-image: url(../img/lafayette-photography-logo.png);
+        }
+    }
+
+    &--fireball {
+        &:before {
+            background-image: url(../img/fireball-logo.png);
+        }
+    }
+}

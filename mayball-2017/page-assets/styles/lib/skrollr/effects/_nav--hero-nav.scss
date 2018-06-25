@@ -1,0 +1,51 @@
+// .nav--hero-nav {
+//     -skrollr-animation-name: nav-appear;
+// }
+
+// @-skrollr-keyframes nav-appear {
+//     skrollr-bottom-top {
+//         opacity: 0;
+//     }
+
+//     skrollr--400-bottom-top {
+//         opacity: 1;
+//     }
+// }
+
+// .nav {
+//     -skrollr-animation-name: nav-fix;
+// }
+
+// @-skrollr-keyframes nav-fix {
+//     skrollr-0 {
+//         // `unquote` used to prevent compilation errors
+//         // position: unquote("!relative");
+//         // width: unquote("!initial");
+//     }
+
+//     // become fixed as soon as the top is hit
+//     skrollr-top {
+//         // `unquote` used to prevent compilation errors
+//         // position: unquote("!fixed");
+//         // width: unquote("!100%");
+
+//         // animate in new things (eg logo to side or whatever)
+//         // border-color: to-rgb(colour(section-background));
+//         // 
+//         // overflow: unquote("!visible");
+//     }
+
+//     skrollr--200-top {
+//         // border-color: to-rgb(colour(border));
+        
+//         // overflow: unquote("!hidden");
+//     }
+
+//     skrollr-bottom-top {
+//         opacity: 0;
+//     }
+
+//     skrollr--400-bottom-top {
+//         opacity: 1;
+//     }
+// }

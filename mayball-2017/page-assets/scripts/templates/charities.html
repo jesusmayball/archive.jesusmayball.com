@@ -1,0 +1,50 @@
+<%
+	var charities = _.shuffle([
+		{
+			title: "Bloodwise",
+			label: "bloodwise",
+			details: "Bloodwise is a charity dedicated to funding ground-breaking research to help improve the diagnosis and treatment of patients affected by blood cancers. The charity additionally provides information and support via their patient services team hotline.",
+			url: "https://bloodwise.org.uk/"
+		},
+		{
+			title: "CATS",
+			label: "cats",
+			details: "CATS is the Cancer Awareness in Teenagers and Young People Society. With awareness events running throughout the year, CATS aims to make students aware of common teenager and young adult cancers, and their signs and symptoms. Additionally, this charity provides a space for individuals to talk about their experience with cancer, and provides a support network for those going through difficult times.",
+			url: "http://www.thecatscampaign.org/"
+		}, 
+		{
+			title: "CRCC",
+			label: "crcc",
+			details: "Cambridge Rape Crisis Centre is a charity that offers support and services to women and girls in Cambridgeshire dealing with the effects of sexual violence. This charity offers confidential and non-judgemental support and information via helpline to those in need, as well as training and campaigning. They provide a safe, supportive, women-only environment in which survivors will be believed and trusted.",
+			url: "http://cambridgerapecrisis.org.uk/"
+		}, {
+			title: "EPA",
+			label: "epa",
+			details: "EPAfrica is a student based organisation, woking in direct partnership with schools based in Uganda and Kenya to develop their capacity for self-led growth. The charity aims to do this by equipping schools with a solid resource base, and though supporting a wider and more holistic program.",
+			url: "http://epafrica.org.uk/"
+		}, {
+			title: "SCA",
+			label: "sca",
+			details: "Student Community action is a student-directs, community-focused volunteering organisation that responds to the needs of local communities in the Cambridgeshire area, as well as equipping students of the University with experience in a wide variety of skills.",
+			url: "http://www.cambridgesca.org.uk/"
+		}, {
+			title: "Streetbite",
+			label: "streetbite",
+			details: "Streetbite is a Cambridge-based charity taking tea, coffee, soup, fruit, biscuits, sandwiches and a friendly chat to the homeless and vulnerably-housed people on the streets of Cambridge. This year the Jesus May Ball Committee donated blankets and umbrellas to Streetbite.",
+			url: "http://streetbite.soc.srcf.net/"
+		}
+	]);
+%><!--
+--><p>There is the option to add a £2 charity donation to the price of your ticket, which we hope you will consider. This year, the Committee is supporting three charities.<!--
+	--><%
+		_.each(charities, function (curCharity) {
+			%><!--
+				--><div class="section--charties__charity-info"><!--
+					--><span class="section--charties__charity-image section--charties__charity-image--<%= curCharity.label %>"></span><!--
+					--><h5 class="section--charties__charity-title"><a href="<%= curCharity.url %>" class="section--charties__charity-link"><%= curCharity.title %></a></h5><!--
+					--><p class="section--charties__charity-details"><%= curCharity.details %></p><!--
+				--></div><!--
+			--><%
+		});
+	%><!--
+--></p>

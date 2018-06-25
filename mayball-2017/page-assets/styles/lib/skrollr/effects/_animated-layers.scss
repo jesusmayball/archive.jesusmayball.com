@@ -1,0 +1,51 @@
+@mixin animated-layers($layer-items, $animation-name-prefix, $class-prefix, $class-middle, $animation-field : null, $multi-image: true) {
+    $image-count: 1;
+
+    @if ($multi-image) {
+        $image-count: length($layer-items);
+    }
+
+    @for $cur-image-i from 0 through ($image-count - 1) {
+        $cur-layers: $layer-items;
+
+        @if ($multi-image) {
+            $cur-layers: nth($layer-items, $cur-image-i + 1);
+        }
+
+        @for $cur-layer-i from 0 through (length($cur-layers) - 1) {
+            $cur-layer: nth($cur-layers, $cur-layer-i + 1);
+            $cur-layer-animation: null;
+
+            @if (not map-get($cur-layer, "ignore")) {
+                $cur-layer-animate: false;
+
+                @if ($animation-field == null) {
+                    $cur-layer-animation: $cur-layer;
+
+                    $cur-layer-animate: map-get($cur-layer-animation, "rotate");
+                } @else {
+                    $cur-layer-animation: map-get($cur-layer, $animation-field);
+
+                    $cur-layer-animate: $animation-field and $cur-layer-animation;
+                }
+
+                @if ($cur-layer-animate) {
+                    $class-name: null;
+
+                    @if ($class-middle) {
+                        $class-name: $class-prefix + $cur-image-i + $class-middle + $cur-layer-i;
+                    } @else {
+                        $class-name: $class-prefix + $cur-layer-i;
+                    }
+
+                    @include animated-item(
+                        $class-name,
+                        $animation-name-prefix + $cur-image-i + "-layer-" + $cur-layer-i + "-rotate",
+                        $cur-layer-animation
+                    )
+                }
+            }
+
+        }
+    }
+}

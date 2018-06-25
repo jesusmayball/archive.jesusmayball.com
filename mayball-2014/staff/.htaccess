@@ -1,0 +1,5 @@
+#AuthType Ucam-WebAuth
+#    Require valid-user
+#AuthType Ucam-WebAuth
+#    Require user pc410 lm493 jjm61 gh393 jpb80 cgb35
+DirectoryIndex staffing_closed.php

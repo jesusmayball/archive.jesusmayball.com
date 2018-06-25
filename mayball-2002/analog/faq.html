@@ -1,0 +1,193 @@
+<html> <head>
+<title>Readme for analog -- FAQ</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="Readme.html">Up</a> |
+<a href="errors.html">Prev</a> | <a href="bugs.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Frequently asked questions</h2>
+
+<ol>
+  <li><b>When I try and compile analog, it gives me an error.</b>
+  <li><b>Analog just runs for a moment and then quits.</b>
+  <li><b>Analog didn't write the logfile when I ran it.</b>
+      <br>See the section entitled <cite><a href="start.html">Starting to use
+      analog</a></cite>.
+  <li><b>Is analog Year 2000 compatible?</b>
+      <br>Yes (and so are all previous versions). It works properly for dates
+      between 1970 &amp; 2069 inclusive.
+  <li><b>My stats have stopped updating.</b>
+  <li><b>My stats have reset to zero.</b>
+      <br>If your ISP runs analog for you, you'll have to ask them.
+  <li><b>How do I find out the number of hits from your data?</b>
+      <br>I don't use the word <i>hits</i>, because people use it in
+      different ways, so it's misleading. I use <i>requests</i> for the
+      number of transfers of any type of file (text, graphics, ...), and
+      <i>page requests</i> for the number of transfers of HTML pages. See the
+      section on <cite><a href="defns.html">Analog's definitions</a></cite>
+      for more information.
+  <li><b>Why doesn't the Daily Report only show the last six weeks?</b>
+      <br>This is controlled by the
+      <kbd><a href="timereps.html">FULLDAYROWS</a></kbd> command.
+  <li><b>How do I get information on just my pages, not everybody's?</b>
+  <li><b>How do I ignore accesses from my site?</b>
+      <br>Use the <kbd><a href="include.html">FILEINCLUDE</a></kbd> command
+      or <kbd><a href="include.html">HOSTEXCLUDE</a></kbd> command
+      respectively.
+  <li><b>I want to make several different statistics pages. Do I have to
+      install several copies of analog?</b>
+      <br>No. Just install it once, and run it with different
+      <a href="syntax.html">configuration files</a>.
+  <li><b>Can I get data on individual visitors, or visits, to my site?</b>
+      <br>No, it's not technically possible, and don't believe any program
+      which tells you it is. See the section on
+      <cite><a href="webworks.html">How the web works</a></cite> for details.
+  <li><b>I want to see the total number of hits from my organisation in the
+      Host Report.</b>
+      <br>You can see this in the Domain Report if you use the
+      <kbd><a href="hierreps.html">SUBDOMAIN</a></kbd> command.
+  <li><b>Do I have to save all my old logfiles?</b>
+      <br>This is answered in the section about
+      <cite><a href="cache.html">Cache files</a></cite>.
+  <li><b>What does this error (or warning) mean?</b>
+      <br>See the section on <cite><a href="errors.html">Errors and
+      warnings</a></cite>.
+  <li><b>Why doesn't analog agree with the counter on my page?</b>
+      <br>There are lots of possible reasons. Do they both start from
+      the same date? Are you just looking at requests for that one page with
+      analog, not for all your other pages and graphics? Also, analog will
+      record all requests to that page; if it's a graphic, your counter will
+      only measure requests from people on graphical browsers that reached
+      that place on the page.
+  <li><b>How can I do such-and-such with a commandline option?</b>
+      <br>Use the <kbd><a href="syntax.html">+C</a></kbd> option to put any
+      configuration command on the commandline.
+  <li><b>Why does the form interface give &quot;Document Returned no
+      Data&quot;?</b>
+      <br>If it doesn't happen for a while, then probably the server is giving
+      up before the analog process has finished running. Increase the timeout
+      interval on the server.
+  <li><b>The images don't appear when running analog from the form
+      interface.</b>
+      <br>You probably need to change the
+      <kbd><a href="output.html">IMAGEDIR</a></kbd>. If the images are in your
+      <kbd>/cgi-bin/</kbd> directory, the server will try to execute them
+      instead of just sending them out.
+  <li><b>Can I find out the number of hosts that have accessed each file?</b>
+  <li><b>Can I find out the number of hosts visiting on each day?</b>
+      <br>No; it would require storing too much data (all host/file pairs, or
+      all host/day pairs). If there's a particular file you're interested in,
+      use <kbd><a href="include.html">FILEINCLUDE</a></kbd> to restrict the
+      analysis to only that file. If there's a particular day you're
+      interested in, use <a href="include.html"><kbd>FROM</kbd> and
+      <kbd>TO</kbd></a> to restrict the analysis to only that day.
+  <li><b>How can I run analog every day?</b>
+      <br>This depends on your particular machine. On Unix, you need to run
+      analog as a cron job (see &quot;man cron&quot;). This is my cron command:
+      <br><kbd>20 1 * * * $HOME/misc/analog</kbd>
+      <br>On Windows NT you can do the same with the at command, but only an
+      administrator can run at. On Windows 95 it's not possible.
+      <br>On Mac, there are programs called
+      <a href="http://hyperarchive.lcs.mit.edu/HyperArchive/Archive/cfg/chris-cron-10a7.hqx">Cron</a> or
+      <a href="http://hyperarchive.lcs.mit.edu/HyperArchive/Archive/app/time/">CronoTask</a>
+      to do this.
+  <li><b>How can I specify different logfiles from the form interface?</b>
+      <br>Just add a new field to the form with <kbd>name=lo</kbd>
+  <li><b>Why are directories listed in the request report?</b>
+      <br>They are not directories, they are pages with the same name as
+      the directory. For example, I have a directory called <kbd>/analog/</kbd>
+      and a page called <kbd>/analog/</kbd> (which is the same as
+      <kbd>/analog/index.html</kbd>).
+  <li><b>Why don't you just use one image, and scale it with the
+      <kbd>WIDTH</kbd> and <kbd>HEIGHT</kbd> attributes?</b>
+      <br>The <kbd>WIDTH</kbd> and <kbd>HEIGHT</kbd> only tell the browser
+      what size the image will be. They cannot be used for scaling the image,
+      whatever some browsers do.
+  <li><b>There is a CTRL-Z character in my logfile, and analog stops reading
+      there.</b>
+      <br>Analog is behaving correctly. Under Windows, CTRL-Z (ASCII 26)
+      signifies end-of-file in a text file.
+  <li><b>Why do I only get "unresolved numerical addresses" in the domain
+      report?</b>
+      <br>Your server only records the numerical IP address of the hosts that
+      contact you, not their names. Read the section about
+      <cite><a href="dns.html">DNS lookups</a></cite>.
+  <li><b>Couldn't you do the DNS lookups faster with threads?</b>
+      <br>The problem is, the standard commands for DNS lookups are not
+      thread-safe on most Unices.
+  <li><b>How about an operating system report?</b>
+      <br>Unfortunately, this is not possible. Many browsers record their
+      operating system in your browser log, but not all do, and those that do
+      don't always record it in a consistent format.
+  <li><b>How do I make a link on my page that runs analog?</b>
+      <br>Link to the <a href="form.html">analform</a> program, with the
+      desired options. But be careful about the load on your server.
+  <li><b>My server lists local names in the logfile. Can you put a common
+      suffix on them automatically?</b>
+      <br>This wouldn't be a good idea, because things like &quot;unknown&quot;
+      would get the suffix. You can always add them using
+      <kbd><a href="alias.html">HOSTALIAS</a></kbd>.
+  <li><b>Why don't you make proper graphs or tables?</b>
+      <br>Because lots of people then couldn't read them. Analog produces
+      HTML 2.0 output so that people with any browser can read it. Also, I
+      don't want to assume that people have any particular graphics creation
+      tools.
+  <li><b>Can I change the background colour of my output?</b>
+      <br>Sadly not. Colours only exist in HTML 3.2, not HTML 2.0.
+      Unfortunately, there doesn't seem to be a way to produce the bar charts
+      in my time reports in HTML 3.2.
+  <li><b>Can you extrapolate from the current month's partial data to produce
+      a prediction for the whole month, based on the rate so far?</b>
+      <br>No. There are too many problems in trying to produce anything
+      sensible, especially near the beginning of the month. Different days of
+      the week and different times of day cause lots of problems. I would
+      prefer to produce raw accurate data than suspect derived data.
+  <li><b>Can you extend the Domain Report to say which US states people visited
+      from?</b>
+      <br>No. Some programs pretend to do this, but you can only tell which
+      state the computer they're using is in, which may be quite different
+      from where the user is for ISP's or other large organisations.
+  <li><b>Can I make multiple reports with one pass through the logfile?</b>
+      <br>Not at the moment. I want to do this in a future version, but it will
+      require some considerable work.
+  <li><b>I ran out of memory when trying to run analog. What can I do?</b>
+      <br>See the section on <a href="lowmem.html">Coping with low memory</a>.
+  <li><b>You're processing 10,000,000 requests in under 10 minutes. Why is mine
+      much slower?</b>
+  <li><b>Analog appears to stall.</b>
+      <br>If you have <a href="dns.html">DNS lookups</a> on, they are very
+      slow. Otherwise, it probably depends on the speed of your computer and
+      disks, and what other programs are running at the same time. You can
+      use the <kbd><a href="debug.html">PROGRESSFREQ</a></kbd> command to see
+      if it's really stalled or whether it's just being slow.
+  <li><b>I host lots of virtual domains. How should I set up analog?</b>
+      <br>In my opinion, the best thing is to log each virtual server to a
+      different logfile and analyse them independently. If you log them all to
+      the same logfile, then make sure to log the virtual host name on each
+      line, and use analog's <a href="include.html">VHOSTINCLUDE</a> command
+      to pick out the lines you want.
+  <li><b>Why don't you sell analog?</b>
+      <br>I didn't write analog for the money, and I'm happy just to see
+      people use it. I haven't got time to support it commercially, and I
+      can't use my academic account for commercial purposes. Also, by making
+      it freeware, lots of people send me ideas and code to include in future
+      versions. (Of course, if you want to send me money, or gifts in kind,
+      or even just postcards...).
+</ol>
+
+<hr>
+If your question is not answered here or in the rest of the Readme, and you
+think it should be, see the <a href="bugs.html">next section</a> for how to
+contact me.
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="Readme.html">Up</a> |
+<a href="errors.html">Prev</a> | <a href="bugs.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

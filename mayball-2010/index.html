@@ -1,0 +1,75 @@
+<html>
+<head>
+<script language='javascript'>
+
+var redManPic = new Image(228, 300);
+var redManSil = new Image(228, 300);
+var blueManPic = new Image(228, 300);
+var blueManSil = new Image(228, 300);
+
+redManPic.src = "man.png";
+redManSil.src = "manSil.png";
+blueManPic.src = "blueMan.png";
+blueManSil.src = "blueManSil.png";
+
+function changeImg(cImg,ref) {
+  document.getElementsByName(cImg)[0].src = ref.src;
+}
+
+function getWidth() {
+  return window.innerWidth;
+}
+
+function getHeight() {
+  return window.innerHeight;
+}
+
+function over() {
+  changeImg('silman',redManPic);
+}
+
+function out() {
+  changeImg('silman',redManSil);
+}
+
+function blueover() {
+  changeImg('bluesilman',blueManPic);
+}
+
+function blueout() {
+  changeImg('bluesilman',blueManSil);
+}
+
+function init() {
+  out();
+  blueout();
+var winW;
+if (parseInt(navigator.appVersion)>3) {
+ if (navigator.appName=="Netscape") {
+  winW = window.innerWidth-16;
+ }
+ if (navigator.appName.indexOf("Microsoft")!=-1) {
+  winW = document.body.offsetWidth-20;
+ }
+}
+  var width = (winW-786)/2;
+  document.getElementsByName('silman')[0].style.left = (width + 125) + "px";
+  document.getElementsByName('bluesilman')[0].style.left = (width + 375) + "px";
+  document.getElementsByName('bg')[0].style.left = width;
+}
+
+</script>
+
+<title>Jesus May Ball 2010</title>
+
+</head>
+<body onLoad="init();" bgproperties="fixed" STYLE="background-color:#000000; background-repeat: no-repeat;">
+<img name="bg" src="backgroundForEntry.jpg" style="position:absolute; top:0px; left:0px" border="0">
+<a href="mainSite.html">
+<img name="silMan" src="man.png" style="position:absolute; top:150px; left:125px" onMouseOver="over();" onMouseOut="out();" border="0">
+</a>
+<a href="EntsRelease.html">
+<img name="bluesilMan" src="blueMan.png" style="position:absolute; top:150px; left:375px" onMouseOver="blueover();" onMouseOut="blueout();" border="0">
+</a>
+</body>
+</html>

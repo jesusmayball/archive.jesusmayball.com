@@ -1,0 +1,210 @@
+@mixin animatable-layers($layer-items, $class-prefix, $class-middle, $image-url-prefix, $image-url-middle, $no-touch: false, $animation-field : null, $multi-image: true, $position-layers: true) {
+    $image-count: 1;
+
+    @if ($multi-image) {
+        $image-count: length($layer-items);
+    }
+
+    @for $cur-image-i from 0 through ($image-count - 1) {
+        $cur-layers: $layer-items;
+
+        @if ($multi-image) {
+            $cur-layers: nth($layer-items, $cur-image-i + 1);
+        }
+        
+
+        @for $cur-layer-i from 0 through (length($cur-layers) - 1) {
+            $cur-layer: nth($cur-layers, $cur-layer-i + 1);
+            $cur-layer-animation: null;
+
+            @if ($animation-field == null) {
+                $cur-layer-animation: $cur-layer;
+            } @else {
+                $cur-layer-animation: map-get($cur-layer, $animation-field);
+            }
+
+            @if (not map-get($cur-layer, "ignore")) {
+                $cur-layer-class: $class-prefix + $cur-image-i + $class-middle + $cur-layer-i;
+
+                @if (not $class-middle) {
+                    $cur-layer-class: $class-prefix + $cur-layer-i;
+                }
+
+                .#{$cur-layer-class} {
+                    $cur-layer-image-extension: ".jpg";
+                    
+                    @if (map-get($cur-layer, "png")) {
+                        $cur-layer-image-extension: ".png";
+                    }
+                    
+                    // determine image url
+                    $cur-layer-image-start: $image-url-prefix;
+                    @if ($class-middle) {
+                        $cur-layer-image-start: $cur-layer-image-start + $cur-image-i + $image-url-middle;
+                    }
+
+
+
+                    @each $device-width in (palm, lap, desk) {
+                        @include respond($device-width + "-device") {
+                            $url-layer-i: $cur-layer-i;
+                            @if (map-get($cur-layer, "image-url-index-override")) {
+                                $url-layer-i: map-get($cur-layer, "image-url-index-override");
+                            }
+                            background-image: url($cur-layer-image-start + $url-layer-i + "-" + $device-width + $cur-layer-image-extension);
+                        }
+                    }
+
+                    @if (not $no-touch) {
+                        .-bowser-mobile & {
+                            background-image: url($cur-layer-image-start + $cur-layer-i + "-touch" + $cur-layer-image-extension);
+                        }
+                    }
+                    
+                    $cur-layer-animate: false;
+
+                    @if ($animation-field) {
+                        $cur-layer-animate: $cur-layer-animation;
+                    } @else {
+                        $cur-layer-animate: map-get($cur-layer-animation, "rotate");
+                    }
+
+                    
+                    @if ($cur-layer-animate) {
+                        @if (map-get($cur-layer-animation, "origin-x") != null) {
+                            transform-origin: map-get($cur-layer-animation, "origin-x") map-get($cur-layer-animation, "origin-y");
+                        }
+                        @if (map-get($cur-layer-animation, "opacity") != null) {
+                            opacity: map-get($cur-layer, "opacity");
+                        }
+
+                        width: map-get($cur-layer, "width");
+                        height: map-get($cur-layer, "height");
+
+                        transform: translateX(map-get($cur-layer-animation, "left-start")) translateY(map-get($cur-layer-animation, "top-start"));
+
+                        @if ($position-layers) {
+                            top: 0;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin grid-section {
+    text-align: center;
+}
+
+@mixin grid-section-item($row-items : (desk: 4, lap: 3, palm-only: 2, thumb: 1), $aspect: null, $item-spacing : $lib-spacing-unit--small, $first-row-class: null, $first-row-items: $row-items) {
+    // fit this number to row
+    $item-width: (100% / map-get($row-items, desk));
+    width: $item-width;
+    @if ($aspect != null) {
+        $item-height: $aspect * $item-width;
+        padding-top: $item-height;
+    }
+
+    display: inline-block;
+    padding-left: $item-spacing;
+    padding-right: $item-spacing;
+    vertical-align: top;
+
+    position: relative;
+
+    margin-top: $item-spacing;
+
+
+    @include respond(desk) {
+        @if ($first-row-class != null) {
+            @for $i from 1 through map-get($first-row-items, desk) {
+                .#{$first-row-class} &:nth-child(#{$i}) {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+    @include respond(lap) {
+        $item-width: (100% / map-get($row-items, lap));
+        width: $item-width;
+        @if ($aspect != null) {
+            $item-height: $aspect * $item-width;
+            padding-top: $item-height;
+        }
+        @if ($first-row-class != null) {
+            @for $i from 1 through map-get($first-row-items, lap) {
+                .#{$first-row-class} &:nth-child(#{$i}) {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    @include respond(palm-only) {
+        $item-width: (100% / map-get($row-items, palm-only));
+        width: $item-width;
+        @if ($aspect != null) {
+            $item-height: $aspect * $item-width;
+            padding-top: $item-height;
+        }
+        @if ($first-row-class != null) {
+            @for $i from 1 through map-get($first-row-items, palm-only) {
+                .#{$first-row-class} &:nth-child(#{$i}) {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    @include respond(thumb) {
+        $item-width: (100% / map-get($row-items, thumb));
+        width: $item-width;
+        @if ($aspect != null) {
+            $item-height: $aspect * $item-width;
+            padding-top: $item-height;
+        }
+        @if ($first-row-class != null) {
+            @for $i from 1 through map-get($first-row-items, thumb) {
+                .#{$first-row-class} &:nth-child(#{$i}) {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+@mixin grid-section-item-link($link-hover : false, $item-spacing : $lib-spacing-unit--small) {
+    display: block;
+    position: absolute;
+    top: $item-spacing;
+    bottom: $item-spacing;
+    left: $item-spacing;
+    right: $item-spacing;
+
+    opacity: 0.75;
+    transition: opacity 500ms;
+
+    @if ($link-hover) {
+        &:hover {
+            @extend %button:hover;
+
+            opacity: 1;
+        }
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        position: absolute;
+        top: $item-spacing;
+        bottom: $item-spacing;
+        left: $item-spacing;
+        right: $item-spacing;
+    }
+}

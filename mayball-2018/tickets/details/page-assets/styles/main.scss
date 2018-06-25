@@ -1,0 +1,52 @@
+// include directory helpers/styles
+@import "../../../../dir-assets/styles/includes.main";
+
+@import "layout/details-faqs.classes";
+@import "layout/details-final.classes";
+
+
+// I shouldn't have just pasted this in but I cba fixing and time is pressing
+/* hN */.section--contents__title {
+    @extend .typl8-gamma;
+
+    text-transform: uppercase;
+    margin-bottom: $lib-spacing-unit;
+    letter-spacing: 0.3em;
+    display: none;
+
+    &--lap-and-up {
+        @include respond(lap-and-up) {
+            display: block;
+        }        
+    }
+
+    &--palm {
+        @extend .typl8-delta;
+
+        @include respond(palm) {
+            display: block;
+        }
+
+        @include respond(thumb) {
+            display: none;
+        }
+    }
+
+    &--thumb {
+        @extend .typl8-zeta;
+
+        @include respond(thumb) {
+            display: block;
+        }
+    }
+
+    &--subpage-title {
+        text-align: right;
+    }
+
+    @include respond(palm) {
+        &, .section--odd & {
+            text-align: center;
+        }
+    }
+}

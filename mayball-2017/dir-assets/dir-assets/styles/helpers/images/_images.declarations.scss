@@ -1,0 +1,5 @@
+// properties are maps with the properties `url`, `width` and `height`
+$image-files: ();
+// properties are maps with the properties `file` (refers to name in the above), `width`, `height`
+// and optionally `background-position-x` and `background-position-y` (RECOMMENDED TO USE PERCENTAGES)
+$images: ();

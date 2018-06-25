@@ -1,0 +1,10 @@
+@function image-position($position) {
+	$cur-image: map-get($images, $img-name);
+    $cur-image-file: map-get($image-files, map-get($cur-image, file));
+    
+	@if ($position == top) {
+        // bottom: (100% / 6) * $cur-paralax-image-index;
+	} @elseif ($position == bottom) {
+        // top: background-position: 0 (100% / 6) * ($cur-paralax-image-index - 1);
+	}
+}

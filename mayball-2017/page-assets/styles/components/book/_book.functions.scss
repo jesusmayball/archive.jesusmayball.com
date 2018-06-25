@@ -1,0 +1,13 @@
+@function check-duration($duration) {
+	@if ($duration < 0s) {
+		@warn "Duration " + $duration + " is not valid";
+	}
+	@return $duration;
+}
+
+@function check-opacity($opacity) {
+	@if ($opacity < 0 or $opacity > 1) {
+		@warn "opacity " + $opacity + " is not valid";
+	}
+	@return $opacity;
+}

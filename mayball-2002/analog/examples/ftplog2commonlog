@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+#
+# Convert ftp logs to common log format so they can be processed by 
+# standard web log processing software.
+#
+# Ftplog2Commonlog v. 1.0 is copyright 1995, 1996, 1997 by Joey Hess.
+# May be distributed under the terms of the GPL.
+#
+# Usage:
+# 	ftplog2commonlog < logfile
+#
+
+# Enter text to use for a timezone offset here:
+$tzoffset=' -0400';
+
+while (<>) {
+	($mon,$mday,$time,$year,$host,$size,$filename)=m/.*?\s+(.*?)\s+(\d+)\s+(.*?)\s+(\d+)\s+.*?\s+(.*?)\s+(\d+)\s+(.*?)\s+/;
+	if (length($mday) == 1) { $mday="0$mday" }
+	if (length($mon) == 1) { $mon="0$mon" }
+	print "$host - - [$mday/$mon/$year:$time$tzoffset] \"GET $filename HTTP/1.0\" 200 $size\n";
+}

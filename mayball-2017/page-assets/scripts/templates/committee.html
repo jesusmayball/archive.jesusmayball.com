@@ -1,0 +1,197 @@
+<%
+	var rows = [[
+		{
+			name: "Daniel Patton",
+			position: "President",
+			email: "daniel@jesusmayball.com"
+		}, {
+			name: "Elle Prince",
+			position: "President",
+			email: "elle@jesusmayball.com"
+		}
+	], [{
+			name: "Ted Roberts",
+			position: "Treasurer",
+			email: "treasurer@jesusmayball.com",
+			// duplicateName: true
+		}, {
+			name: "Ellie Arris",
+			position: "Secretary",
+			email: "secretary@jesusmayball.com"
+		}, {
+			name: "Lizzie Reeves",
+			position: "Food",
+			email: "food@jesusmayball.com"
+		}, {
+			name: "Izaak Jephson",
+			position: "Drinks",
+			email: "drink@jesusmayball.com"
+		}
+	], [{
+			name: "Nick Pearson",
+			position: "Main Ents",
+			// email: "ents@jesusmayball.com,main-ents@jesusmayball.com"
+			email: "main.ents@jesusmayball.com"
+		}, {
+			name: "Kayleigh Dawson",
+			position: "Student Ents",
+			// email: "ents@jesusmayball.com,student-ents@jesusmayball.com"
+			email: "student.ents@jesusmayball.com"
+		}, {
+			name: "Lara Sullivan",
+			position: "Non-Music Ents",
+			// email: "ents@jesusmayball.com,nonmusic-ents@jesusmayball.com"
+			email: "nonmusic.ents@jesusmayball.com"
+		},  {
+			name: "Robert Cronshaw",
+			title: "Robert 'Not Rob' Cronshaw",
+			position: "Security",
+			email: "security@jesusmayball.com"
+		},
+	], [{
+			name: "David Adeboye",
+			position: "Technical Logistics",
+			email: "technical@jesusmayball.com"
+		}, {
+			name: "Johannes Theron",
+			position: "Infrastructural Logistics",
+			email: "infrastructure@jesusmayball.com"
+		}, {
+			name: "James Kendall",
+			position: "Staffing",
+			email: "james@jesusmayball.com"
+		}, {
+			name: "Edward Parker Humphreys",
+			position: "Staffing",
+			email: "edward@jesusmayball.com"
+		}
+	], [{
+			name: "Amy Smith",
+			position: "Head of Design",
+			email: "design@jesusmayball.com"
+		}, {
+			name: "Lisa Chan",
+			position: "Deputy Head of Design",
+			email: "lisa@jesusmayball.com"
+		}, {
+			name: "Danielle Forster",
+			position: "Design",
+			email: "danielle@jesusmayball.com",
+			subposition: {
+				position: "Publicity",
+				email: "publicity@jesusmayball.com"
+			}
+		}, {
+			name: "Matt Seccombe",
+			position: "Design",
+			email: "matt@jesusmayball.com",
+			subposition: {
+				position: "Sponsorship",
+				email: "sponsorship@jesusmayball.com"
+			}
+		}
+	], [{
+			name: "Sofia Clini",
+			position: "Design",
+			email: "sofia@jesusmayball.com",
+			subposition: {
+				position: "Green",
+				email: "green@jesusmayball.com"
+			}
+		}, {
+			name: "Addy Mettrick",
+			position: "Design",
+			email: "addy@jesusmayball.com",
+			subposition: {
+				position: "Social Media"
+			}
+		}, {
+			name: "Keerthi Senthil",
+			position: "Ticketing",
+			email: "tickets@jesusmayball.com"
+		}, {
+			name: "Josh Bambrick",
+			position: "Webmaster",
+			email: "webmaster@jesusmayball.com"
+		}
+	]];
+
+	$(document).on('click', '.section--committee__member-img', function (e) {
+		var $this = $(this);
+		e.stopPropagation();
+		$this.data('numClicks', ($this.data('numClicks') || 0) + 1);
+		if ($this.data('numClicks') % 4 === 0) {
+			$this.toggleClass('section--committee__member-img--josh');
+		}
+	});
+
+
+	var prob_webmaster_first = 2 / 100;
+	if (Math.random() < prob_webmaster_first) {
+		var webmaster = rows[5][3];
+		rows[5][3] = rows[0][0];
+		rows[0][0] = webmaster;
+	}
+
+	_.each(rows, function (curRow, rowIndex) {
+	%><!--
+		--><div class="section--committee__member-row <%= rowIndex == 0 ? "section--committee__member-row--first-row" : "" %>"><!--
+		--><%
+			_.each(curRow, function (curMember) {
+				var curMemberNames = curMember.name.split(" ");
+					curMemberLabel = (curMemberNames[0] + (curMember.duplicateName ? "-" + curMemberNames[1] : "")).toLowerCase();
+			%><!--
+				--><figure
+					class="
+						section--committee__member-item
+						section--committee__member-item--<%= curMemberLabel %>
+					"
+
+					title="<%= curMember.title ? curMember.title : curMember.name %>"
+				><!--
+					--><span
+						class="
+							section--committee__member-img
+							section--committee__member-img--<%= curMemberLabel %>
+						"
+					></span><!--
+					--><span
+						class="
+							section--committee__member-label
+							section--committee__member-label--<%= curMemberLabel %>
+						"
+					><%= curMemberNames[0] %> - <%= curMember.position %><!--
+						--><%
+							if (curMember.subposition) {
+								if (curMember.subposition.email) {
+									%><!--
+									--> (<a
+											href="mailto:<%= curMember.subposition.email %>"
+											title="<%= curMember.subposition.email %>"
+										><%= curMember.subposition.position %></a>)<!--
+									--><%
+								} else {
+									%> (<%= curMember.subposition.position %>)<%
+								}
+							}	
+						%><!--
+						--><br><!--
+						--><a
+							class="
+								section--committee__member-email
+								section--committee__member-email--<%= curMemberLabel %>
+							"
+
+							href="mailto:<%= curMember.email %>"
+							
+							title="<%= curMember.email %>"
+						><%= curMember.email %></a><!--
+					--></span><!--
+				--></figure><!--
+			--><%
+			});
+		%><!--
+		--></div><!--
+	--><%
+	});
+%>

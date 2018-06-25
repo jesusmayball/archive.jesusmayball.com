@@ -1,0 +1,30 @@
+<html>
+<head>
+<script language="javascript">
+
+function fade(a,b,time) {
+	if(time<=105) {
+		document.getElementById(a).style.filter="alpha(opacity=" + (100-time) + ")";
+		document.getElementById(b).style.filter="alpha(opacity=" + time + ")";
+		x=a;
+		y=b;
+		t=time+7;
+		setTimeout('fade(x,y,t)',200);
+		}
+	}
+
+function choreograph() {
+	setTimeout("fade('img1','img2',0)",2000);
+	}
+</script>
+</head>
+<body onLoad="choreograph()" bgcolor="#190058">
+
+<img id="img1" style="position: absolute; left: 32%; top: 2%; z-index: 1; width: 36%;" src='poster.gif'>
+<a href='intro.html'><img border='0' id="img2"  style="position: absolute; left: 32%; top: 2%; z-index: 2; width: 36%; filter: alpha(opacity=0)"src='mask5.gif'></a>
+
+
+
+
+</body>
+</html>

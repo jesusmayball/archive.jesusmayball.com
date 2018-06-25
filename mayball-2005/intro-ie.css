@@ -1,0 +1,41 @@
+body {
+	height: 100%;
+	text-align: center;
+	background-color: #000000;
+	}
+
+#box {
+	border: 1px solid #FFFFFF;
+	color: #FFFFFF;
+	width: 710px;
+	height: 400px;
+	position: relative;
+	margin: -210px auto auto auto;
+	text-align: left;
+	top: 50%;
+	background: #000000;
+	overflow: hidden;
+	}
+
+.intro {
+	color: #FFFFFF;
+	position: absolute;
+	left: 100px;
+	top: 30px;
+	overflow: visible;
+	display: none;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-moz-opacity: 0;
+	-khtml-opacity: 0;
+	}
+#close {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding-right: 10;
+	padding-top: 10;
+	}
+a {
+	color: #FFFFFF;
+	}

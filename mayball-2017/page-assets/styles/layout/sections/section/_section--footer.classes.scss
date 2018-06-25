@@ -1,0 +1,38 @@
+.section--footer__space-pirates-link {
+    color: transparent;
+    position: absolute;
+    right: 0;
+
+    &::selection {
+    	color: white;
+    }
+}
+
+.section--footer__space-pirates-overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: none;
+
+	background-color: rgba(0, 0, 0, 0.6);
+
+	.section--overlay & {
+		display: block;
+	}
+}
+
+.section--footer__space-pirates-title {
+	color: white;
+	font-weight: bold;
+}
+
+.section--footer__spaceship {
+	width: 20%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: rotate(0deg);
+    transform-origin: 250% 250%;
+}

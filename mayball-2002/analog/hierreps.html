@@ -1,0 +1,130 @@
+<html> <head>
+<title>Readme for analog -- hierarchical reports</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="othreps.html">Prev</a> | <a href="domfile.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Hierarchical reports</h2>
+
+Some of the non-time reports have a hierarchical (or tree) structure:
+so, for example, each domain in the domain report can have subdomains
+listed under it, which in turn can have sub-subdomains, and so on. This
+section describes commands for managing hierarchical reports.
+
+<p>
+First, you need to be able to control what gets listed in the reports.
+For this you need to use the <kbd>SUB</kbd> family of commands. So, for
+example, the command
+<kbd>
+SUBDIR /~sret1/*
+</kbd>
+would ensure that the Directory Report would not only contain an entry for
+the sum of my files, but also one for each of my subdirectories, something
+like this:
+<pre>
+29,111: /~sret1/
+10,234:   /~sret1/analog/
+ 5,179:   /~sret1/backgammon/
+11,908: /~steve/
+</pre>
+
+<p>
+If you specify a <kbd>SUB</kbd> command, all the intermediate levels are
+included automatically. So, for example, after
+<pre>
+SUBDOMAIN statslab.cam.ac.uk
+</pre>
+<kbd>cam.ac.uk</kbd> and <kbd>ac.uk</kbd> will be included in the Domain
+Report too, and after <kbd>*.*.ac.uk</kbd>, <kbd>*.ac.uk</kbd> will be
+included.
+
+<p>
+Here are examples of the other three <kbd>SUB</kbd> commands:
+<pre>
+SUBTYPE *.gz      # in the File Type Report
+SUBBROW Mozilla/*  # in the Browser Summary
+REFDIR http://search.yahoo.com/*   # Referring Site Report
+</pre>
+
+<p>
+The <kbd>SUBDOMAIN</kbd> report (but none of the others) can included a second
+argument describing the subdomain. For example
+<pre>
+SUBDOMAIN cam.ac.uk 'University of Cambridge'
+</pre>
+Then that subdomain will be listed with its translation in the Domain Report.
+You can also have numerical subdomains: e.g.,
+<pre>
+SUBDOMAIN 131.111 'University of Cambridge'
+</pre>
+If you sort the subdomains alphabetically, the numerical ones will also be
+sorted alphabetically, not numerically. I don't think this will cause any
+problems.
+
+<p>
+One other use for the <kbd>SUBDIR</kbd> command is if you have used the
+second argument to the <kbd><a href="logfile.html">LOGFILE</a></kbd> command.
+Suppose you have translated files like <kbd>/index.html</kbd> into
+<kbd>http://www.mycompany.com/index.html</kbd>. Then the command
+<pre>
+SUBDIR http://www.mycompany.com/*
+</pre>
+would be appropriate to make the directory report look right.
+
+<hr>
+The lower levels of each report have <kbd>FLOOR</kbd> and <kbd>SORTBY</kbd>
+commands which work exactly the same as those we have
+<a href="othreps.html">already seen</a> for the
+top level. These commands are <kbd>SUBDIRFLOOR</kbd>, <kbd>SUBDOMFLOOR</kbd>,
+<kbd>SUBTYPEFLOOR</kbd>, <kbd>SUBBROWFLOOR</kbd> and <kbd>REFDIRFLOOR</kbd>;
+and <kbd>SUBDIRSORTBY</kbd>, <kbd>SUBDOMSORTBY</kbd>,
+<kbd>SUBTYPESORTBY</kbd>, <kbd>SUBBROWSORTBY</kbd> and <kbd>REFDIRSORTBY</kbd>.
+
+<p>
+An sub-item is listed in a hierarchical report only if it is above the
+sub-<kbd>FLOOR</kbd>, <i>and</i> it is included with a <kbd>SUB</kbd> command,
+<i>and</i> its immediate parent is listed. For example, specifying
+<pre>
+SUBDIR /*/*/
+SUBDIRFLOOR -3r
+SUBDIRSORTBY REQUESTS
+</pre>
+would list the three subdirectories with most requests under each directory.
+<kbd>SUBDIRFLOOR 1:r</kbd> would have listed any subdirectory with at least
+1% of the maximum number of requests of any <em>top level</em> directory.
+<p>
+The <a href="include.html">report <kbd>INCUDE</kbd> and <kbd>EXCLUDE</kbd></a>
+commands for a hierarchical report only apply to the top level of the report:
+you can use the <kbd>SUB</kbd> commands for the lower levels.
+<p>
+The three file reports (Request Report, Redirection Report and Failure
+Report) and the three referrer reports (Referrer Report, Redirected Referrer
+Report and Failed Referrer Report) are not fully hierarchical, but they do
+list search arguments together under the file to which they refer (provided
+that the arguments have been read in: see the
+<kbd><a href="include.html">ARGSINCLUDE</a></kbd> command). So they have
+similar sub-<kbd>FLOOR</kbd> and sub-<kbd>SORTBY</kbd> commands, namely
+<kbd>REQARGSFLOOR</kbd>, <kbd>REDIRARGSFLOOR</kbd>, <kbd>FAILARGSFLOOR</kbd>,
+<kbd>REFARGSFLOOR</kbd>, <kbd>REDIRREFARGSFLOOR</kbd> and
+<kbd>FAILREFARGSFLOOR</kbd>; and <kbd>REQARGSSORTBY</kbd>,
+<kbd>REDIRARGSSORTBY</kbd>, <kbd>FAILARGSSORTBY</kbd>,
+<kbd>REFARGSSORTBY</kbd>, <kbd>REDIRREFARGSSORTBY</kbd> and
+<kbd>FAILREFARGSSORTBY</kbd>.
+<p>
+That concludes the description of all the output configuration commands.
+Now we move on to some other individual topics, starting with the
+<a href="domfile.html">domains file</a>.
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="othreps.html">Prev</a> | <a href="domfile.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

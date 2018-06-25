@@ -1,0 +1,62 @@
+<?php
+$images[]="diehard06.jpg";
+$images[]="diehard08.jpg";
+$images[]="diehard09.jpg";
+$images[]="diehard11.jpg";
+$images[]="diehard12.jpg";
+$images[]="diehard13.jpg";
+$images[]="DSC_4194.jpg";
+$images[]="DSC_4195.jpg";
+$images[]="DSC_4237.jpg";
+$images[]="DSC_4239.jpg";
+$images[]="DSC_4241.jpg";
+$images[]="DSC_4243.jpg";
+$images[]="DSC_4244.jpg";
+$images[]="DSC_4249.jpg";
+
+
+
+
+?>
+<html>
+<head>
+<style>
+a:visited {
+	color: 	#FFFFFF;
+	text-decoration: none;
+	}
+a: active {
+	color: 	#FFFFFF;
+	text-decoration: none;
+	}
+a:link {
+	color: 	#FFFFFF;
+	text-decoration: none;
+	}
+</style>
+
+</head>
+<body bgcolor="#190058">
+<div style="position: absolute; left: 0; height: 0; width: 100;"><img src="harl2.gif"></div>
+<div style="position: absolute; left: 125; top: 0; width: 650; font: 14pt Times; font-style: italic; color: #FFFFFF; text-align: center; font-weight: bold;"><hr/><center><img src='masks.gif'></center><hr/>
+<a href='intro.html' class='menu' style='color: #FFFFFF'>Introduction</a> | 
+<a href='foodanddrink.html' class='menu' style='color: #FFCECE'>Food and Drink</a> | 
+<a href='masks.html' class='menu' style='color: #FFABAB'>Masks</a> | 
+<a href='tickets.html' class='menu' style='color: #FF8686'>Tickets</a> | 
+<a href='contacts.html' class='menu' style='color: #FF5353'>Contacts</a> | 
+<a href='sponsors.html' class='menu' style='color: #FF3131'>Sponsorship</a> | 
+<a href='work.html' class='menu' style='color: #FF0000'>Work</a>
+</div>
+
+
+<div style="position: absolute; left: 125; top: 170; width: 650; font-size: 11pt; font-family: Times New Roman; font-style: italic; color: #FFFFFF">
+
+<?php
+
+echo "<img src='gallery/$images[$_GET["image"]]'>";
+?>
+
+
+</div>
+</body>
+</html>

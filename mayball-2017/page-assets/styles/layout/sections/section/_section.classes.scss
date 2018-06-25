@@ -1,0 +1,18 @@
+@each $cur-section-image in $section-images {
+    @if ($cur-section-image != null) {
+    	$cur-section-label: map-get($cur-section-image, section-label);
+
+        /* span */.section--#{$cur-section-label}__img {
+            background-image: url(#{"../img/" + $cur-section-label + ".jpg"});
+
+            @include respond(palm) {
+	            // aspect ratio
+	            padding-top: 100% * map-get($cur-section-image, height) / map-get($cur-section-image, width);
+	        }
+        }
+    }
+}
+
+.section--overlay {
+    z-index: z(overlay);
+}

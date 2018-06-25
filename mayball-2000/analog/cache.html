@@ -1,0 +1,120 @@
+<html> <head>
+<title>Readme for analog -- cache files</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="compout.html">Prev</a> | <a href="dns.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Cache files</h2>
+
+Analog has the ability to archive <strong>some</strong> of the data in your
+logfile into a <i>cache file</i> so that the logfile can be thrown away
+without losing the most important data.
+
+<p>
+For most people, the cache file will not be needed: compressing
+the logfile using a standard compression utility such as gzip will be
+sufficient. Compressing a logfile is very efficient owing to the large number
+of repeated strings: I find about 12 times compression in practice. That in
+itself may solve your filespace problems, without needing to throw away any
+information.
+
+<p>
+If you are going to use the cache file feature, it is very important that you
+understand what is and what is not recorded. It is <strong>not</strong>
+possible to reconstruct everything of interest in the logfile from the cache
+file. The cache file does contain information about the total number of
+requests for each host and each file, but not about, for example, which files
+were read by which hosts. (To do so would take up as much disk space as the
+compressed logfile.) So you cannot later look at only one file and see which
+hosts read that file. Similarly, you cannot later restrict the files or hosts
+by date, using <kbd>FROM</kbd> and <kbd>TO</kbd> commands.
+<p>
+In summary, you should do all the inclusions and exclusions you want when you
+create the logfile. If you want different sets of inclusions and exclusions,
+you should create several cache files from the same logfile. You cannot later
+apply extra inclusions and exclusions accurately.
+<p>
+One other minor point: the pattern of failed requests and redirected requests
+over time is not recorded in the cache file. So although the total number will
+still be correct, the number in the last 7 days can be under-reported
+subsequently.
+
+<hr>
+You can create a cache file by setting the <kbd>CACHEOUTFILE</kbd> to be
+the file you want the cache to live in. Set
+<pre>
+CACHEOUTFILE none
+</pre>
+to turn it off again. You will still get the regular output as well as the
+cache output, unless you request <kbd><a href="output.html">OUTPUT
+NONE</a></kbd>.
+
+<p>
+You can read in a previously-made cache file with the <kbd>CACHEFILE</kbd>
+command, or with the <kbd>+U</kbd> command line option. As with the
+<kbd><a href="logfile.html">LOGFILE</a></kbd> command, you can use commas
+and wild cards to read in several cache files, and read compressed cache
+files using the <kbd>UNCOMPRESS</kbd> mechanism. Note that if you don't
+want to read a logfile as well as the cache file, you will have to explicitly
+set the <kbd>LOGFILE</kbd> to <kbd>none</kbd>.
+<p>
+When analog reads in a cache file, it will respect inclusions and exclusions
+as far as it can, but it does not apply any more aliases to the items. (This
+is to avoid double-aliasing.) So you must do any aliases you want at the time
+you create the cache file. Similarly, it does not obey the
+<kbd><a href="logfile.html">LOGOFFSET</a></kbd> variable, to avoid
+double-offsetting, so any offset you want must be applied at cache-creation
+time too.
+<p>
+Sometimes you don't want to record all the types of item in the cache file.
+You might want to forget about which hosts had accessed your web site, for
+example, and only remember how many times each file was requested. You can
+choose not to include one type of item in the cache file by setting its
+<kbd><a href="lowmem.html">LOWMEM</a></kbd> to 3; for example, specify
+<pre>
+HOSTLOWMEM 3
+</pre>
+to exclude hosts from the cache file. Because this is a serious
+step, analog will produce a warning if you do this. You can even set all six
+<kbd>LOWMEM</kbd>s to 3 if you just want to remember the pattern of requests
+over time, not even which files were requested.
+<p>
+It is legal to have the <kbd>CACHEOUTFILE</kbd> the same as the
+<kbd>CACHEFILE</kbd> to overwrite the old cache file with an updated one,
+but it is not recommended. It is best to make a separate cache file for
+each logfile. Failing that, it is better to write the new cache to a
+different file, and only delete the old cache when you have verified that
+the new cache was created correctly.
+
+<hr>
+To use this feature and avoid losing entries or double counting them, I
+suggest you follow the following procedure.
+<ol>
+  <li>Archive the old logfile, and restart the server with a fresh logfile.
+      (See your server documentation for how to do this.)
+  <li>Make both a cache file and an ordinary report from the old logfile.
+  <li>Make a report from the cache file and compare it against the report from
+      the logfile to check it works.
+</ol>
+Now you can throw away the old logfile, if you've really understood what
+data you're losing by doing so. (But please remember that I can take no
+responsibility if something goes wrong. (See the
+<a href="Licence.txt">licence</a>.)
+<p>
+I prefer to make a separate cache file from each logfile, in case something
+goes wrong with one of them, rather than a single cache file combining several
+logfiles, or a single cache file combining an old cache file and a logfile.
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="compout.html">Prev</a> | <a href="dns.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

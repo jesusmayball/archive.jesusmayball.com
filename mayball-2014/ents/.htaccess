@@ -1,0 +1,5 @@
+AuthType Ucam-WebAuth
+    Require user lm493 jjm61 gh393 jb804 gjp31 jpb80 bh400
+
+DirectoryIndex ents1.php
+

@@ -1,0 +1,9 @@
+@function no-units($num) {
+    // divide by 1 with the same units - units divided out
+    @return $num / (($num * 0) + 1);
+}
+
+// ensure that the output is definitely rgb
+@function to-rgb($colour) {
+    @return unquote("rgb(" + red($colour) + ", " + green($colour) + ", " + blue($colour) + ")");
+}

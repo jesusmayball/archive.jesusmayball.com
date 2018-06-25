@@ -1,0 +1,45 @@
+<%
+	var pageCount = 9, openPage = 3;
+%><!--
+--><ul class="hardcover_front"><!--
+	--><li><!--
+		--><div class="coverDesign -js-front-cover"><!--
+			--><div class="content"><!--
+			--><figure class="logo-figure"><!--
+				--><span class="logo"></span><!--
+			--></figure><!--
+			--><h2 class="tagline tagline--name">Jesus May Ball</h2><!--
+			--><h2 class="tagline tagline--date">19<sup>th</sup> June 2017</h2><!--
+			--></div><!--
+		--></div><!--
+	--></li><!--
+	--><li></li><!--
+--></ul><!--
+--><ul class="pages"><!--
+	--><%
+		for (var i = 0; i < pageCount; i++) {
+			if (i === openPage - 1) { %><!--
+				--><li class="page"><!--
+					--><div class="contents"><!--
+						--><h1 class="contents_header"><!--
+							--><span class="contents_head_first_letter">C</span><span class="contents_head_rest">ontents</span><!--
+						--></h1><!--
+						--><ol class="contents_list -js-contents-list"><!--
+						--></ol><!--
+					--></div><!--
+				--></li><!--
+			--><% } else if (i === openPage) { %><!--
+				--><li class="page page--preceding -js-preceding-page"></li><!--
+			--><% } else { %><!--
+				--><li class="page"></li><!--
+			--><% }
+	} %> <!--
+--></ul><!--
+--><ul class="hardcover_back"><!--
+	--><li></li><!--
+	--><li></li><!--
+--></ul><!--
+--><ul class="book_spine"><!--
+	--><li></li><!--
+	--><li></li><!--
+--></ul>

@@ -1,0 +1,5 @@
+#AuthType Ucam-WebAuth
+#    Require user lm493 jjm61
+
+DirectoryIndex ents1.php
+

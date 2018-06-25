@@ -1,0 +1,196 @@
+/* header */.section--hero {
+    @extend %content-section;
+
+    padding: 0;
+
+    background-color: colour(hero-background);
+    background-image: url(../img/hero-background.jpg);
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.section--hero::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.05);
+}
+
+.section--parallax-hero { 
+    @extend %parallax-content-section;
+}
+
+
+/* div */.section--hero__main {
+    // backgrounds positioned to this element
+    position: relative;
+    // any backgrounds outside this element will be clipped
+    overflow: hidden;
+
+    padding: $lib-spacing-unit--huge;
+
+    @include respond(lap) {
+        padding: $lib-spacing-unit--large;
+    }
+
+    @include respond(palm) {
+        padding: $lib-spacing-unit;
+    }
+}
+
+/* div */.section--hero__main-contents {
+    position: relative;
+}
+
+/* figure */.section--hero__figure {
+    display: inline-block;
+    width: $hero-logo-image-max-width;
+    max-width: 100%;
+}
+
+/* span */.section--hero__img {
+    display: inline-block;
+    width: 100%;
+    padding-top: ($hero-logo-image-max-height / $hero-logo-image-max-width) * 100%;
+    background-image: url(../img/hero-logo.png);
+    background-size: cover;
+}
+
+// to create a new row for the arrow 
+/* div */.section--hero__arrow-row {
+    margin: $lib-spacing-unit--large 0;
+
+    @include respond(palm) {
+        margin: $lib-spacing-unit 0;
+    }
+}
+
+/* span */ .section--hero__arrow {
+    width: 64px;
+    height: 64px;
+    border-right: 1px solid colour(faded-content);
+    border-bottom: 1px solid colour(faded-content);
+    display: inline-block;
+    transform: rotate(45deg);
+    position: relative;
+    // otherwise the arrow appears much close to the row below
+    top: -16px;
+
+    &:hover {
+        // darken on hover
+        border-color: colour(content);
+    }
+
+    @include respond(palm) {
+        width: 32px;
+        height: 32px;
+        top: -4px;
+    }
+}
+
+/* h1 */ .section--hero__title {
+    // if you change this extend, must update skrollr effects
+    @extend .typl8-beta;
+
+    font-family: 'Times New Roman', serif;
+    white-space: nowrap;
+
+    color: colour(title-text);
+    opacity: 1;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    
+    letter-spacing: $hero-title-letter-spacing;
+    // move text to centre of line
+    text-indent: $hero-title-letter-spacing;
+
+    transition: transform 750ms, opacity 750ms, letter-spacing 750ms;
+
+    &--unshown {
+        opacity: 0;
+        transform: matrix(3, 0, 0, 3, 0, 0);
+        
+        @include respond(lap-and-up) {
+            letter-spacing: 2.5em;
+        }
+    }
+
+    &--palm {
+        @extend .typl8-gamma;
+    }
+
+    &--palm, &--thumb {
+        letter-spacing: $hero-title-letter-spacing-palm;
+        // move text to centre of line
+        text-indent: $hero-title-letter-spacing-palm;
+    }
+
+    &--thumb {
+        @extend .typl8-delta;
+    }
+}
+
+.section--hero__subheading {
+    font-weight: normal;
+    margin-bottom: $lib-spacing-unit;
+    color: colour(subtitle-text);
+    opacity: 1;
+    transition: opacity 500ms;
+
+    &--unshown {
+        opacity: 0;
+    }
+
+}
+
+/* h3 */ .section--hero__subheading--subtitle {
+    @extend .typl8-epsilon;
+    
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition: opacity 500ms, transform 500ms;
+
+    &.section--hero__subheading--unshown {
+        transform: matrix(1, 0, 0, 1, 0, -24);
+    }
+
+    &.section--hero__subheading--thumb {
+        @extend .typl8-zeta;
+        color: colour(subtitle-text);
+    }
+}
+
+/* span */ .section--hero__subheading--date {
+    @extend .typl8-delta;
+
+    &.section--hero__subheading--unshown {
+        &:before, &:after {
+            width: 0em;
+        }
+    }
+
+    &:before, &:after {
+        transition: width 0.5s;
+        content: "";
+        display: inline-block;
+        width: 2.25em;
+        background: colour(heading-text);
+        height: 2px;
+        vertical-align: middle;
+        margin: 0 1em;
+        transition: width 1000ms;
+
+        @include respond(palm) {
+            width: 1em;
+            margin: 0.5em;
+        }
+    }
+
+    @include respond(palm) {
+        white-space: nowrap;
+        letter-spacing: normal;
+    }
+}

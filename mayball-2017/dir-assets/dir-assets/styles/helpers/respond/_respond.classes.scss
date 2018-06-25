@@ -1,0 +1,146 @@
+/*------------------------------------*\
+    #WIDTHS-RESPONSIVE
+\*------------------------------------*/
+
+/**
+ * Responsive width classes.
+ */
+
+
+@each $alias, $breakpoint in $breakpoints {
+
+    $condition:         map-get($breakpoint, condition);
+    $exclude-widths:    map-get($breakpoint, exclude-widths);
+    
+    @if ($exclude-widths != true) {
+        /**
+         * Whole.
+         */
+        @include responsive-classes($alias, ($alias + "-one-whole"))     { width: 100% !important; }
+        
+        /**
+         * Halves.
+         */
+        @include responsive-classes($alias, (
+                                                $alias + "-one-half",
+                                                $alias + "-two-quarters",
+                                                $alias + "-three-sixths",
+                                                $alias + "-four-eighths",
+                                                $alias + "-five-tenths",
+                                                $alias + "-six-twelfths"
+                                            )
+                                    ) { width: 50% !important; }
+        /**
+         * Thirds.
+         */
+        @include responsive-classes($alias, (
+                                                $alias + "-one-third",
+                                                $alias + "-two-sixths",
+                                                $alias + "-three-nineths",
+                                                $alias + "-four-twelfths"
+                                            )
+                                    ) { width: 33.3333333% !important; }
+        
+        @include responsive-classes($alias, (
+                                                $alias + "-two-thirds",
+                                                $alias + "-four-sixths",
+                                                $alias + "-six-nineths",
+                                                $alias + "-eight-twelfths"
+                                            )
+                                    )      { width: 66.6666666% !important; }
+        
+        
+        /**
+         * Quarters.
+         */
+        @include responsive-classes($alias, (
+                                                $alias + "-one-quarter",
+                                                $alias + "-two-eighths",
+                                                $alias + "-three-twelfths"
+                                            )
+                                    ) { width: 25% !important; }
+        
+        @include responsive-classes($alias, (
+                                                $alias + "-three-quarters",
+                                                $alias + "-six-eighths",
+                                                $alias + "-nine-twelfths"
+                                            )
+                                    ) { width: 75% !important; }
+        
+        /**
+         * Fifths.
+         */
+        @include responsive-classes($alias, (
+                                                $alias + "-one-fifth",
+                                                $alias + "-two-tenths"
+                                            )
+                                    ) { width: 20% !important; }
+
+        @include responsive-classes($alias, (
+                                                $alias + "-two-fifths",
+                                                $alias + "-four-tenths"
+                                            )
+                                    ) { width: 40% !important; }
+
+        @include responsive-classes($alias, (
+                                                $alias + "-three-fifths",
+                                                $alias + "-six-tenths"
+                                            )
+                                    ) { width: 60% !important; }
+
+        @include responsive-classes($alias, (
+                                                $alias + "-four-fifths",
+                                                $alias + "-eight-tenths"
+                                            )
+                                    ) { width: 80% !important; }
+        
+        /**
+         * Sixthss.
+         */
+        @include responsive-classes($alias, (
+                                                $alias + "-one-sixth",
+                                                $alias + "-two-twelfths"
+                                            )
+                                    ) { width: 16.6666666% !important; }
+
+        @include responsive-classes($alias, (
+                                                $alias + "-five-sixths",
+                                                $alias + "-ten-twelfths"
+                                            )
+                                    ) { width: 83.3333333% !important; }
+
+        /**
+         * Eighths.
+         */
+        @include responsive-classes($alias, ($alias + "-one-eighth"))      { width: 12.5% !important; }
+        @include responsive-classes($alias, ($alias + "-three-eighths"))      { width: 37.5% !important; }
+        @include responsive-classes($alias, ($alias + "-five-eighths"))      { width: 62.5% !important; }
+        @include responsive-classes($alias, ($alias + "-seven-eighths"))      { width: 87.5% !important; }
+        
+        /**
+         * Ninths.
+         */
+        @include responsive-classes($alias, ($alias + "-one-nineth"))      { width: 11.1111111% !important; }
+        @include responsive-classes($alias, ($alias + "-two-nineths"))      { width: 22.2222222% !important; }
+        @include responsive-classes($alias, ($alias + "-four-nineths"))      { width: 44.4444444% !important; }
+        @include responsive-classes($alias, ($alias + "-five-nineths"))      { width: 55.5555555% !important; }
+        @include responsive-classes($alias, ($alias + "-seven-nineths"))      { width: 77.7777777% !important; }
+        @include responsive-classes($alias, ($alias + "-eight-nineths"))      { width: 88.8888888% !important; }
+        
+        /**
+         * Tenths.
+         */
+        @include responsive-classes($alias, ($alias + "-one-tenth"))     { width: 10% !important; }
+        @include responsive-classes($alias, ($alias + "-three-tenths"))     { width: 30% !important; }
+        @include responsive-classes($alias, ($alias + "-seven-tenths"))     { width: 70% !important; }
+        @include responsive-classes($alias, ($alias + "-nine-tenths"))     { width: 90% !important; }
+        
+        /**
+         * Twelfths.
+         */
+        @include responsive-classes($alias, ($alias + "-one-twelfth"))     { width:  8.3333333% !important; }
+        @include responsive-classes($alias, ($alias + "-five-twelfths"))     { width: 41.6666666% !important; }
+        @include responsive-classes($alias, ($alias + "-seven-twelfths"))     { width: 58.3333333% !important; }
+        @include responsive-classes($alias, ($alias + "-eleven-twelfths"))    { width: 91.6666666% !important; }
+    }
+}

@@ -1,0 +1,94 @@
+<html> <head>
+<title>Readme for analog -- syntax of configuration commands</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="basiccmd.html">Prev</a> | <a href="logfile.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Syntax of configuration commands</h2>
+
+When analog starts up, it first reads options from configuration files
+and the command line (assuming that you are running analog from an operating
+system with a command line). Defaults for many of these options will have
+already been set in the file <kbd>analhead.h</kbd> at the time the program
+was compiled. So if you compile your own version of analog, rather than
+downloading a pre-compiled executable, you can also set some options in
+that file before compiling. Those options are all documented there.
+
+<hr>
+The first file which analog reads is the <i>default configuration file</i>,
+normally called <kbd>analog.cfg</kbd>. You can stop this file being read by
+specifying the option <kbd>-G</kbd> on the command line. Then the command line
+arguments are read, in the order in which they appear. Finally, the
+<i>mandatory configuration file</i> is read, if you specified one when you
+compiled the program. This is a configuration file which cannot be overridden
+by the user: if it is not found, analog exits immediately. This allows a
+system administrator to prevent users analysing certain files or producing
+certain reports, for example. <i><strong>However</strong></i>, note that the
+only certain way to prevent users analysing things is to deny them access to
+the logfile. Otherwise there is nothing to stop them analysing the logfile
+using another copy of analog or another program.
+
+<hr>
+You can include another configuration file from the command line by using a
+command like <kbd>+gother.cfg</kbd>. (Note that there is no space between
+<kbd>+g</kbd> and the filename; this is true of all command line arguments.)
+You can also include another configuration file from within a configuration
+file by a command like
+<pre>
+CONFIGFILE other.cfg
+</pre>
+The commands in the other configuration file are read immediately, in order.
+The program then continues reading the command line or calling configuration
+file where it left off.
+
+<p>
+In the Mac version, you can start up a program with a particular configuration
+file by dragging it onto the analog icon. The configuration file must start
+with a <kbd>#</kbd>. The default configuration file is still read first.
+
+<p>
+You can also specify any configuration command on the command line even if it
+doesn't have a command line abbreviation, by use of the <kbd>+C</kbd> command.
+For example, <kbd>+C"UNCOMPRESS *.gz"</kbd> will include that command.
+
+<hr>
+Here are the syntax rules for configuration commands. A configuration file
+contains several commands on separate lines; any text after a hash
+(<kbd>#</kbd>) on a line is ignored as a comment. Each command consists of
+the command name followed by one or two arguments. An argument to a command may
+optionally be placed in single or double quotes or parentheses, and it must be
+if the argument contains a hash or a space. So, for example, here are some
+valid configuration commands
+<pre>
+DAILY      OFF   # We don't want a daily summary
+FULLDAILY  "ON"  # We want a full daily report instead 
+HOSTNAME (Spam Widgets Inc.)  # Spaces, so quotes or brackets needed
+</pre>
+Generally later commands override earlier ones if there is a conflict (e.g.,
+for the <kbd>OUTFILE</kbd>, because you can have only one), or supplement them
+if there is no conflict (e.g., for the <kbd>LOGFILE</kbd>, because you can
+read several logfiles).
+
+<hr>
+If all the options seem a bit confusing, just run
+<pre>
+analog -settings [other options]
+</pre>
+or include <kbd>PRINTVARS ON</kbd> in the configuration commands.
+That will tell you what the values of all the variables will be, based on
+the defaults in <kbd>analhead.h</kbd>, the configuration commands, and the
+command line options. 
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="basiccmd.html">Prev</a> | <a href="logfile.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

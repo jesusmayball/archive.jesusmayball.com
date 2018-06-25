@@ -1,0 +1,21 @@
+$colours: ();
+
+@function colour($colourName) {
+    @if (not map-has-key($colours, $colourName)) {
+        @warn "Unknown `#{$colourName}` in $colours.";
+        @return null;
+    }
+
+    @return map-get($colours, $colourName);
+}
+
+// didn't use this because you can only call functions in an expression in sass
+// hence the line `addColour(fullWhite, #ffffff)` is invalid
+// could have written as assignment or something but seeemed hacky
+@mixin add-colour($colourName, $colour) {
+    @if (map-has-key($colours, $colourName)) {
+        @warn "Colour `#{$colourName}` already set in $colours.";
+    } @else {
+        $colours: map-merge($colours, ($colourName: $colour));
+    }
+}

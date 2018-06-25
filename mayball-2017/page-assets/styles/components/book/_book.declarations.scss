@@ -1,0 +1,86 @@
+@import "../../lib/skrollr/effects/section__sprite-img.declarations";
+
+
+$book-size: (
+	normal-width: 42%,
+	normal-height: 1.2 * 42%,
+	normal-left: 50%,
+	lap-width: 60%,
+	lap-height: 1.2 * 60%,
+	lap-left: 35%,
+	palm-width: 90%,
+	palm-height: 1.2 * 90%,
+	palm-left: 5%,
+);
+
+$perspective: 2000px;
+$high-perspective: 4000px;
+
+$page-images: (url: "../img/book-page", format: jpg, count: 4);
+$pages: (
+	count: 9,
+	open: 3,
+	rounding: 5px,
+	vertical-space: 1%,
+	horizontal-space: 0%,
+);
+
+$animation: (
+	rotate-back: -5deg,
+	closed: (
+		start-rotate: -10deg,
+		rotate-interval: -1.5deg,
+		min-duration: 0.4s,
+		duration-interval: 0.1s,
+		min-overlay-opacity: 0.05,
+		overlay-opacity-interval: 0.025,
+		overlay-opacity-difference: 0.05,
+	),
+	open: (
+		max-duration: 1.8s,
+		duration-interval: 0.1s,
+		behind-start-rotate: -20deg,
+		behind-rotate-interval: -2deg,
+		front-start-rotate: -140deg,
+		front-rotate-interval: -3deg,
+	)
+);
+
+$book-cover: (
+	stretch: true,
+	overlay: false,
+	nudge: 5px,
+	depth: 10px,
+	shadow: (
+		space: 2px,
+		width: 6px,
+	),
+	url-animated: "../img/book-cover.jpg",
+	url-static: "../img/book-cover-static",
+	static-format: png,
+	static-device-widths: (desk, lap, palm),
+);
+
+$spine: (
+	width: 30px,
+	depth: 4px,
+	shadow: (
+		space: 2px,
+		width: 16px,
+	),
+);
+
+$sprite: (
+	side-padding: 21%,
+	side-padding-left-right-ratio: 0.95,
+    bottom-padding: 5%
+);
+
+$contents-heading-margin: $lib-spacing-unit--small;
+
+$fancy-text: "Old English Text MT", "UnifrakturCook", $lib-combined-font-family;
+$contents-head-first-letter-boost: 1.5em;
+$contents-list-item-spacing: 3%; // $lib-spacing-unit--tiny
+$contents-list-item-left-margin: 15%;
+$contents-text-colour: title-text;
+// $contents-text-colour: body-text;

@@ -1,0 +1,4 @@
+I've thrown some home-grown analog scriptsa in here that let it deal
+with ftp and mail server logs. See analog_mail.conf for how to make it
+process mail server logs. For ftp, you just run your logs through
+ftplog2commonlog.

@@ -1,0 +1,4 @@
+#AuthType Ucam-WebAuth
+#Require user rad55 jmh209 kh414 bjh44
+
+#RedirectMatch 301 /tickets/alumni/(.*)$ http://www.jesusmayball.com/notonsale.html

@@ -1,0 +1,52 @@
+/* div */.section--committee__member-row {
+    text-align: center;
+}
+
+/* figure */.section--committee__member-item {
+    @include grid-section-item((desk: $row-items, lap: $row-items, palm-only: $row-items-palm, thumb: $row-items-thumb),
+                               null, $lib-spacing-unit--small, section--committee__member-row--first-row,
+                               (desk: $first-row-items, lap: $first-row-items, palm-only: $first-row-items-palm, thumb: $first-row-items-thumb));
+}
+
+/* span */.section--committee__member-img {
+    // subtract one from `$number-of-committee-images` because of how
+    // percentage background positions work (may need to google again to understand)
+    $committee-image-height-percentage: (100% / (length($committee-members) - 1));
+
+    display: block;
+    height: 0;
+    // subtract 1% to make sure that the entire image actually fits in
+    padding-top: $individual-committee-image-width-ratio * 100% - 1%;
+    background-color: rgba(255, 255, 255, 0.3);
+    // sprite generated using http://css.spritegen.com/ and converted to jpeg
+    background-image: url(../img/committee.jpg);
+    background-size: cover;
+
+    @for $i from 0 through (length($committee-members) - 1) {
+        $cur-member-name: nth($committee-members, $i + 1);
+        
+        $position: 0% $i * $committee-image-height-percentage;
+
+        @if ($cur-member-name == $high-priority-member) {
+            &--#{$cur-member-name}.section--committee__member-img--#{$cur-member-name} {
+                background-position: $position;
+            }
+            // set this as the default as well
+            background-position: $position;
+        } @else {
+            &--#{$cur-member-name} {
+                background-position: $position;
+            }
+        }
+    }
+}
+
+/* span */.section--committee__member-label {
+    display: block;
+}
+
+/* a */.section--committee__member-email {
+    @extend %ellipsis-text-overflow;
+
+    display: block;
+}

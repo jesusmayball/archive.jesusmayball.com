@@ -1,0 +1,139 @@
+<html> <head>
+<title>Readme for analog -- basic commands</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="custom.html">Prev</a> | <a href="syntax.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Basic commands</h2>
+
+Here is a list of basic configuration commands to get you started with
+analog. These commands should be added to your configuration file,
+<kbd>analog.cfg</kbd>, as explained in the section
+<cite><a href="start.html">Starting to use analog</a></cite>.
+We'll see all the possible configuration commands in later sections.
+
+<p>
+Analog reads logfiles produced by your web server, and produces an output file
+based on the data in them. So you need to know how to specify which logfile to
+read, and which file to send the output to. The relevant commands look like
+<pre>
+LOGFILE my_logfile
+OUTFILE output.html
+</pre>
+where, of course, you should substitute the names of the files you want to use.
+The logfile must be on your local disk -- analog doesn't fetch it from across
+the network, so if it's not on your local disk, you will have to fetch it
+yourself first.
+You can read several logfiles by giving several logfile commands, or by giving
+a comma-separated list, or by using wild cards in the logfile name. So, for
+example, if you use the commands
+<pre>
+LOGFILE new1.log,old*.log
+LOGFILE new2.log
+</pre>
+analog will analyse the logfiles <kbd>new1.log</kbd>, <kbd>new2.log</kbd>,
+and all the old logfiles. Analog will recognise logfiles in several different
+formats. You can read more about this in the section <cite><a
+href="logfile.html">Choosing a logfile</a></cite>.
+
+<hr>
+There are a couple of other commands you need to know right at the beginning,
+not because they're particularly important in themselves, but because the
+output will look silly if you don't know them. First, you need to know how to
+put your own organisation's name and URL at the top of the report. For this,
+you need two commands such as
+<pre>
+HOSTNAME "Spam Widgets Inc."
+HOSTURL www.spam-widgets.com
+</pre>
+
+<p>
+If you have broken images in the output instead of graphs, you need to say in
+which directory on your server the images are stored. You do this by a
+command like
+<pre>
+IMAGEDIR /analog/images/
+</pre>
+(The images are distributed with the program - you will have to move them
+to whichever directory you choose.)
+
+<hr>
+Next you will want to know how to turn individual reports on and off. Analog
+can produce 27 different reports, but here are the most important. Try them and
+see what happens. You can turn each report on with an <kbd>ON</kbd> command,
+or off with an <kbd>OFF</kbd> command. You can also use the commands <kbd>ALL
+ON</kbd> and <kbd>ALL OFF</kbd> to turn all reports on or off.
+<pre>
+MONTHLY ON    # one line for each month
+WEEKLY ON     # one line for each week
+FULLDAILY ON  # one line for each day
+DAILY ON      # one line for each day of the week
+HOURLY ON     # one line for each hour of the day
+GENERAL ON    # the General Summary at the top
+REQUEST ON    # which files were requested
+FAILURE ON    # which files were not found
+DIRECTORY ON  # directory report
+HOST ON       # which computers requested files
+DOMAIN ON     # which countries they were in
+REFERRER ON   # where people followed links from
+FAILREF ON    # where people followed broken links from
+BROWSER ON    # which browsers people were using
+FILETYPE ON   # types of file requested
+SIZE ON       # sizes of files requested
+</pre>
+The referrer and browser reports will only appear if your server records the
+necessary information. You can configure lots of other things about each
+report, such as how many rows are listed, which columns are included, and
+how the reports are sorted. For example, the command
+<pre>
+REQINCLUDE pages
+</pre>
+tells analog only to list pages, rather than all files, in the request report.
+You can read about all the options in the sections on
+<cite><a href="timereps.html">Time reports</a></cite>,
+<cite><a href="othreps.html">Other reports</a></cite> and
+<cite><a href="hierreps.html">Hierarchical reports</a></cite>.
+
+<hr>
+You can have the output in several different languages, by using a
+<kbd>LANGUAGE</kbd> command. For example, the command
+<pre>
+LANGUAGE FRENCH
+</pre>
+will give you the output in French. The possible languages at the moment
+are <kbd>ENGLISH</kbd>, <kbd>US-ENGLISH</kbd>, <kbd>FRENCH</kbd>,
+<kbd>GERMAN</kbd>, <kbd>ITALIAN</kbd>, <kbd>PORTUGUESE</kbd>,
+<kbd>BR-PORTUGUESE</kbd>, <kbd>DANISH</kbd>, <kbd>SWEDISH</kbd>,
+<kbd>CZECH</kbd>, <kbd>SLOVAK</kbd>, <kbd>HUNGARIAN</kbd>, <kbd>ROMANIAN</kbd>
+and <kbd>SLOVENE</kbd>, and I hope to have other languages available soon. See
+the section on <cite><a href="output.html">Configuring the output</a></cite>
+for how to download, or even translate, new languages.
+
+<hr>
+Two other common things you might want to do are to <i>alias</i> files or
+hosts (for example, to tell analog that two different filenames are really
+the same file), or to <i>include</i> or <i>exclude</i> certain files, hosts
+or dates (to ignore accesses from your site, for example, or to do an analysis
+only of a certain subdirectory or a certain time period. For these, see the
+later sections on <cite><a href="alias.html">Aliases</a></cite> and
+<cite><a href="include.html">Inclusions and exclusions</a></cite>.
+
+<p>
+As I said, these are only a few of the commands available. To find out about
+all the commands, you'll have to read the remaining sections of the Readme,
+starting with a short section on the <a href="syntax.html">syntax of
+configuration commands</a>.
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="custom.html">Prev</a> | <a href="syntax.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

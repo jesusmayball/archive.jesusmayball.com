@@ -1,0 +1,192 @@
+<html> <head>
+<title>Readme for analog -- inclusions and exclusions</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="alias.html">Prev</a> | <a href="output.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Inclusions and exclusions</h2>
+
+After aliasing each item, analog decides whether that item is wanted or not.
+The whole line is only counted if all the items are wanted. (If one type of
+item doesn't occur on a line, that item's counted as wanted on that line.)
+Whether an item is wanted or not is determined by <kbd>INCLUDE</kbd> and
+<kbd>EXCLUDE</kbd> commands specified by the user. These commands can be used
+to exclude requests from your local users, for example, or to analyse only
+files in a subdirectory.
+
+<p>
+The rule for determining whether an item is included or excluded is as
+follows. All the <kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands for that
+item are considered one by one in order, and the item is included or excluded
+according to the last command it matched. Items which don't match any of
+the <kbd>INCLUDE</kbd> or <kbd>EXCLUDE</kbd> commands are included if the first
+command was an exclusion, and excluded if the first command was an inclusion.
+For example, the configuration
+<pre>
+FILEINCLUDE /~sret1/*
+FILEEXCLUDE /~sret1/backgammon/*,/~sret1/analog/*
+FILEINCLUDE /~sret1/backgammon/*.gif
+</pre>
+would instruct the program to examine only my files, excluding my
+backgammon and analog files, but including gifs in my backgammon directory.
+On the other hand,
+<pre>
+FILEEXCLUDE /~sret1/*/img/*
+</pre>
+would analyse all files, except for images in my various directories. Note that
+inclusions and exclusions can contain any number of wildcards.
+<p>
+The relevant commands for the other types of item are <kbd>HOSTINCLUDE</kbd>
+and <kbd>HOSTEXCLUDE</kbd>; <kbd>BROWINCLUDE</kbd> and <kbd>BROWEXCLUDE</kbd>;
+<kbd>REFINCLUDE</kbd> and <kbd>REFEXCLUDE</kbd>; <kbd>USERINCLUDE</kbd> and
+<kbd>USEREXCLUDE</kbd>; and <kbd>VHOSTINCLUDE</kbd> and
+<kbd>VHOSTEXCLUDE</kbd>. If you get confused with all the inclusions and
+exclusions, remember that you can always run <kbd>analog&nbsp;-settings</kbd>
+to see what the options you have specified represent.
+<hr>
+There is also one other pair of commands which belongs in this category,
+namely the <kbd>FROM</kbd> and <kbd>TO</kbd> commands. These specify a time
+period to restrict the analysis to. The simplest usage of these commands is
+<kbd>FROM yyMMdd</kbd> or <kbd>FROM yyMMdd:hhmm</kbd>, where <kbd>yy</kbd>
+represents the last two digits of the year (analog assumes that the year is
+between 1970 and 2069), <kbd>MM</kbd> represents the month,
+<kbd>dd</kbd> is the date, <kbd>hh</kbd> the hour, and <kbd>mm</kbd> the
+minute. So, for example, to analyse only requests from
+July 1999 to June 2000 I would use the configuration
+<pre>
+FROM 990701
+TO   000630
+</pre>
+Alternatively, each of the components can be preceded by <kbd>+</kbd> or
+<kbd>-</kbd> to represent time relative to the time at which the program was
+invoked. In this case, the date can have more than 2 digits. This allows
+constructions like
+<pre>
+FROM -01-00+01   # from tomorrow last year
+TO -00-0131  # to the end of last month (OK even if last month
+             # didn't have 31 days)
+FROM -00-00-112
+TO   -00-00-01  # statistics for the last 16 weeks
+FROM -00-00-00:-06+01  # statistics for the last 6 hours
+</pre>
+There are command line abbreviations <kbd>+F</kbd> and <kbd>+T</kbd>
+for the <kbd>FROM</kbd> and <kbd>TO</kbd> commands; for example,
+<kbd>+T-00-00-01:1800</kbd> looks at statistics until 6pm yesterday.
+<kbd>-F</kbd> and <kbd>-T</kbd> turn off the from and to, as do <kbd>FROM
+OFF</kbd> and <kbd>TO OFF</kbd>.
+<hr>
+There are also <kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands for most of
+the reports. These exclude individual lines from particular reports. So, for
+example, the command
+<pre>
+REFREPEXCLUDE http://www.yahoo.com/*
+</pre>
+would exclude Yahoo! referrers from the referrer report. However, it would not
+exclude them from the failed referrer report, the referring site report, etc.
+(you need to use <kbd>FAILREFEXCLUDE</kbd>, <kbd>REFSITEEXCLUDE</kbd> etc. for
+that); nor would it prevent other analysis of logfile lines with those
+referrers, as <kbd>REFEXCLUDE</kbd> would. Also <kbd>REFREPEXCLUDE</kbd> would
+include the referrers in the &quot;not listed&quot; line at the bottom of the
+report.
+<p>
+The full list of these commands is <kbd>REQINCLUDE</kbd> and
+<kbd>REQEXCLUDE</kbd>; <kbd>REDIRINCLUDE</kbd> and <kbd>REDIREXCLUDE</kbd>;
+<kbd>FAILINCLUDE</kbd> and <kbd>FAILEXCLUDE</kbd>; <kbd>TYPEINCLUDE</kbd> and
+<kbd>TYPEEXCLUDE</kbd>; <kbd>DIRINCLUDE</kbd> and <kbd>DIREXCLUDE</kbd>;
+<kbd>HOSTREPINCLUDE</kbd> and <kbd>HOSTREPEXCLUDE</kbd>; <kbd>DOMINCLUDE</kbd>
+and <kbd>DOMEXCLUDE</kbd>; <kbd>REFREPINCLUDE</kbd> and
+<kbd>REFREPEXCLUDE</kbd>; <kbd>REFSITEINCLUDE</kbd> and
+<kbd>REFSITEEXCLUDE</kbd>; <kbd>REDIRREFINCLUDE</kbd> and
+<kbd>REDIRREFEXCLUDE</kbd>; <kbd>FAILREFINCLUDE</kbd> and
+<kbd>FAILREFEXCLUDE</kbd>; <kbd>BROWSUMINCLUDE</kbd> and
+<kbd>BROWSUMEXCLUDE</kbd>; <kbd>FULLBROWINCLUDE</kbd> and
+<kbd>FULLBROWEXCLUDE</kbd>; <kbd>VHOSTREPINCLUDE</kbd> and
+<kbd>VHOSTREPEXCLUDE</kbd>; <kbd>USERREPINCLUDE</kbd> and
+<kbd>USERREPEXCLUDE</kbd>; and <kbd>FAILUSERINCLUDE</kbd> and
+<kbd>FAILUSEREXCLUDE</kbd>. The inclusion or exclusion applies to the
+unaliased name, if you are doing any <a href="alias.html">output aliases</a>.
+<hr>
+You can also use the symbolic word <kbd>pages</kbd> in suitable
+<kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands; one very common command is
+<pre>
+REQINCLUDE pages
+</pre>
+to include only pages in the request report.
+<p>
+Analog determines which files should count as pages (and thus which requests
+count as page requests) using another <kbd>INCLUDE</kbd>/<kbd>EXCLUDE</kbd>
+pair, called <kbd>PAGEINCLUDE</kbd> and <kbd>PAGEEXCLUDE</kbd>.
+By default, <kbd>*.html</kbd>, <kbd>*.htm</kbd> and directories (<kbd>*/</kbd>)
+count as pages. But you change the list by commands like
+<pre>
+PAGEINCLUDE *.ps,*.ps.gz
+PAGEEXCLUDE sret1.html
+</pre>
+(I.e., Postscript and gzipped Postscript are pages, but <kbd>sret1.html</kbd>
+isn't).
+<hr>
+There are a couple more <kbd>INCLUDE</kbd> and <kbd>EXCLUDE</kbd> commands
+which I'll mention now while we're on the subject. In the Request Report
+and the three referrer reports (Referrer Report, Redirected Referrer Report
+and Failed Referrer Report), analog can link to the files which it's
+listing. There are commands <kbd>LINKINCLUDE</kbd> and <kbd>LINKEXCLUDE</kbd>
+for the Request Report, and <kbd>REFLINKINCLUDE</kbd> and
+<kbd>REFLINKEXCLUDE</kbd> for the referrer reports, to specify exactly which
+files are linked to. (By default you get all pages). So, for example,
+<kbd>
+LINKINCLUDE *.txt
+</kbd>
+would link to <kbd>*.txt</kbd> files as well as pages in the Request Report,
+and
+<kbd>
+REFLINKEXCLUDE *
+</kbd>
+would tell analog to make no links in the three referrer reports.
+<p>
+Finally, there are commands called <kbd>ARGSINCLUDE</kbd> and
+<kbd>ARGSEXCLUDE</kbd>, and <kbd>REFARGSINCLUDE</kbd> and
+<kbd>REFARGSEXCLUDE</kbd>. Sometimes a URL contains arguments after a question
+mark. For example, the URL
+<pre>
+/cgi-bin/script.pl?x=1&amp;y=2
+</pre>
+runs the <kbd>/cgi-bin/script.pl</kbd> program with arguments <kbd>x=1</kbd>
+and <kbd>y=2</kbd>. (Sometimes the server records the arguments in a separate
+field in the logfile, but if so you can use the <kbd>%q</kbd> field in the
+<kbd><a href="logfile.html">LOGFORMAT</a></kbd> command, and analog will
+translate the filename to the above format).
+<p>
+Analog can either read or ignore the arguments. If the command
+<kbd>
+ARGSEXCLUDE /cgi-bin/script.pl
+</kbd>
+were given, analog would ignore the arguments to that file, and so treat the
+above URL as being the same as <kbd>/cgi-bin/script.pl</kbd>. On the other
+hand, if
+<kbd>
+ARGSINCLUDE /cgi-bin/script.pl
+</kbd>
+were specified, analog would read the arguments, and treat the above URL as
+a different file from <kbd>/cgi-bin/script.pl</kbd> (or from
+<kbd>/cgi-bin/script.pl?y=2&amp;x=1</kbd>), although a grand total for
+<kbd>/cgi-bin/script.pl</kbd> would still be listed in the Request Report.
+<p>
+<kbd>REFARGSINCLUDE</kbd> and <kbd>REFARGSEXCLUDE</kbd> are the same for
+referrers. By default, all arguments are included. The check for whether the
+arguments should be included happens before the filename is aliased: this
+means that you can't use <kbd>pages</kbd> in this command, because we don't
+know whether a file is a page until after it's been aliased.
+
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="alias.html">Prev</a> | <a href="output.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

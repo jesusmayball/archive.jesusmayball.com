@@ -1,0 +1,155 @@
+<html> <head>
+<title>Readme for analog -- other reports</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="timereps.html">Prev</a> | <a href="hierreps.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Other reports</h2>
+
+This section deals with the non-time reports. There are quite a lot of
+commands which control these reports, although we've seen some of them
+already.
+
+<p>
+First, these reports have <kbd>COLS</kbd> commands, just like the time
+reports. (See the section on <cite><a href="timereps.html">Time
+reports</a></cite> for how to use these commands.) In the non-time reports,
+one additional column is possible, namely <kbd>D</kbd> for date of last
+access. So, for example,
+<pre>
+REQCOLS RD
+</pre>
+lists the number of requests for each file in the Request Report, and the
+time when that file was last requested. The full list of <kbd>COLS</kbd>
+commands for non-time reports is <kbd>HOSTCOLS</kbd>, <kbd>DOMCOLS</kbd>,
+<kbd>REQCOLS</kbd>, <kbd>DIRCOLS</kbd>, <kbd>TYPECOLS</kbd>,
+<kbd>SIZECOLS</kbd>, <kbd>REDIRCOLS</kbd>, <kbd>FAILCOLS</kbd>,
+<kbd>REFCOLS</kbd>, <kbd>REFSITECOLS</kbd>, <kbd>REDIRREFCOLS</kbd>,
+<kbd>FAILREFCOLS</kbd>, <kbd>FULLBROWCOLS</kbd> (Browser Report),
+<kbd>BROWCOLS</kbd> (Browser Summary), <kbd>VHOSTCOLS</kbd>,
+<kbd>USERCOLS</kbd>, <kbd>FAILUSERCOLS</kbd> and <kbd>STATUSCOLS</kbd>. Not
+every column is allowed in every report, but if you specify an illegal one,
+analog will warn you about it.
+<hr>
+Next you need to know how use a <kbd>SORTBY</kbd> command to specify
+how the reports should be sorted. There are six possible ways of sorting
+reports: <kbd>REQUESTS</kbd>, <kbd>PAGES</kbd> (i.e., page requests),
+<kbd>BYTES</kbd>, <kbd>DATE</kbd>, <kbd>ALPHABETICAL</kbd> and
+<kbd>RANDOM</kbd> (no sorting, sometimes useful for speed in very long
+reports). For example, the command
+<pre>
+HOSTSORTBY ALPHABETICAL
+</pre>
+will sort the Host Report alphabetically. The other <kbd>SORTBY</kbd> commands
+are <kbd>DOMSORTBY</kbd>, <kbd>REQSORTBY</kbd>, <kbd>DIRSORTBY</kbd>,
+<kbd>TYPESORTBY</kbd>, <kbd>REDIRSORTBY</kbd>, <kbd>FAILSORTBY</kbd>,
+<kbd>REFSORTBY</kbd>, <kbd>REFSITESORTBY</kbd>, <kbd>REDIRREFSORTBY</kbd>,
+<kbd>FAILREFSORTBY</kbd>, <kbd>FULLBROWSORTBY</kbd>, <kbd>BROWSORTBY</kbd>,
+<kbd>VHOSTSORTBY</kbd>, <kbd>USERSORTBY</kbd>, <kbd>FAILUSERSORTBY</kbd> and
+<kbd>STATUSSORTBY</kbd>. Again, not every sort method is possible in every
+report, but you'll be warned if you choose an illegal one.
+<p>
+There is one known bug concerned with <kbd>SORTBY ALPHABETICAL</kbd>. The
+report is sorted before any <kbd><a href="alias.html">OUTPUTALIAS</a></kbd> is
+applied. This means that if an <kbd>OUTPUTALIAS</kbd> has been specified for
+the report, then the report will not be sorted correctly.
+<hr>
+You can also specify a <kbd>FLOOR</kbd> for most reports, saying how much
+activity an item needs before it is listed on the report. There are lots
+of possible ways of specifying floors, which I'll list here, using the
+<kbd>DOMFLOOR</kbd> (Domain Report <kbd>FLOOR</kbd>) command as an example.
+Essentially each one consists of a number indicating the level of the floor,
+followed by a letter indicating the floor criterion.
+<pre>
+DOMFLOOR 1000r       # all domains with at least 1000 requests
+DOMFLOOR 1000p       # at least 1000 requests for pages
+DOMFLOOR 1000000b    # at least 1,000,000 bytes transferred
+DOMFLOOR 1Mb         # at least 1 megabyte
+DOMFLOOR 0.5%r       # 0.5% of the requests (ditto %p and %b)
+DOMFLOOR 0.5:r       # 0.5% of the maximum number of requests
+                     # for any domain (ditto :p and :b)
+DOMFLOOR 970701d     # last access since 1st July 1997
+DOMFLOOR -00-01-00d  # last access in last month (see
+                     # doucumentation on FROM and TO commands)
+DOMFLOOR -100r       # domains with top 100 number of requests
+                     # (ditto -100p, -100b, -100d)
+</pre>
+The other <kbd>FLOOR</kbd> commands are <kbd>HOSTFLOOR</kbd>,
+<kbd>REQFLOOR</kbd>, <kbd>DIRFLOOR</kbd>, <kbd>TYPEFLOOR</kbd>,
+<kbd>REDIRFLOOR</kbd>, <kbd>FAILFLOOR</kbd>, <kbd>REFFLOOR</kbd>,
+<kbd>REFSITEFLOOR</kbd>, <kbd>REDIRREFFLOOR</kbd>,
+<kbd>FAILREFFLOOR</kbd>, <kbd>FULLBROWFLOOR</kbd>, <kbd>BROWFLOOR</kbd>,
+<kbd>VHOSTFLOOR</kbd>, <kbd>USERFLOOR</kbd>, <kbd>FAILUSERFLOOR</kbd>,
+<kbd>STATUSFLOOR</kbd>. Once again, not every floor method is legal for
+every report, but you'll be warned if you try and choose an illegal one.
+<hr>
+I've already told you about how to turn each report on and off from the
+command line using its <a href="output.html">code letter</a>. In fact,
+you can specify the <kbd>SORTBY</kbd> and the <kbd>FLOOR</kbd> in the same
+command. Take the example of the Referrer Report. If you follow the
+<kbd>+f</kbd> (to turn the report on) with a letter, it represents the
+sort method according to the following code:
+<dl compact>
+  <dt><kbd>r</kbd><dd><kbd>REQUESTS</kbd>
+  <dt><kbd>p</kbd><dd><kbd>PAGES</kbd>
+  <dt><kbd>b</kbd><dd><kbd>BYTES</kbd>
+  <dt><kbd>d</kbd><dd><kbd>DATE</kbd>
+  <dt><kbd>a</kbd><dd><kbd>ALPHABETICAL</kbd>
+  <dt><kbd>x</kbd><dd><kbd>RANDOM</kbd>
+</dl>
+You can then, or alternatively, use one of the above <kbd>FLOOR</kbd> formats
+to specify the floor. If you specify a <kbd>SORTBY</kbd>, you can also leave
+off the last letter of the floor, and analog will guess it according to the
+sort method: the floor will be by pages or bytes if that is the sort method,
+and otherwise by requests. Here are four examples:
+<dl compact>
+<dt><kbd>+fp</kbd><dd>means turn the referrer report on and sort it by page
+    requests, but says nothing about the floor;
+<dt><kbd>+f100r</kbd><dd>means list all referrers with at least 100 requests,
+    but says nothing about the sort method;
+<dt><kbd>+fb10000</kbd><dd>means list all referrers with at least 10,000 bytes,
+    sorted by bytes;
+<dt><kbd>+fa-000101d</kbd><dd>means list all referrers with accesses this year,
+    sorted alphabetically.
+</dl>
+
+<hr>
+We've already seen some other commands affecting what was listed in the
+non-time reports. The <a href="include.html">output <kbd>INCLUDE</kbd> and
+<kbd>EXCLUDE</kbd></a> commands specified lines to omit from each report, and
+the <kbd><a href="alias.html">OUTPUTALIAS</a></kbd> commands specified some
+aliasing to do on the names before they were listed. There were also
+<a href="include.html"><kbd>LINKINCLUDE</kbd> and <kbd>LINKEXCLUDE</kbd></a>,
+and <a href="include.html"><kbd>REFLINKINCLUDE</kbd> and
+<kbd>REFLINKEXCLUDE</kbd></a> commands to control what was linked to in the
+Request Report and the three referrer reports. You might want to have another
+look at these paragraphs.
+<p>
+There's one other command which affects the links in the Request Report.
+The command <kbd>BASEURL</kbd> prepends an additional string to the URLs
+in the target of the link. For example, after the command
+<pre>
+BASEURL http://www.statslab.cam.ac.uk
+</pre>
+<kbd>/~sret1/</kbd> will be linked to
+<kbd>http://www.statslab.cam.ac.uk/~sret1/</kbd>, not just to
+<kbd>/~sret1/</kbd>.
+This is very useful if you want to display the
+statistics on a different server from the server they refer to.
+<p>
+In the next section, we'll look at commands for generating
+<a href="hierreps.html">hierarchical reports</a>, which are closely related
+to the commands in this section.
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="custom.html">Up</a> |
+<a href="timereps.html">Prev</a> | <a href="hierreps.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

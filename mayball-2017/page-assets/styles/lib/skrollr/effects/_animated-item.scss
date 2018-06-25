@@ -1,0 +1,31 @@
+@mixin animated-item($class-name, $animation-name, $animation-info) {
+    $top-start: map-get($animation-info, "top-start");
+    $left-start: map-get($animation-info, "left-start");
+    $rotate-start: map-get($animation-info, "rotate-start");
+    $top-end: map-get($animation-info, "top-end");
+    $left-end: map-get($animation-info, "left-end");
+    $rotate-end: map-get($animation-info, "rotate-end");
+
+    .#{$class-name} {
+        // introduced this to force hardware acceleration (not sure if it was effective or not)
+        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0) translateX($left-start) translateY($top-start);
+        -skrollr-animation-name: unquote($animation-name);
+    }
+
+    @-skrollr-keyframes #{$animation-name} {
+        // when the top of the image hits the bottom of the viewport
+        skrollr-bottom-top {
+            // have versions with and without translate3d for harware acceleration (in case unsupported)
+            transform: translateY($top-start) translateX($left-start) rotate($rotate-start);
+            transform: translate3d(0, 0, 0) translateY($top-start) translateX($left-start) rotate($rotate-start);
+        }
+
+        // when the bottom of the image hits the top of the viewport
+        skrollr-top-bottom {
+            // have versions with and without translate3d for harware acceleration (in case unsupported)
+            transform: translateY($top-end) translateX($left-end) rotate($rotate-end);
+            transform: translate3d(0, 0, 0) translateY($top-end) translateX($left-end) rotate($rotate-end);
+        }
+    }
+}

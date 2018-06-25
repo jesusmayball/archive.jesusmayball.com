@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>The Portal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!-- use this comment tag to hide the enclosed code from old browsers.
+
+//Look for a version of Internet Explorer that supports ActiveX (i.e., one that's
+//running on a platform other than Mac or Windows 3.1) or a browser that supports
+//the plugin property of the navigator object and that has Flash Player 2.0
+//installed.
+
+if ((navigator.appName == "Microsoft Internet Explorer" &&
+    navigator.appVersion.indexOf("Mac") == -1 && 
+    navigator.appVersion.indexOf("3.1") == -1) ||
+
+    (navigator.plugins && navigator.plugins["Shockwave Flash"])
+                       || navigator.plugins["Shockwave Flash 3.0"]){
+
+   //Load a pre-defined HTML page with Flash Player in it into the browser window.
+    window.location='flashed.html';
+}
+else {
+    //Load a pre-defined HTML page without Flash Player into the browser window.
+    window.location='nonflashed.html';
+}
+
+// Close the comment tag. -->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF">
+<center>
+  <h3><a href="flashed.html">See the Flashed Site</a><br>
+    <font size=3>requires <a href="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">Flash 
+    Player</a></font></h3>
+  <h3><a href="nonflashed.html">See the unFlashed Site</a></h3>
+</center>
+</body>
+</html>

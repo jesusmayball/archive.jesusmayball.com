@@ -1,0 +1,7 @@
+@include add-colour(body-text, $lib-body-color);
+@include add-colour(title-text, #000);
+@include add-colour(heading-text, $lib-heading-color);
+@include add-colour(highlighted-heading-text, lighten(colour(heading-text), 25%));
+@include add-colour(highlight-text, #a00000);
+@include add-colour(subtitle-text, colour(highlight-text));
+@include add-colour(highlighted-subtitle-text, lighten(colour(subtitle-text), 25%));

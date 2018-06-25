@@ -1,0 +1,305 @@
+@font-face
+{
+font-family: piecesOfEight;
+src: url('piecesofeight.ttf'),
+     url('piecesofeight.eot'),
+     url('piecesofeight.svg'),
+     url('piecesofeight.woff');
+}
+
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #000;
+	margin: 0;
+	padding: 0;
+}
+
+#main-wrap {
+	width: 100%;
+	height: 700px;
+	background: #000 url(../images/combined2.jpg) no-repeat top;
+	min-width: 1000px;
+}
+
+#main {
+	margin: 0 auto;
+	width: 1000px;
+	height: 700px;
+}
+
+/* Side Content */
+
+.sidecontent {
+	width: 280px;
+	height: 550px;
+	margin-top: 125px;
+	margin-bottom: 25px;
+	position: relative;
+	z-index: 999;
+}
+
+.left {
+	float: left;
+	margin-left: 45px;
+	text-align: center;
+}
+
+.right {
+	float: right;
+	margin-right: 45px;
+	text-align: center;
+}
+
+/* Navigation */
+
+#nav {
+	padding: 0;
+	width: 350px;
+	height: 650px;
+	margin: 0 auto;
+	position: relative;
+	float: left;
+	z-index: 1;
+	text-indent: -999em;
+}
+
+#nav a {
+	display: block;
+	position: absolute;
+}
+
+a.committee-link {
+	width: 92px;
+	height : 210px;
+	left: 9px;
+	top: 330px;
+	text-indent: -999em;
+	background: url(../images/combined2.jpg) repeat -334px -330px;
+}
+
+a.committee-link:hover, a.committee-link.active {
+	background: url(../images/combined2.jpg) repeat -334px -1030px;
+}
+
+a.tickets-link {
+	width: 133px;
+	height : 133px;
+	left: 102px;
+	top: 337px;
+	text-indent: -999em;
+	background: url(../images/combined2.jpg) repeat -427px -337px;
+}
+
+a.tickets-link:hover, a.tickets-link.active {
+	background: url(../images/combined2.jpg) repeat -427px -1037px;
+}
+
+
+a.staffing-link {
+	width: 100px;
+	height : 250px;
+	left: 237px;
+	top: 310px;
+	text-indent: -999em;
+	background: url(../images/combined2.jpg) repeat -562px -310px;
+}
+
+a.staffing-link:hover, a.staffing-link.active {
+	background: url(../images/combined2.jpg) repeat -562px -1010px;
+}
+
+
+a.entertainment-link {
+	width: 139px;
+	height : 208px;
+	left: 112px;
+	top: 470px;
+	text-indent: -999em;
+	background: url(../images/combined2.jpg) repeat -437px -470px;
+}
+
+a.entertainment-link:hover, a.entertainment-link.active {
+	background: url(../images/combined2.jpg) repeat -437px -1170px;
+}
+
+
+a.logo-link {
+	width: 504px;
+	height : 97px;
+	left: -69px;
+	top: 22px;
+	text-indent: -999em;
+	background: url(../images/combined2.jpg) repeat -256px -22px;
+}
+
+a.logo-link:hover, a.logo-link.active {
+	background: url(../images/combined2.jpg) repeat -256px -722px;
+}
+
+a.sponsor-link {
+	width: 116px;
+	height : 56px;
+	left: -245px;
+	top: 55px;
+	text-indent: -999em;
+	background:  url(../images/combined2.jpg) repeat -80px -55px;
+}
+
+a.sponsor-link:hover, a.sponsor-link.active {
+	background: url(../images/combined2.jpg) repeat -80px -755px;
+}
+
+a.charity-link {
+	width: 108px;
+	height : 46px;
+	left: 518px;
+	top: 28px;
+	text-indent: -999em;
+	background: url(../images/combined2.jpg) repeat -843px -28px;
+}
+
+a.charity-link:hover, a.charity-link.active {
+	background: url(../images/combined2.jpg) repeat -843px -728px;
+}
+
+
+/* SideBar Style */
+
+.sidecontent {
+	/* text-align: center; */
+}
+
+.sidecontent h2 {
+	font-family: piecesOfEight, Georgia, serif;
+	font-weight: normal;
+	font-size: 38px;
+	margin: 10px 0 0 0;
+	padding: 0;
+	color: #000;
+	text-shadow: 0 0 20px #f7f4ef,
+	             0 0 20px #f7f4ef,
+	             0 0 20px #f7f4ef,
+	             0 0 20px #f7f4ef,
+	             0 0 20px #f7f4ef;
+}
+
+.sidecontent h3 {
+	font-family: piecesOfEight, Georgia, serif;
+	font-weight: normal;
+	font-size: 28px;
+	margin: 10px 0 0 0;
+	padding: 0;
+	color: #000;
+	text-shadow: 0 0 20px #f7f4ef,
+	             0 0 20px #f7f4ef,
+	             0 0 20px #f7f4ef,
+	             0 0 20px #f7f4ef,
+	             0 0 20px #f7f4ef;
+}
+
+.sidecontent h4 {
+	font-family: piecesOfEight, Georgia, serif;
+	font-weight: bold;
+	font-size: 24px;
+	margin: 10px 0 0 0;
+	padding: 0;
+	color: #000;
+	text-shadow: 0 0 20px #f7f4ef,
+	             0 0 20px #f7f4ef;
+}
+
+.sidecontent h2 a, .sidecontent h3 a, .sidecontent h4 a {
+	text-decoration: none;
+	color: #000;
+}
+
+.sidecontent h2 a:hover, .sidecontent h3 a:hover, .sidecontent h4 a:hover {
+	color: #000;
+	text-shadow: 0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef;
+}
+
+.sidecontent h2 a:visited, .sidecontent h3 a:visited, .sidecontent h4 a:visited {
+	text-decoration: none;
+	color: #000;
+}
+
+
+
+.sidecontent p {
+	font-family: 'IM Fell Double Pica SC', Verdana, arial, Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	margin: 10px 0 0 0;
+	color: #222;
+	text-shadow: 0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef;
+}
+
+/*
+	text-shadow: 0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef,
+	             0 0 10px #f7f4ef;
+*/
+.sidecontent p.snug {
+	margin: 0 0 0 0;
+}
+
+.sidecontent p a {
+	text-decoration: none;
+	color: #222;
+}
+
+.sidecontent p a:hover {
+	text-decoration: underline;
+	color: #000;
+}
+
+.sidecontent em {
+	font-weight: bold;
+	font-style: normal;
+	font-family: Georgia, serif;
+}
+
+/* Footer */
+#footer {
+	clear: both;
+	color: #444;
+	width: 1000px;
+	padding: 10px 0 10px 0;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 10px;
+	font-family: verdana, arial, sans-serif;
+}
+
+#footer a {
+	color: #444;
+	text-decoration: none;
+}
+
+#footer a:hover {
+	color: #444;
+	text-decoration: underline;
+}
+
+
+
+

@@ -1,0 +1,58 @@
+/* p */.section--charties__charity-info {
+    position: relative;
+}
+
+/* h5 */.section--charties__charity-title {
+    text-align: center;
+}
+
+/* h5 */.section--charties__charity-title,
+/* p */.section--charties__charity-details {
+    margin-left: 30%;
+}
+
+/* a */.section--charties__charity-link,
+/* a */.section--charties__charity-link:link,
+/* a */.section--charties__charity-link:hover,
+/* a */.section--charties__charity-link:visited {
+    color: inherit;
+}
+
+/* a */.section--charties__charity-link:hover {
+    text-decoration: underline;
+}
+
+/* span */.section--charties__charity-image {
+    position: absolute;
+    width: 25%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &--bloodwise {
+        background-image: url(../img/bloodwise.png);        
+    }
+
+    &--cats {
+        background-image: url(../img/cats.png);
+    }
+
+    &--crcc {
+        background-image: url(../img/crcc.png);
+    }
+
+    &--epa {
+        background-image: url(../img/epa.png);
+    }
+
+    &--sca {
+        background-image: url(../img/sca.png);
+    }
+
+    &--streetbite {
+        background-image: url(../img/streetbite.png);
+    }
+}

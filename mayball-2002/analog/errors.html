@@ -1,0 +1,184 @@
+<html> <head>
+<title>Readme for analog -- errors and warnings</title>
+</head>
+
+<body>
+[ <a href="Readme.html">Top</a> | <a href="Readme.html">Up</a> |
+<a href="defns.html">Prev</a> | <a href="faq.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+<h1>Readme for
+<a href="http://www.statslab.cam.ac.uk/~sret1/analog/">analog3.0</a></h1>
+<h2>Errors and warnings</h2>
+
+This page lists all the errors and warnings which analog can produce, together
+with a short explanation.
+
+<p>
+First, you should understand the difference between a crash, an error, a
+warning, and a debugging message. First, a <i>crash</i> is when analog exits
+prematurely, without producing the whole output file. The system might give a
+message, but analog will not give one of its own messages. Analog should never
+crash. If it does crash, please <a href="bugs.html">tell me about it</a>.
+
+<p>
+An <i>error</i> is something which stops analog finishing its job. Whenever
+an error is detected, analog gives a message starting something like
+<kbd>analog: Fatal error:</kbd> and will then tell you what type of thing went
+wrong before quitting.
+
+<p>
+A <i>warning</i> is a problem which is not fatal to analog: it will keep on
+with its processing. These vary from the possibly serious, such as files which
+could not be found, to purely informational. They produce a message starting
+<kbd>analog: Warning</kbd>. You can turn warnings off using the
+<kbd><a href="debug.html">WARNINGS</a></kbd> command.
+
+<p>
+Finally, a <i>debugging message</i> gives information on the state of the
+program. They just begin with a single code letter followed by a colon. You
+don't get any debugging messages unless you've <a href="debug.html">asked for
+them</a>.
+
+<p>
+Now I shall describe all the possible <a href="#errs">errors</a> and
+<a href="#warns">warnings</a> in detail.
+<hr>
+<h3><a name="errs">Errors</a></h3>
+<dl>
+  <dt><b>Ran out of memory: cannot continue</b>
+  <dd>Analog ran out of memory. Try increasing the memory available to the
+      process, if your operating system will allow it, or using the
+      <kbd><a href="lowmem.html">LOWMEM</a></kbd> commands.
+  <dt><b>Cannot ignore mandatory configuration file</b>
+  <dd>See the section in the Readme on the <a href="syntax.html">mandatory
+      configuration file</a>.
+  <dt><b>Can't find language file
+      <br>Language file too short
+      <br>Language file contains excessively long lines</b>
+  <dd>Analog can't run without a well-formed language file. See the
+      documentation on <a href="output.html">language files</a>.
+  <dt><b>Attempted to read more than 50 configuration files</b>
+  <dd>The most likely explanation for this is that you have accidentally
+      created a loop using the
+      <kbd><a href="syntax.html">CONFIGFILE</a></kbd> command.
+  <dt><b>Incorrect default given in <kbd>analhead.h</kbd>
+      <br>Default given in <kbd>analhead.h</kbd> too short</b>
+  <dd>If you've compiled your own version, and you've specified an incorrect
+      configuration in the file <kbd>analhead.h</kbd>, analog gives up to
+      allow you to fix it.
+  <dt><b>Failed to open output file for writing</b>
+  <dd>Analog couldn't create, or couldn't write to, the output file you
+      specified.
+  <dt><b><kbd>OUTPUT NONE</kbd> and <kbd>CACHEOUTFILE none</kbd> selected</b>
+  <dd>You requested no output.
+</dl>
+<hr>
+<h3><a name="warns">Warnings</a></h3>
+Remember that warnings are not fatal, and that you can turn them off using the
+<kbd><a href="debug.html">WARNINGS</a></kbd> command. The possible warnings
+come in several different categories, shown by a letter in the warning
+message. The categories are as follows.
+<p>
+<h4>Category C</h4>
+This category indicates an incorrect configuration. Analog will either ignore
+what you said, or try and do the best it can with it. There are too many
+warnings in this category to list completely. You will have to consult the
+documentation for the particular <a href="custom.html">configuration
+command</a> that gave an error. If you get an error for a command which used
+to work in a previous version of analog, have a look in the section
+<cite><a href="update.html">Updating from older versions</a></cite>.
+<p>
+<h4>Category D</h4>
+This is for configurations which might be intended, but which look suspicious.
+<dl>
+  <dt><b>Offset not a multiple of 30
+      <br>Offset more than 25 hours</b>
+  <dd>The <a href="logfile.html">time offsets</a> are meant to be for
+      correcting between differences in time zones. These differences are
+      usually multiples of 30 minutes between -25 and +25 hours. Maybe you
+      specified the offset in hours instead of minutes by mistake, or
+      something like that.
+  <dt><b><kbd>SORTBY</kbd> doesn't match <kbd>FLOOR</kbd>
+      <br><kbd>SORTBY</kbd> (or <kbd>FLOOR</kbd>) isn't included in
+      <kbd>COLS</kbd></b>
+  <dd>Within one report, it's helpful to your readers to have the sort method
+      and the floor compatible, and both included in the <kbd>COLS</kbd>.
+      (See the section on <cite><a href="othreps.html">Non-time
+      reports</a></cite>).
+  <dt><b>Time reports have not all got same value of <kbd>BACK</kbd></b>
+  <dd>It's usually helpful to have all the <a href="timereps.html">time
+      reports</a> running in the same direction.
+  <dt><b>Report contains no <kbd>COLS</kbd></b>
+  <dd>You've got an empty <kbd>COLS</kbd> list for one report, so you'll just
+      get a list of names, not any information about them.
+  <dt><b><kbd>LOWMEM 3</kbd> prevents that item being cached</b>
+  <dd>You're making a <a href="cache.html">cache file</a>, but one item is
+      not being recorded because of a
+      <kbd><a href="lowmem.html">LOWMEM</a></kbd> command, and will therefore
+      not be saved in the cache file.
+  <dt><b><kbd>OUTFILE</kbd> and <kbd>CACHEOUTFILE</kbd> are the same</b>
+  <dd>The regular output will overwrite, or possibly be appended to, the
+      cache file.
+</dl>
+<p>
+<h4>Category F</h4>
+This category is for diagnosing files which couldn't be opened or read
+successfully. These can be serious, but the messages should be
+self-explanatory.
+<p>
+<h4>Category L</h4>
+When analog finishes reading a logfile, it checks whether there might have
+been something wrong with it.
+<dl>
+  <dt><b>Large number of corrupt lines</b>
+  <dd>This could indicate a problem with the logfile, or with the
+      <kbd><a href="logfile.html">LOGFORMAT</a></kbd> specification. If you
+      have a WebSTAR, Netscape or extended logfile, it might be missing the
+      mandatory header line.
+  <dt><b>Logfiles overlap: possible double counting</b>
+  <dd>Two logfiles which were counting the same thing overlapped in
+      time. Maybe you read two copies of the same logfile. Or maybe the
+      <kbd><a href="logfile.html">LOGFORMAT</a></kbd> specification should
+      have told analog to ignore some of the items.
+</dl>
+<p>
+<h4>Category M</h4>
+This category is for warnings about logfile formats which might make analog
+produce unexpected results.
+<dl>
+  <dt><b>Logfile contains lines with no [whatevers], which are being
+      filtered</b>
+  <dd>This is usually harmless. It is perhaps best explained by
+      example. Suppose you are <a href="include.html">excluding</a> certain
+      files from the analysis, but that you are also analysing a browser log
+      which just contains information about the browsers used, not which files
+      they read. Then we can't exclude the browsers which read the excluded
+      files, because we don't know which they were, so all browsers will be
+      included.
+  <dt><b>Logfile contains lines with no file names (or bytes): page (or byte)
+      counts may be low</b>
+  <dd>If a logfile line doesn't contain a file name, analog will assume that
+      the request wasn't for a page. Similarly, if it doesn't give the number
+      of bytes transferred, analog will make the bytes zero. So the number of
+      page requests or bytes credited to the other items on that line will
+      then be too low.
+</dl>
+<p>
+<h4>Category R</h4>
+This is used when analog turns off an empty report. This could be because none
+of the relevant items were included in any of the logfiles, or perhaps
+beacause a <kbd><a href="lowmem.html">LOWMEM</a></kbd> command stopped them
+being recorded.
+<h4>Broken Pipe</h4>
+This is not an analog-generated warning, but it can result from analog closing
+an logfile it's uncompressing without reading the whole of it, when it
+determines that it will not need it.
+<hr>
+<address><a HREF="http://www.statslab.cam.ac.uk/~sret1/">Stephen Turner</a>
+<br>E-mail: <a HREF="mailto:sret1@cam.ac.uk">sret1@cam.ac.uk</a>
+</address>
+<p>
+[ <a href="Readme.html">Top</a> | <a href="Readme.html">Up</a> |
+<a href="defns.html">Prev</a> | <a href="faq.html">Next</a> |
+<a href="map.html">Map</a> | <a href="indx.html">Index</a> ]
+</body> </html>

@@ -1,0 +1,9 @@
+.section--footer {
+    @extend %content-section;
+
+    text-align: center;
+}
+
+.section--parallax-footer { 
+    @extend %parallax-content-section;
+}

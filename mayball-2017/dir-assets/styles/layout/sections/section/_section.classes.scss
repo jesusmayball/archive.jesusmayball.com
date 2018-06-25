@@ -1,0 +1,27 @@
+%page-background {
+    // this is now a repeating image so don't need to set it to cover
+    background-color: colour(section-background);
+    background-image: url(../img/section-background.jpg);
+}
+
+.section__contents {
+    @extend %palm-one-whole;
+
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+// extended by sections with content (--hero or --contents)
+%content-section {
+    padding: $lib-spacing-unit;
+    text-align: justify;
+}
+
+%parallax-content-section {
+    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.5);
+
+    // may want to shift these to into `content-section`
+    position: relative;
+    z-index: z(content-section);
+}
