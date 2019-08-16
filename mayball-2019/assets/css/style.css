@@ -1,0 +1,459 @@
+html {
+    min-height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    background: black !important;
+}
+
+body {
+    color: white;
+    margin-bottom: 85px;
+    font-family: 'warnock-pro', serif !important;
+    font-weight: lighter;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    background-color: black;
+    text-align: center;
+    font-size: 12px;
+    transition: 1.5s opacity;
+}
+
+#copyright {
+    margin-top: 5px;
+}
+
+#error {
+    position: absolute;
+    background: none;
+    top: 50%;
+    left: 0;
+    height: 128px;
+    width: 100%;
+    margin-top: -64px;
+}
+
+#sponsored {
+}
+
+.tiny-sponsor {
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+}
+
+.tiny-sponsor img {
+    max-height: 40px;
+}
+
+#tcd-tiny {
+    transform: scale(1.3);
+}
+
+@media (max-width: 620px) {
+    .tiny-sponsor {
+        width: 80px;
+    }
+}
+
+@media (max-width: 340px) {
+    .tiny-sponsor {
+        width: 70px;
+    }
+}
+
+video {
+    filter: contrast(120%);
+}
+
+#nav-underline {
+    position: relative;
+    z-index: 5;
+    transform: translateY(-50%);
+    margin-top: -25px;
+    max-height: 40px;
+    width: 100%;
+}
+
+div#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background-color: black;
+}
+
+div#particles-js > canvas {
+    /* background-color: black; */
+}
+
+canvas#loader.hidden {
+    opacity: 0;
+}
+
+canvas#loader {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    opacity: 1;
+    transition: opacity .1s ease-in-out;
+}
+
+#main-logo-container {
+    overflow: hidden;
+    max-height: 600px;
+}
+
+/*Shitty hack*/
+@media (max-width: 540px) {
+    #main-logo-container {
+        max-height: 560px;
+    }
+}
+
+@media (max-width: 440px) {
+    #main-logo-container {
+        max-height: 460px;
+    }
+}
+
+@media (max-width: 350px) {
+    #main-logo-container {
+        max-height: 380px;
+    }
+}
+
+.logo {
+    position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    max-height: 600px;
+}
+
+.logo#main-logo-background {
+    z-index: 2;
+}
+
+.logo#main-logo {
+    background-color: black;
+    transform: translateY(-100%) translateX(-50%);
+    z-index: 1;
+}
+
+.logo#main-logo-glitch {
+    transform: translateY(-100%) translateX(-50%);
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.section {
+    display: none;
+    opacity: 1;
+    transition: 0.25s opacity ease-in-out;
+    padding-bottom: 25px;
+    margin-bottom: 85px;
+}
+
+.section.active {
+    display: block;
+}
+
+.section#section-home {
+    transition: 1.5s opacity;
+}
+
+.section.fadeOut {
+    opacity: 0;
+    transition: 0.25s opacity !important;
+}
+
+footer.fadeOut {
+    opacity: 0;
+}
+
+h1 {
+    font-family: 'brother-1816', sans-serif !important;
+    font-weight: bold;
+    color: white !important;
+}
+
+h1.ticket-price {
+    margin-top: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+    font-family: 'brother-1816', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+h3 {
+    color: white !important;
+    text-align: center;
+    margin-top: 0;
+    font-weight: bold;
+    font-family: 'brother-1816', sans-serif !important;
+    font-size: 28px;
+}
+
+h4 {
+    color: white !important;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'brother-1816', sans-serif !important;
+    font-size: 28px;
+}
+
+.ticket-type > h3 {
+    margin-top: 0;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.ticket-type > h4 {
+    font-style: italic;
+    color: white;
+    font-family: 'brother-1816', sans-serif;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+#buy-tickets-button {
+    margin-top: 20px;
+    color: white;
+    padding-bottom: 8px;
+    width: 320px;
+    height: 80px;
+    font-size: 24px;
+    font-family: 'brother-1816';
+    font-weight: 300;
+    background: transparent;
+}
+
+#buy-tickets-button:hover {
+    color: #59c0d3;
+}
+
+#buy-tickets-underline {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: -56px;
+}
+
+@media (max-width: 440px) {
+    #tc-container {
+        font-size: 11px;
+    }
+}
+
+img.sponsor {
+    text-align: center;
+    max-width: 450px;
+}
+
+img.sponsor#tcd {
+    max-height: 250px;
+    width: auto;
+}
+
+img.charity {
+    max-height: 80px;
+    width: auto;
+}
+
+@media (max-width: 600px) {
+    img.sponsor {
+        max-width: 250px;
+    }
+}
+
+div > p {
+    color: white !important;
+}
+
+#event-description {
+    margin-top: -40px;
+    position: relative;
+    z-index: 5;
+}
+
+.title-backdrop {
+    position: relative;
+    margin-top: -100px;
+    height: 256px;
+    z-index: 0;
+}
+
+.title-backdrop-small {
+    position: relative;
+    margin-top: -88px;
+    height: 192px;
+    z-index: 0;
+}
+
+
+@media (max-width: 500px) {
+    .title-backdrop {
+        height: 208px;
+    }
+}
+
+.ticket-type-backdrop {
+    margin-bottom: -130px;
+    height: 128px;
+    z-index: 0;
+}
+
+.section-title {
+    position: relative;
+    z-index: 5;
+    transform: translateY(80%);
+    font-family: 'brother-1816', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+.ticket-type {
+    font-family: inherit;
+    color: inherit;
+}
+
+#nav-bar {
+    font-family: 'brother-1816', sans-serif;
+    margin-top: 40px;
+    margin-bottom: 32px;
+    z-index: 6;
+}
+
+#nav-bar > a {
+    font-size: 24px;
+    color: #59c0d3;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+#nav-bar > a.uk-active {
+    color: #fff;
+    border-bottom: none;
+}
+
+@media (max-width: 820px) {
+    #nav-bar > a {
+        font-size: 14px;
+        padding-right: 4px;
+        padding-left: 6px;
+    }
+    #nav-bar {
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 420px) {
+    #nav-bar > a {
+        font-size: 10px;
+        margin-left: 2px;
+    }
+    #nav-bar-container {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+}
+
+.uk-tab::before {
+    border-bottom: none !important;
+}
+
+.uk-tab {
+    margin-left: 0 !important;
+}
+
+.section-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    background-color: black;
+}
+
+p {
+    text-align: justify;
+}
+
+a.none {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.none:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.committee-member > a {
+    color: white;
+}
+
+.committee-member > a:hover {
+    color: #fd6331;
+    text-decoration: none;
+}
+
+p a, footer a {
+    color: white;
+    font-style: italic;
+}
+
+p a:hover, footer a:hover {
+    color: #fd6331;
+    text-decoration: none;
+}
+
+.committee-gif {
+    width: 100%;
+}
+
+.committee-member {
+    background-color: rgba(0,0,0,0);
+    overflow: hidden;
+}
+
+.committee-name {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 900;
+}
+
+.committee-role {
+    text-align: center;
+    font-size: 1em;
+    margin-top: -20px;
+}
+
+.committee-email {
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: -20px;
+    font-style: italic;
+}
