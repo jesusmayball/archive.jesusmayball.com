@@ -5,286 +5,647 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Bad+Script|Cinzel&display=swap" -->
-    <!-- rel="stylesheet"> -->
-
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="./assets/site.webmanifest">
+    <link rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
         integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>MB2020</title>
+    <title>Jesus May Ball 2020</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script>
         WebFont.load({
             google: {
-                families: ['Bad Script', 'Playfair Display', 'Cormorant Garamond']
+                families: ['Noto Serif JP']
             },
             timeout: 2000
         });
     </script>
+
 </head>
 
 <body>
     <nav class="navbar navbar-expand-sm fixed-top navbar-light" id="navbar">
-        <li class="mobile-logo">
+        <li class="mobile-logo sliding-link" onclick="location.href='#'">
             <a class="navbar-brand mx-auto" href="#">
-                <img alt="logo" src="./assets/horse.png" width="50" height="50">
+                <img href="#" alt="logo" src="./assets/logo.svg" width="50vw" height="50vh">
             </a>
         </li>
-        <button class="navbar-toggler ml-auto float-xs-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler ml-auto float-xs-right" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav flex-row w-100 d-flex justify-content-center">
-            <!-- <li class="nav-item">
-                <a class="nav-link sliding-link" href="#title-section">Faraway</a>
-            </li> -->
-            <li class="nav-item">
-                <a class="nav-link sliding-link" href="#night-section">The Night</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link sliding-link" href="#tickets-section">Tickets</a>
-            </li>
-            <li>
-                <a class="navbar-brand mx-auto" href="#">
-                    <img alt="logo" src="./assets/horse.png" width="50" height="50">
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link sliding-link" href="#committee-section">Committee</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link sliding-link" href="#">
-                    Sponsors
-                </a>
-            </li>
-        </ul>
-    </div>
+            <ul class="navbar-nav flex-row w-100 d-flex justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link sliding-link" href="#night-section">Faraway</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link sliding-link" href="#tickets-section">Tickets</a>
+                </li>
+                <li>
+                    <a class="navbar-brand mx-auto sliding-link" href="#wrapper">
+                        <img alt="logo" src="./assets/logo.svg" width="50" height="50">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link sliding-link" href="#charities-section">Charities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link sliding-link" href="#committee-section">
+                        Committee
+                    </a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <div class="wrapper" id="wrapper">
-        <div id="title-section" class="title-section container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <img class="img-fluid centered" id="logo" src="./assets/horse.png" width="400" height="400">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="title">
-                        Jesus May Ball
+        <div id="mob-wrapper">
+            <div id="title-section" class="title-section container-fluid">
+                <div class="row">
+                    <div class="col-12" id="logo">
+                        <img class="img-fluid centered" id="logo" src="./assets/logo-with-text.png">
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="tagline-section" class="main-section container-fluid">
+            <div class="container-fluid">
+                <div class="row" id="arrow">
+                    <div class="col-12 text-center">
+                        <a>
+                            <img class="arrow" height="150" src="./assets/arrow.png" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="2000"
+                id="night-section" class="main-section container-fluid">
 
-            <div class="row">
-                <div class="col-8 offset-2 text-center">
-                    <div class="subtitle-body">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
+                <div class="row">
+                    <div id="faraway" class="col-12 text-center subtitle">
+                        Faraway
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1 text-center">
+                        <div class="subtitle-body">
+                            The Jesus May Ball Committee invites you to an evening of discovery and imagination on the
+                            15th
+                            June. Experience the magic of The Faraway Tree, finding yourself in a new Land for every
+                            court
+                            you explore. Your adventure begins as you climb the Tree and let the enchanted realms
+                            transform
+                            your evening. With delicious sweet and savoury dishes from across the globe and a marvellous
+                            array of cocktails, enjoy spellbinding entertainment as you join us for a night of
+                            daydreaming.
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="night-section" class="main-section container-fluid">
+        <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="2000" id="tickets-section" class="main-section container-fluid">
             <div class="row">
                 <div class="col-12 text-center">
-                    <div class="subtitle">
-                        The Night
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8 offset-2 text-center">
-                    <div class="subtitle-body">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="tickets-section" class="main-section container-fluid">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="subtitle">
+                    <div id="#tickets-subtitle" class="subtitle">
                         Tickets
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-4 text-center ticket-infobox">
+                <div class="col-12 col-md-3 text-center ticket-infobox">
+                    <h1>Bursary</h1>
+                    <h2>£80</h2>
+                    <p>Bursary tickets (equivalent to Standard tickets) are available to students of Jesus College with any level of the Cambridge Bursary.</p>
+                </div>
+                <div class="col-12 col-md-3 text-center ticket-infobox">
                     <h1>Standard</h1>
-                    <h2>£155</h2>
-                    <p>Standard tickets entitle holders <br />
-                        to enter the ball at 20:00.</p>
+                    <h2>£160</h2>
+                    <p>Standard tickets entitle holders to enter <br/> the ball at 20:00.</p>
                 </div>
-                <div class="col-12 col-md-4 text-center ticket-infobox">
+                <div class="col-12 col-md-3 text-center ticket-infobox">
                     <h1>Priority</h1>
-                    <h2>£175</h2>
-                    <p>Priority tickets entitle holders <br />
-                        to enter the Ball for a Champagne <br /> reception at 19:15.</p>
+                    <h2>£180</h2>
+                    <p>Priority tickets entitle holders to enter the Ball for a Champagne reception at 19:15.</p>
                 </div>
-                <div class="col-12 col-md-4 text-center ticket-infobox">
+                <div class="col-12 col-md-3 text-center ticket-infobox">
                     <h1>Dining</h1>
-                    <h2>£195</h2>
-                    <p>Dining tickets entitle holders <br />
-                        to enter the Ball at 18:30 for a <br />
-                        Champagne reception before <br />
-                        a three-course meal beginning at 19:00.</p>
+                    <h2>£200</h2>
+                    <p>Dining tickets entitle holders to enter the Ball at 18:30 for a Champagne reception before a
+                        three-course meal beginning at 19:00.</p>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="2000" class="row">
+                <div onclick="location.href='/tickets';" class="col-12 text-center">
+                    <a id="buy-now" class="btn btn-default ticket-buy-button">Buy Now</a>
                 </div>
             </div>
         </div>
-        <div id="committee-section" class="main-section container">
+    </div>
+
+    <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="2000" id="faq-section" class="main-section container-fluid">
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="subtitle">
-                        The Committee
+                        FAQs
                     </div>
                 </div>
             </div>
-            <div class="row committee-row">
-                <div class="col-sm-12 committee-member">
-                    <img class="img-fluid committee-member-img centered" src="assets/avatar.gif">
-                    <div class="committee-member-name text-center">
-                        Joao Lanca Coelho
-                    </div>
-                    <div class="committee-member-role text-center">
-                        President
-                    </div>
-                    <div class="committee-member-email text-center">
-                        Joao@jesusmayball.com
-                    </div>
+            <div class="row">
+                <div class="col-12 col-md-8 offset-md-1 faquestion">
+                    How many guest tickets can I buy?
                 </div>
             </div>
-            <div class="row committee-row">
-                <div class="col-12 col-md-6 committee-member">
-                    <img class="img-fluid committee-member-img centered" src="assets/avatar.gif">
-                    <div class="committee-member-info text-center">
-                        <div class="committee-member-name">
-                            Imogen Beltrami
-                        </div>
-                        <div class="committee-member-role">
-                            Vice-President
-                        </div>
-                        <div class="committee-member-email">
-                            Imogen@jesusmayball.com
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 committee-member">
-                    <img class="img-fluid committee-member-img centered" src="assets/avatar.gif">
-                    <div class="committee-member-info text-center">
-                        <div class="committee-member-name">
-                            Jacob Dabb
-                        </div>
-                        <div class="committee-member-role">
-                            Vice-President
-                        </div>
-                        <div class="committee-member-email">
-                            Jacob@jesusmayball.com
-                        </div>
-                    </div>
+            <div class="row subtitle-body">
+                <div class="col-8 offset-1">
+                    On Launch Night (in the Bar) and for the first 72 hours that tickets are on sale online, Jesuans will be able to buy their own ticket and two guest tickets. From 13:00 on 22nd February, the guest limit will be extended to a total of four guest tickets. Tickets then go on sale to the rest of the university on the 26th February 1pm. <br/>
+                    Please note: You will need the email addresses of guests that you wish to buy tickets for. 
                 </div>
             </div>
-            <div class="row committee-row" id="designRowOne">
-                <div class="col-12 col-lg-4 committee-member">
-                    <img class="img-fluid committee-member-img centered" src="assets/avatar.gif">
-                    <div class="committee-member-info text-center">
-                        <div class="committee-member-name">
-                            Ranjani Sundar
-                        </div>
-                        <div class="committee-member-role">
-                            Design
-                        </div>
-                        <div class="committee-member-email">
-                            Design@jesusmayball.com
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4 committee-member">
-                    <img class="img-fluid committee-member-img centered" src="assets/avatar.gif">
-                    <div class="committee-member-info text-center">
-                        <div class="committee-member-name">
-                            Lizzie Tarrant
-                        </div>
-                        <div class="committee-member-role">
-                            Design
-                        </div>
-                        <div class="committee-member-email">
-                            Design@jesusmayball.com
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4 committee-member">
-                    <img class="img-fluid committee-member-img centered" src="assets/avatar.gif">
-                    <div class="committee-member-info text-center">
-                        <div class="committee-member-name">
-                            Kathryn-Ann Frazer
-                        </div>
-                        <div class="committee-member-role">
-                            Design
-                        </div>
-                        <div class="committee-member-email">
-                            Design@jesusmayball.com
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-12 col-md-8 offset-md-1 faquestion">
+                    I can't make the ball anymore - what should I do?
                 </div>
             </div>
-            <div class="row committee-row" id="designRowTwo">
-                <div class="col-12 col-lg-4 committee-member">
-                    <img class="img-fluid committee-member-img centered" src="assets/avatar.gif">
-                    <div class="committee-member-info text-center">
-                        <div class="committee-member-name">
-                            Claire Goldring
-                        </div>
-                        <div class="committee-member-role">
-                            Design & Green
-                        </div>
-                        <div class="committee-member-email">
-                            Design@jesusmayball.com
-                        </div>
-                    </div>
+            <div class="row subtitle-body">
+                <div class="col-8 offset-1">The Jesus May Ball doesn't offer refunds - however, it is possible to transfer the ticket into another name, although there is a fee for this (some of this is donated to charity!). We may also have a waitlist of people who are looking to buy a ticket from someone, please contact us at ticketing@jesusmayball.com. 
+                    <br/> We strongly discourage guests from selling tickets for a profit, and would like to urge those who are looking for a ticket to apply through the waitlist first to avoid high markups. </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-8 offset-md-1 faquestion">
+                    I'm on the waiting list… now what?
                 </div>
-                <div class="col-12 col-lg-4 committee-member">
-                    <img class="img-fluid committee-member-img centered" src="assets/avatar.gif">
-                    <div class="committee-member-info text-center">
-                        <div class="committee-member-name">
-                            Alisa Santikarn
-                        </div>
-                        <div class="committee-member-role">
-                            Design
-                        </div>
-                        <div class="committee-member-email">
-                            Design@jesusmayball.com
-                        </div>
-                    </div>
+            </div>
+            <div class="row subtitle-body">
+                <div class="col-8 offset-1">If any spare tickets become available (e.g. from people not paying for their tickets), we will contact people on the waiting list in the order they went on. You'll stay on the waiting list until a few weeks before the ball, to give you the best chance of getting a ticket.</div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-8 offset-md-1 faquestion">
+                    Can I change the name on my ticket?
                 </div>
-                <div class="col-12 col-lg-4">
-                    <img class="img-fluid committee-member-img centered" src="assets/avatar.gif">
-                    <div class="committee-member-info text-center">
-                        <div class="committee-member-name">
-                            Max Turner
-                        </div>
-                        <div class="committee-member-role">
-                            Graphic Design
-                        </div>
-                        <div class="committee-member-email">
-                            Design@jesusmayball.com
-                        </div>
-                    </div>
+            </div>
+            <div class="row subtitle-body">
+                <div class="col-8 offset-1">Name changes on tickets can be done <a href="/tickets/namechange.php">here</a>, for a fee of £40, however this fee will increase to £50 after the 22nd April. Changes will be made to the tickets after payment confirmation. The deadline for all name change requests is the 6th June. </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-8 offset-md-1 faquestion">
+                    Is your question not answered?
                 </div>
+            </div>
+            <div class="row subtitle-body">
+                <div class="col-8 offset-1">Click <a href="./faq.html">here</a> for a full list of FAQs, or email us at ticketing@jesusmayball.com</div>
             </div>
 
+
+
+        <div id="charities-section" class="main-section container-fluid">
+            <div class="row" data-aos="fade-up" data-aos-duration="2000">
+                <div class="col-12 text-center">
+                    <div class="subtitle">
+                        Charities
+                    </div>
+                </div>
+            </div>
+            <div class="row charity-promo" data-aos="fade-up" data-aos-duration="2000">
+                <div class="col-8 offset-2 text-center">
+                    <div class="subtitle-body">
+                        There is the option to add a £3 charity donation to the price of your ticket, which we hope
+                        you
+                        will consider. This year, the Committee is supporting the following charities:
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
+                <div class="row charity">
+                    <div class="col-sm-12 col-md-4 offset-md-1 text-center charity-logo">
+                        <img src="./assets/mind-logo.png" width="150">
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-center subtitle-body">
+                        We provide advice and support to empower anyone experiencing a mental health problem.
+                        We campaign to improve services, raise awareness and promote understanding. Because of Mind,
+                        millions
+                        more people have access to advice and support thanks to our information and services nationally
+                        and
+                        locally, in England and Wales.
+                        We’re building on change, but we know there is much more to do.
+                    </div>
+                </div>
+                <div class="row charity">
+                    <div class="col-sm-12 col-md-4 offset-md-1 text-center charity-logo">
+                        <img src="./assets/beam-logo.png" width="150">
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-center subtitle-body">
+                        At Beam, we crowdfund new career opportunities for homeless men and women. We provide them with
+                        a
+                        support network, from our support specialists to the kind strangers who fund their campaigns.
+                        We use technology to find scalable solutions to the toughest social problems - starting with
+                        homelessness.
+                    </div>
+                </div>
+                <div class="row charity">
+                    <div class="col-sm-12 col-md-4 offset-md-1 text-center charity-logo">
+                        <img src="./assets/camfed-logo.png" width="150">
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-center subtitle-body">
+                        CAMFED envisions a world in which every child is educated, protected, respected and valued, and
+                        grows up to turn the tide of poverty.
+                        As the most effective strategy to tackle poverty and inequality, CAMFED multiplies educational
+                        opportunities for girls and empowers young women to become leaders of change. Our focus is on
+                        girls
+                        and young women in rural areas of sub-Saharan Africa.
+                        This is where girls face acute disadvantage and where their empowerment will have a
+                        transformative
+                        impact.
+                    </div>
+                </div>
+                <div class="row charity">
+                    <div class="col-sm-12 col-md-4 offset-md-1 text-center charity-logo">
+                        <img src="./assets/rag-logo.png" width="150">
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-center subtitle-body">
+                        RAG is the biggest student-led charitable organisation in the University of Cambridge.
+                        They offer members the chance to participate in a range of college and uni-wde events to support
+                        a number of local, national and international charities. This year, RAG will be supporting 10
+                        charities on behalf of Jesus College May Ball.
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div id="sponsorship-section" class="main-section container-fluid">
+        <div class="row" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-12 text-center">
+                <div class="subtitle">
+                    Sponsorship
+                </div>
+            </div>
+        </div>
+        <div class="row charity-promo" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-12 text-center">
+                <div class="subtitle-body">
+                    This year the ball is sponsored by:
+                </div>
+            </div>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
+            <div class="row charity">
+                <div class="col-sm-12 col-md-4 offset-md-1 text-center charity-logo">
+                    <img src="./assets/cambridge-gin-logo.png" width="200">
+                </div>
+                <div class="col-sm-12 col-md-6 text-center subtitle-body">
+                    The Cambridge Distillery has grown from the UK’s smallest distillery into a multi-international
+                    award-wining business, with every step in our production process carefully undertaken by hand with
+                    painstaking attention to detail.
+                    fresh botanicals, often locally grown and foraged, individually distilled under vacuum, we achieve
+                    an elegance and expression out of reach of traditional distillation methods.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="committee-section" class="main-section container-fluid">
+        <div class="row" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-12 text-center">
+                <div class="subtitle">
+                    The Committee
+                </div>
+            </div>
+        </div>
+        <div class="row committee-row" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
+            <div id="imy" class="col-sm-4 committee-member">
+
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Imogen Beltrami.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Imogen Beltrami
+                    </div>
+                    <div class="committee-member-role">
+                        Vice-President
+                    </div>
+                    <div class="committee-member-email">
+                        imogen@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div id="joao" class="col-sm-4 committee-member">
+
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Joao Lanca Coelho.png">
+                <div class="committee-member-name text-center">
+                    Joao Lanca Coelho
+                </div>
+                <div class="committee-member-role text-center">
+                    President
+                </div>
+                <div class="committee-member-email text-center">
+                    joao@jesusmayball.com
+                </div>
+            </div>
+            <div id="jacob" class="col-sm-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Jacob Dabb.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Jacob Dabb
+                    </div>
+                    <div class="committee-member-role">
+                        Vice-President
+                    </div>
+                    <div class="committee-member-email">
+                        jacob@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row committee-row" id="designRow1" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Ranjani Sundar.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Ranjani Sundar
+                    </div>
+                    <div class="committee-member-role">
+                        Head of Design
+                    </div>
+                    <div class="committee-member-email">
+                        design@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Alisa Santikarn.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Alisa Santikarn
+                    </div>
+                    <div class="committee-member-role">
+                        Design
+                    </div>
+                    <div class="committee-member-email">
+                        design@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Kathryn-Ann Frazer.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Kathryn-Anne Frazer
+                    </div>
+                    <div class="committee-member-role">
+                        Design
+                    </div>
+                    <div class="committee-member-email">
+                        design@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row committee-row" id="designRow1" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Claire Goldring.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Claire Goldring
+                    </div>
+                    <div class="committee-member-role">
+                        Design & Green
+                    </div>
+                    <div class="committee-member-email">
+                        green@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Lizzie Tarrant.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Lizzie Tarrant
+                    </div>
+                    <div class="committee-member-role">
+                        Design
+                    </div>
+                    <div class="committee-member-email">
+                        design@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Max Turner.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Max Turner
+                    </div>
+                    <div class="committee-member-role">
+                        Graphic Design
+                    </div>
+                    <div class="committee-member-email">
+                        graphics@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row committee-row" id="foodRow" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-sm-6 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Alice Ding.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Alice Ding
+                    </div>
+                    <div class="committee-member-role">
+                        Food
+                    </div>
+                    <div class="committee-member-email">
+                        food@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Anthony Boyd.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Anthony Boyd
+                    </div>
+                    <div class="committee-member-role">
+                        Drinks
+                    </div>
+                    <div class="committee-member-email">
+                        drinks@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Jess Tucker.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Jess Tucker
+                    </div>
+                    <div class="committee-member-role">
+                        Treasurer
+                    </div>
+                    <div class="committee-member-email">
+                        treasurer@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row committee-row" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Beatrice Wood.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Beatrice Wood
+                    </div>
+                    <div class="committee-member-role">
+                        Main Ents
+                    </div>
+                    <div class="committee-member-email">
+                        main-ents@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Sameer Agarwal.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Sameer Aggarwal
+                    </div>
+                    <div class="committee-member-role">
+                        Non-Musical Ents
+                    </div>
+                    <div class="committee-member-email">
+                        general-ents@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Ben Gibson.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Ben Gibson
+                    </div>
+                    <div class="committee-member-role">
+                        Student Ents
+                    </div>
+                    <div class="committee-member-email">
+                        student-ents@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row committee-row" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Ze'ev Shirazi.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Ze'ev Shirazi
+                    </div>
+                    <div class="committee-member-role">
+                        Staffing
+                    </div>
+                    <div class="committee-member-email">
+                        staffing@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Rohit Kale.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Rohit Kale
+                    </div>
+                    <div class="committee-member-role">
+                        Staffing
+                    </div>
+                    <div class="committee-member-email">
+                        staffing@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Ivan Ivanov.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Ivan Ivanov
+                    </div>
+                    <div class="committee-member-role">
+                        Security
+                    </div>
+                    <div class="committee-member-email">
+                        security@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row committee-row" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Matthew Allsop.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Matthew Allsop
+                    </div>
+                    <div class="committee-member-role">
+                        Infrastructural Logistics
+                    </div>
+                    <div class="committee-member-email">
+                        infrastructure@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Ambroise Simon.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Ambroise Simon
+                    </div>
+                    <div class="committee-member-role">
+                        Technical Logistics
+                    </div>
+                    <div class="committee-member-email">
+                        technical@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Julia Needham.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Julia Needham
+                    </div>
+                    <div class="committee-member-role">
+                        Ticketing
+                    </div>
+                    <div class="committee-member-email">
+                        ticketing@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row committee-row" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-12 col-lg-4 offset-lg-4 committee-member">
+                <img class="img-fluid committee-member-img centered" src="assets/headshots/Fadle Arouna.png">
+                <div class="committee-member-info text-center">
+                    <div class="committee-member-name">
+                        Fadle Arouna
+                    </div>
+                    <div class="committee-member-role">
+                        Webmaster & Publicity
+                    </div>
+                    <div class="committee-member-email">
+                        webmaster@jesusmayball.com
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 
@@ -293,13 +654,46 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"
         integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous" defer></script>
     <script src="./js/three.r92.min.js"></script>
     <script src="./js/vanta.birds.min.js"></script>
-    <script src="./js/bg.js"></script>
+    <script src="./js/bgs.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        VANTA.BIRDS({
+            el: "#mob-wrapper",
+            backgroundColor: 0x79CBC7,
+            backgroundAlpha: 0,
+            color1: 0xF59678,
+            color2: 0xed008c,
+            colorMode: "variance",
+            birdSize: 0.70,
+            speedLimit: 1.00,
+            quantity: 3.50
+        });
+    }
+
+    else {
+        VANTA.BIRDS({
+            el: "#wrapper",
+            backgroundColor: 0x79CBC7,
+            backgroundAlpha: 0,
+            color1: 0xF59678,
+            color2: 0xed008c,
+            colorMode: "varianceGradient",
+            birdSize: 0.80,
+            separation: 47.00,
+            alignment: 81.00,
+            cohesion: 27.00,
+            quantity: 2.70
+        });
+    }
+    </script>
 </body>
 
 </html>

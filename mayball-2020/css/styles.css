@@ -1,0 +1,418 @@
+html,
+body {
+  min-height: 100%;
+  width: 100vw;
+  font-size: 12px;
+  background: linear-gradient(150deg,rgba(1, 188, 180, 0.2),
+    rgba(1, 188, 180, 0.75) 20%,
+    rgba(147, 32, 144, 1) 60%,
+    rgb(133, 29, 129) 90%
+  );
+  background-image: -moz-linear-gradient(
+    150deg,
+    rgba(1, 188, 180, 0.2),
+    rgba(1, 188, 180, 0.75) 20%,
+    rgba(147, 32, 144, 1) 60%,
+    rgb(133, 29, 129) 90%
+  );
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+html {
+  max-width: 100%;
+  width: 100vw;
+}
+
+body {
+  width: 100vw;
+  max-width:100%;
+}
+
+.wrapper {
+  padding-top: 70px;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 3.5s ease-in forwards;
+}
+
+.navbar-toggler {
+  z-index: 9999 !important; 
+}
+
+img.centered {
+  display: block;
+  margin: 0 auto;
+}
+
+.arrow {
+  opacity: 0;
+  animation: bounce 2s infinite, fadeIn 1s 4s ease-in forwards !important;
+}
+
+#error404 {
+  background: linear-gradient(
+    150deg,
+    rgba(102, 241, 234, 0.2),
+    rgba(102, 241, 234, 0.75) 20%
+  );
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#error404text {
+  font-size: 6em;
+  text-align: center;
+  width: 50vw;
+  font-family: "Noto Serif JP", "serif";
+  border-bottom: 2px solid black;
+}
+
+
+
+.nav-item {
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.875rem;
+  margin: auto 3%;
+}
+
+.navbar-clicked{
+  background: linear-gradient(
+    transparent,
+    rgba(102, 241, 234, 0.7) 50%,
+      rgba(102, 241, 234, 1) 100%
+    );
+}
+
+.navbar-nav > li > a > img {
+  display: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+@media only screen and (min-width: 375px) {
+  html {
+    font-size: 16px;
+  }
+
+  
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-logo {
+    display: none;
+  }
+  #navbar {
+    background-color: transparent 
+  }
+  
+  .navbar {
+    background: linear-gradient(
+      transparent,
+      transparent 75%,
+      rgba(102, 241, 234, 0.1) 100%
+    );
+  }
+
+  .nav-item {
+    font-family: "Noto Serif JP", serif;
+    font-size: 1rem;
+    margin: auto 3%;
+  }
+
+  .navbar-nav > li.nav-item {
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+  }
+  .navbar-nav > li:nth-child(1) {
+    animation-delay: 2s;
+  }
+
+  .navbar-nav > li:nth-child(2) {
+    animation-delay: 2.5s;
+  }
+
+  .navbar-nav > li:nth-child(4) {
+    animation-delay: 3s;
+  }
+
+  .navbar-nav > li:nth-child(5) {
+    animation-delay: 3.5s;
+  }
+
+  .navbar-nav > li > a > img {
+    display: inline;
+    opacity: 0;
+    animation: fadeIn 3.5s ease forwards;
+  }
+
+  .charity-logo > img {
+    width: 200px;
+  }
+}
+
+.mobile-logo, .navbar-toggler {
+  opacity: 0;
+  animation: fadeIn 3.5s ease-in forwards
+}
+
+#logo {
+  opacity: 0;
+  width: 45vh;
+  overflow: hidden;
+  animation: fadeIn 2s ease forwards;
+}
+
+
+
+.main-section {
+  padding-bottom: 10vh;
+  padding-top:10vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+}
+
+#title-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3vh;
+  height: 75vh;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 4rem;
+  font-family: "Noto Serif JP", "serif";
+  font-weight: 100;
+  color: black;
+}
+
+.subtitle {
+  padding: 7vh 0 7vh;
+  font-size: 3rem;
+  font-family: "Noto Serif JP", "serif";
+  font-weight: 500;
+  width: 100%;
+  color: black;
+}
+
+.subtitle-body {
+  font-family: "Noto Serif JP", serif;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+a {
+  color:white
+}
+
+.ticket-infobox:nth-of-type(1) {
+  color: white;
+  border-top: 0.063em solid white;
+  border-bottom: 0.063em solid white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.ticket-infobox:nth-of-type(2) {
+  color: white;
+  border-bottom: 0.063rem solid white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.ticket-infobox:nth-of-type(3) {
+  color: white;
+  border-bottom: 0.063rem solid white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.ticket-infobox:nth-of-type(4) {
+  color: white;
+  border-bottom: 0.063rem solid white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.ticket-link {
+  border: 0.063rem solid white;
+  margin-top: 3vh;
+  display: inline-block;
+  font-family: "Noto Serif JP", serif;
+  color: white;
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.ticket-infobox > h1,
+h2,
+p {
+  font-family: "Noto Serif JP", serif;
+  /* z-index: 10; */
+}
+
+.ticket-infobox > h1 {
+  font-size: 1.8rem;
+}
+
+.ticket-infobox > p {
+  padding-top: 5%;
+  font-size: 1rem
+}
+
+.ticket-infobox:last-child {
+  border-right: 0px;
+}
+
+
+.ticket-buy-button {
+  z-index:9999 !important;
+  background-color: aliceblue;
+  font-family: "Noto Serif JP", "serif";
+  border: none;
+  color: black;
+  padding: 2vh 4vh;
+  margin: 2vh 4vh;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.faquestion {
+  font-size: 2rem;
+  font-style: oblique;
+  font-family: "Noto Serif JP", "serif";
+  padding: 2vh;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  #logo {
+    width:70vh;
+    margin-left: -6px;
+  }
+
+  /* #wrapper {
+    z-index: 22 !important;
+  } */
+
+  .subtitle {
+    font-size: 3.5rem;
+  }
+
+  .ticket-infobox:nth-of-type(1) {
+    border-right: 1px solid white;
+    border-top: 0px;
+    border-bottom: 0px;
+  }
+
+  .ticket-infobox:nth-of-type(2) {
+    border-right: 1px solid white;
+    border-top: 0px;
+    border-bottom: 0px;
+  }
+
+  .ticket-infobox:nth-of-type(3) {
+    border-right: 1px solid white;
+    border-top: 0px;
+    border-bottom: 0px;
+  }
+
+  .ticket-infobox:nth-of-type(4) {
+    border-top: 0px;
+    border-bottom: 0px;
+  }
+
+}
+
+@media only screen and (min-width: 1900px) {
+  html {
+    font-size: 24px;
+  }
+
+  .nav-item{
+    font-size: 1rem;
+  }
+}
+
+.charities-section {
+  overflow: hidden;
+}
+
+.charity {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.charity-promo {
+  margin-bottom: 10vh;
+}
+.charity-logo {
+  margin-bottom: 2vh;
+  padding:0
+}
+
+.committee-row {
+  padding-bottom: 16px;
+}
+
+#sponsorship-section {
+  overflow: hidden;
+}
+
+.committee-member {
+  margin-bottom: 5vh;
+  padding: 1vh;
+}
+
+.committee-member-name {
+  font-size: 1.125rem;
+}
+
+.committee-member-role, .committee-member-email {
+  font-size: 1rem;
+}
+
+.committee-member-img {
+  height: 200px;
+  padding-bottom: 2vh;
+}
+
+[class^="committee-member"] {
+  font-family: "Noto Serif JP", serif;
+  color: aliceblue;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-60px);
+  }
+  60% {
+    transform: translateY(-30px);
+  }
+}
