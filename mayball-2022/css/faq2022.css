@@ -1,0 +1,47 @@
+html {
+    background-image: var(--full-gradient) !important;
+}
+
+body {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow-y: auto;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+#main {
+    position: block;
+    width: min(800px, 100%);
+    padding: 2rem 0;
+    margin: 0 auto;
+}
+
+a {
+    color: inherit;
+}
+
+#apply-now {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#apply-now a {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    transition: transform 0.1s ease-in-out 0s;
+    color: rgb(22 255 160);
+}
+#apply-now a:hover {
+    transform: scale(1.1);
+}
+
+.worker-disclaimer {
+    font-weight: bold;
+}
+.warning {
+    color: rgb(255, 80, 80);
+}

@@ -1,0 +1,148 @@
+@font-face {
+    font-family: "URWCasablancaW01-Medium";
+    src: url("../fonts/URW\ Casablanca\ W01\ Medium/c7e7fa13f9c39d182e91d7e42b3f392c.eot");
+    /* IE9*/
+    src: url("../fonts/URW\ Casablanca\ W01\ Medium/c7e7fa13f9c39d182e91d7e42b3f392c.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/URW\ Casablanca\ W01\ Medium/c7e7fa13f9c39d182e91d7e42b3f392c.woff2") format("woff2"), /* chrome、firefox */
+    url("../fonts/URW\ Casablanca\ W01\ Medium/c7e7fa13f9c39d182e91d7e42b3f392c.woff") format("woff"), /* chrome、firefox */
+    url("../fonts/URW\ Casablanca\ W01\ Medium/c7e7fa13f9c39d182e91d7e42b3f392c.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("../fonts/URW\ Casablanca\ W01\ Medium/c7e7fa13f9c39d182e91d7e42b3f392c.svg#URW Casablanca W01 Medium") format("svg");
+    /* iOS 4.1- */
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "URWCasablancaW01-Light";
+    src: url("../fonts/URW Casablanca W01 Light/@font-face/6fbff13695ad1beb56a7284a56bc6a15.eot");
+    /* IE9*/
+    src: url("../fonts/URW Casablanca W01 Light/@font-face/6fbff13695ad1beb56a7284a56bc6a15.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/URW Casablanca W01 Light/@font-face/6fbff13695ad1beb56a7284a56bc6a15.woff2") format("woff2"), /* chrome、firefox */
+    url("../fonts/URW Casablanca W01 Light/@font-face/6fbff13695ad1beb56a7284a56bc6a15.woff") format("woff"), /* chrome、firefox */
+    url("../fonts/URW Casablanca W01 Light/@font-face/6fbff13695ad1beb56a7284a56bc6a15.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("../fonts/URW Casablanca W01 Light/@font-face/6fbff13695ad1beb56a7284a56bc6a15.svg#URW Casablanca W01 Light") format("svg");
+    /* iOS 4.1- */
+    font-display: swap;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+:root {
+    --bounce: cubic-bezier(0.24, 1.18, 0.88, 1.13);
+}
+
+
+/* Box sizing fix */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    /* -webkit-overflow-scrolling: touch; */
+}
+
+
+/* Text optimisations */
+
+body {
+    line-height: 1.5;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "URWCasablancaW01-Light", serif;
+    letter-spacing: 0.2rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+
+
+/* Paragraph margins */
+
+p {
+    text-align: justify;
+    margin: 0;
+}
+
+p+p {
+    margin-top: 1em;
+}
+
+p a {
+    color: inherit;
+}
+
+
+/* Make images easier to work with */
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* Inherit fonts for inputs and buttons */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        opacity: 1 !important;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+:root {
+    --c1: #6c53cb;
+    --c2: #a156b5;
+    --c3: #d7589f;
+    --c4: #e96490;
+    --c5: #f86f84;
+    --c6: #fe938b;
+    --c7: #fddbd5;
+    --c8: #fea366;
+    --full-gradient: linear-gradient( 180deg, var(--c4) 0%, var(--c3) 50%, var(--c2) 100%);
+    --casablanca: "URWCasablancaW01-Light", serif;
+}

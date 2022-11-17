@@ -2,34 +2,705 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/styles.css?">
-    <link rel="stylesheet" href="https://use.typekit.net/rsf2jpe.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>Jesus May Ball 2022</title>
+
+    <link href="css/baseline.css" type="text/css" rel="stylesheet" />
+    <link href="css/main.css" type="text/css" rel="stylesheet" />
+    <link href="css/cover-page.css" type="text/css" rel="stylesheet" />
+
+    <script src="js/page-load.js"></script>
+
+    <link rel="shortcut icon" href="favicon.png">
+
+    <script src="js/lax.js"></script>
+    <script defer src="js/scroll_anims.js"></script>
+    <script defer src="js/nav.js"></script>
+    <title>Taking Flight - Jesus College May Ball 2022</title>
 </head>
-<body style="height: 100vh;">
-    <div class="container-fluid" style="height: 100vh;">
-        <div class="row text-center justify-content-center" style="height: 100vh;">
-            <div class="col-12 my-auto">
-                <div style="font-size: 4rem; color:antiquewhite; font-family: 'brother-1816', sans-serif;">COMING SOON</div>
-                <div style="font-size: 1.16rem; color: antiquewhite; font-family: 'warnock-pro', serif; padding-left:10%; padding-right:10%;">
-                If you have any queries, please contact <a href="mailto:president@jesusmayball.com">president@jesusmayball.com</a>
-                <br>
-                Our next Ball will be on 20th June 2022 at Jesus College, Cambridge
-                <br>
-                If you have a ticket from 2020, please take a look at our <u><a href="/tickets-faq">Existing Ticket Holders FAQs</a></u>.
-                </div>
+
+<body>
+    <style>
+        .loading-page {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: var(--c4);
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            font-size: 10px;
+            margin: 50px auto;
+            text-indent: -9999em;
+            width: 11em;
+            height: 11em;
+            border-radius: 50%;
+            background: #ffffff;
+            background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            position: relative;
+            -webkit-animation: load3 1.4s infinite linear;
+            animation: load3 1.4s infinite linear;
+            -webkit-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .loader:before {
+            width: 50%;
+            height: 50%;
+            background: #ffffff;
+            border-radius: 100% 0 0 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+        }
+
+        .loader:after {
+            background: var(--c4);
+            width: 75%;
+            height: 75%;
+            border-radius: 50%;
+            content: '';
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        @-webkit-keyframes load3 {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes load3 {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <div class="loading-page">
+        <div class="loader">Loading...</div>
+    </div>
+    <div class="page" style="display: none">
+        <nav aria-label="Main Navigation" role="navigation" data-open-mobile="false" data-open-desktop="true">
+            <button id="nav-open" class="nav-toggle" aria-controls="nav-container" onclick="openNavMobile()">
+                <span class="material-icons">menu</span>
+            </button>
+            <ul id="nav-items" class="nav-items" aria-hidden="true">
+                <li class="nav-toggle">
+                    <button id="nav-close" class="nav-toggle" aria-controls="nav-list" onclick="closeNavMobile()">
+                        <span class="material-icons">close</span>
+                    </button>
+                </li>
+                <li><a href="#intro" onclick="closeNavMobile()">Home</a></li>
+                <li><a href="#tickets" onclick="closeNavMobile()">Tickets</a></li>
+                <li><a href="#faq" onclick="closeNavMobile()">FAQs</a></li>
+                <li><a href="#charities" onclick="closeNavMobile()">Charities</a></li>
+                <li><a href="#sponsorship" onclick="closeNavMobile()">Sponsorship</a></li>
+                <li><a href="#committee" onclick="closeNavMobile()">Committee</a></li>
+                <!-- <li><a href="/store" onclick="closeNavMobile()">Stash</a></li> -->
+            </ul>
+        </nav>
+        <div class="cover-page">
+            <picture id="sun" class="cloud-layer animated">
+                <source srcset="assets/misc/Sun.webp" type="image/webp" />
+                <source srcset="assets/misc/Sun.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/misc/Sun.png" alt="sun" />
+            </picture>
+            <picture id="l5" class="cloud-layer plx-7 animated">
+                <source srcset="assets/cloud_layers/Cloud_layer_5_(DESKTOP).svg.svg" media="(min-width: 900px)">
+                <source srcset="assets/cloud_layers/Cloud_layer_5_(MOBILE).svg.svg">
+                <img onload="imageLoaded()" src="assets/cloud_layers/Cloud_layer_5_(DESKTOP).svg.svg" alt="cloud layer"
+                    width="100%" />
+            </picture>
+            <picture id="l4" class="cloud-layer plx-5 animated">
+                <source srcset="assets/cloud_layers/Cloud_layer_4_(DESKTOP).svg.svg" media="(min-width: 900px)">
+                <source srcset="assets/cloud_layers/Cloud_layer_4_(MOBILE).svg.svg">
+                <img onload="imageLoaded()" src="assets/cloud_layers/Cloud_layer_4_(DESKTOP).svg.svg" alt="cloud layer"
+                    width="100%" />
+            </picture>
+            <picture id="l3" class="cloud-layer plx-3 animated">
+                <source srcset="assets/cloud_layers/Cloud_layer_3_(DESKTOP).svg.svg" media="(min-width: 900px)">
+                <source srcset="assets/cloud_layers/Cloud_layer_3_(MOBILE).svg.svg">
+                <img onload="imageLoaded()" src="assets/cloud_layers/Cloud_layer_3_(DESKTOP).svg.svg" alt="cloud layer"
+                    width="100%" />
+            </picture>
+            <picture id="l2" class="cloud-layer plx-2 animated">
+                <source srcset="assets/cloud_layers/Cloud_layer_2_(DESKTOP).svg.svg" media="(min-width: 900px)">
+                <source srcset="assets/cloud_layers/Cloud_layer_2_(MOBILE).svg.svg">
+                <img onload="imageLoaded()" src="assets/cloud_layers/Cloud_layer_2_(DESKTOP).svg.svg" alt="cloud layer"
+                    width="100%" />
+            </picture>
+            <picture id="l1" class="cloud-layer plx-0 animated">
+                <source srcset="assets/cloud_layers/Cloud_layer_1_(DESKTOP).svg.svg" media="(min-width: 900px)">
+                <source srcset="assets/cloud_layers/Cloud_layer_1_(MOBILE).svg.svg">
+                <img onload="imageLoaded()" src="assets/cloud_layers/Cloud_layer_1_(DESKTOP).svg.svg" alt="cloud layer"
+                    width="100%" />
+            </picture>
+            <picture class="cloud plx-0 animated" id="c1">
+                <source srcset="assets/clouds/Cloud_1.webp" type="image/webp" />
+                <source srcset="assets/clouds/Cloud_1.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/clouds/Cloud_1.png" alt="cloud" onload="" />
+            </picture>
+            <picture class="cloud plx-0 animated" id="c2">
+                <source srcset="assets/clouds/Cloud_2.webp" type="image/webp" />
+                <source srcset="assets/clouds/Cloud_2.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/clouds/Cloud_2.png" alt="cloud" />
+            </picture>
+            <picture class="cloud plx-1 animated" id="c3">
+                <source srcset="assets/clouds/Cloud_3.webp" type="image/webp" />
+                <source srcset="assets/clouds/Cloud_3.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/clouds/Cloud_3.png" alt="cloud" />
+            </picture>
+            <picture class="cloud plx-5 animated" id="c4">
+                <source srcset="assets/clouds/Cloud_4.webp" type="image/webp" />
+                <source srcset="assets/clouds/Cloud_4.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/clouds/Cloud_4.png" alt="cloud" />
+            </picture>
+            <picture class="cloud plx-4 animated" id="c5">
+                <source srcset="assets/clouds/Cloud_5.webp" type="image/webp" />
+                <source srcset="assets/clouds/Cloud_5.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/clouds/Cloud_5.png" alt="cloud" />
+            </picture>
+            <picture class="cloud plx-6 animated" id="c6">
+                <source srcset="assets/clouds/Cloud_6.webp" type="image/webp" />
+                <source srcset="assets/clouds/Cloud_6.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/clouds/Cloud_6.png" alt="cloud" />
+            </picture>
+            <picture class="baloon plx-0 animated" id="b1">
+                <source srcset="assets/baloons/Hot_Air_Balloon_1.webp" type="image/webp" />
+                <source srcset="assets/baloons/Hot_Air_Balloon_1.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/baloons/Hot_Air_Balloon_1.png" alt="baloon" height="100%" />
+            </picture>
+            <picture class="baloon plx-4 animated" id="b2">
+                <source srcset="assets/baloons/Hot_Air_Balloon_2.webp" type="image/webp" />
+                <source srcset="assets/baloons/Hot_Air_Balloon_2.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/baloons/Hot_Air_Balloon_2.png" alt="baloon" height="100%" />
+            </picture>
+            <picture class="baloon plx-6 animated" id="b3">
+                <source srcset="assets/baloons/Hot_Air_Balloon_3.webp" type="image/webp" />
+                <source srcset="assets/baloons/Hot_Air_Balloon_3.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/baloons/Hot_Air_Balloon_3.png" alt="baloon" height="100%" />
+            </picture>
+            <picture class="baloon plx-8 animated" id="b4">
+                <source srcset="assets/baloons/Hot_Air_Balloon_5.webp" type="image/webp" />
+                <source srcset="assets/baloons/Hot_Air_Balloon_5.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/baloons/Hot_Air_Balloon_5.png" alt="baloon" height="100%" />
+            </picture>
+            <picture class="baloon plx-9 animated" id="b5">
+                <source srcset="assets/baloons/Hot_Air_Balloon_7.webp" type="image/webp" />
+                <source srcset="assets/baloons/Hot_Air_Balloon_7.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/baloons/Hot_Air_Balloon_7.png" alt="baloon" height="100%" />
+            </picture>
+            <picture class="baloon plx-9 animated" id="b6">
+                <source srcset="assets/baloons/Hot_Air_Balloon_6.webp" type="image/webp" />
+                <source srcset="assets/baloons/Hot_Air_Balloon_6.png" type="image/png" />
+                <img onload="imageLoaded()" src="assets/baloons/Hot_Air_Balloon_6.png" alt="baloon" height="100%" />
+            </picture>
+            <picture class="pegasus plx-4 animated" id="pegasus">
+                <source srcset="assets/misc/pegasus.webp" type="image/webp" />
+                <source srcset="assets/misc/pegasus.png" type="image/png" height="100%" />
+                <img onload="imageLoaded()" src="assets/misc/pegasus.png" alt="pegasus" />
+            </picture>
+            <div id="main-text">
+                <h1>TAKING FLIGHT</h1>
+                <h2>JESUS COLLEGE MAY BALL 2022</h2>
             </div>
         </div>
+        <div class="content" id="content">
+            <section id="intro">
+                <div class="section-content-container">
+                    <div class="section-content">
+                        <h1>Taking Flight - Jesus College May Ball 2022</h1>
+                        <p>
+                            Have you ever dreamt of taking flight? Wished that, just for one day, you might grow wings
+                            and soar amongst the birds? Or that, if only for a moment, you might take the place of the
+                            planets and the stars to marvel at the dynamic beauty of our cosmos?
+                        </p>
+                        <p>
+                            This June, bringing the clouds and stars to the ground, the Jesus College May Ball will
+                            allow you to take flight. You will have the chance to rise through the atmosphere,
+                            untethered, to drift amongst the clouds. A warming cradle of the wind and air will
+                            lift you higher than you ever may have hoped, taking you through and beyond our atmosphere
+                            to be amongst the stars.
+                        </p>
+                        <p>
+                            So, join us on the 20th June 2022 to experience ‘Taking Flight’.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="tickets" class="fade-in">
+                <div class="seperator"></div>
+                <div class="section-content-container">
+                    <div class="section-content">
+                        <h1>Tickets</h1>
+                        <div class="ticket-types">
+                            <div class="ticket-type">
+                                <h2>Standard - &pound;170</h2>
+                                <p>
+                                    Standard tickets entitle holders to enter the Ball at 20:00.
+                                </p>
+                            </div>
+                            <div class="ticket-type">
+                                <h2>Priority - &pound;190</h2>
+                                <p>
+                                    Priority tickets entitle holders to enter the Ball for a Champagne reception at
+                                    19:15.
+                                </p>
+                            </div>
+                            <div class="ticket-type">
+                                <h2>Dining - &pound;210</h2>
+                                <p>
+                                    Dining tickets entitle holders to enter the Ball at 18:30 for a Champagne reception
+                                    before a three-course meal beginning at 19:00.
+                                </p>
+                            </div>
+                            <div class="ticket-type">
+                                <h2>Bursary - &pound;85</h2>
+                                <p>
+                                    Bursary tickets (equivalent to Standard tickets) are available to students of Jesus
+                                    College who are on any level of the Cambridge Bursary or who are judged by the
+                                    college as being in financial hardship. Includes everything in a standard ticket.
+                                </p>
+                            </div>
+                        </div>
+                        <h2>Tickets are sold out! Join the waiting list and we will be in touch when more tickets are
+                            released or resold...</h2>
+                        <a class="buy-button" href="/tickets/waitinglist.php">
+                            Join the waiting list
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section id="faq" class="fade-in">
+                <div class="seperator"></div>
+                <div class="section-content-container">
+                    <div class="section-content">
+                        <h1>FAQs</h1>
+
+                        <h2>How many guest tickets can I buy?</h2>
+                        <p>
+                            On Launch Night (in the Bar) and from 13:00 on the 24th February, Jesuans will be able to
+                            buy their own ticket and <i>ballot</i> for up to two guest tickets. On Sunday 27th February,
+                            winners of the ballot will receive an email
+                            requesting payment. Tickets then go on sale to the rest of the university in early March,
+                            should any remain.
+                        </p>
+
+                        <h2>I can't make the Ball anymore - what should I do?</h2>
+                        <p>
+                            The Jesus College May Ball doesn't offer refunds - however, it is possible to transfer the
+                            ticket into another name, although there is a fee for this (the majority of which is donated
+                            to charity!). We may also have a waitlist of people who are looking
+                            to buy a ticket from someone - tickets sold to the waiting list <b>will be subject to a
+                                significantly reduced admin fee</b> - please contact us at <a
+                                href="mailto: ticketing@jesusmayball.com">ticketing@jesusmayball.com</a>. We
+                            <b>forbid</b> guests from selling tickets for a profit, and would like to urge those who are
+                            looking for a ticket to apply through the waitlist first to avoid high markups. If you
+                            suspect you have been offered a ticket at a
+                            markup, let us know as we will cancel tickets sold at above market rate.
+                        </p>
+
+                        <h2>I'm on the waiting list… now what?</h2>
+                        <p>
+                            If any spare tickets become available (e.g. from people not paying for their tickets), we
+                            will contact people on the waiting list in the order they went on. You'll stay on the
+                            waiting list until a few weeks before the Ball, to give you the best chance
+                            of getting a ticket.
+                        </p>
+
+                        <h2>Can I change the name on my ticket?</h2>
+                        <p>
+                            Name changes on tickets can be done <a href="/tickets/namechange.php">here</a>, for a fee of
+                            £40, however this fee will increase to £50 after the 22nd April. Changes will be made to the
+                            tickets after payment confirmation. The
+                            deadline for all name change requests is the 6th June. Tickets sold to the waiting list will
+                            be subject to a £10 name change fee, rising to £20 after the 22nd April.
+                        </p>
+
+                        <h2>Is your question not answered?</h2>
+                        <p>
+                            <b><a href="./faq.html">Click here for a full list of FAQs</a></b>, or email us at <a
+                                href="mailto: ticketing@jesusmayball.com">ticketing@jesusmayball.com</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="charities" class="fade-in">
+                <div class="seperator"></div>
+                <div class="section-content-container">
+                    <div class="section-content">
+                        <h1>
+                            Charities
+                        </h1>
+                        <p>
+                            There is the option to add a £3 charity donation to the price of your ticket, which we hope
+                            you will consider. This year, the Committee is supporting the following charities:
+                        </p>
+                        <div class="charity">
+                            <img width="200px" class="charity-logo" src="assets/charity_logos/mind.png" alt="Mind logo">
+                            <p class="charity-description">
+                                We provide advice and support to empower anyone experiencing a mental health problem. We
+                                campaign to improve services, raise awareness and promote understanding. Because of
+                                Mind, millions more people have access to advice and support thanks to our information
+                                and services nationally and locally, in England and Wales. We're building on change, but
+                                we know there is much more to do.
+                            </p>
+                        </div>
+                        <div class="charity">
+                            <img width="200px" class="charity-logo" src="assets/charity_logos/beam.png" alt="Beam logo">
+                            <p class="charity-description">
+                                At Beam, we crowdfund new career opportunities for homeless men and women. We provide
+                                them with a support network, from our support specialists to the kind strangers who fund
+                                their campaigns. We use technology to find scalable solutions to the toughest
+                                social problems - starting with homelessness.
+                            </p>
+                        </div>
+                        <div class="charity">
+                            <img width="200px" class="charity-logo" src="assets/charity_logos/camfed.png"
+                                alt="Camfed logo">
+                            <p class="charity-description">
+                                CAMFED envisions a world in which every child is educated, protected, respected and
+                                valued, and grows up to turn the tide of poverty. As the most effective strategy to
+                                tackle poverty and inequality, CAMFED multiplies educational opportunities for girls
+                                and empowers young women to become leaders of change. Our focus is on girls and young
+                                women in rural areas of sub-Saharan Africa. This is where girls face acute disadvantage
+                                and where their empowerment will have a transformative
+                                impact.
+                            </p>
+                        </div>
+                        <div class="charity">
+                            <img width="200px" class="charity-logo" src="assets/charity_logos/rag.png" alt="RAG logo">
+                            <p class="charity-description">
+                                RAG is the biggest student-led charitable organisation in the University of Cambridge.
+                                They offer members the chance to participate in a range of college and uni-wide events
+                                to support a number of local, national and international charities. This year,
+                                RAG will be supporting 4 charities on behalf of Jesus College May Ball.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="sponsorship" class="fade-in">
+                <div class="seperator"></div>
+                <div class="section-content-container">
+                    <div class="section-content">
+                        <h1>Sponsorship</h1>
+                        <p>
+                            This year the Ball is sponsored by:
+                        </p>
+                        <div class="sponsors">
+                            <img width="250px" src="assets/sponsor_logos/rathbones.png" alt="Rathbones Tailor logo">
+                            <div id="high-society">
+                                <img width="250px" src="assets/sponsor_logos/high_society.png"
+                                    alt="High Society Events logo">
+                                <p><a target="_blank" href="https://www.high-society.co.uk/">High Society</a> -
+                                    Hand-picked staff for every event</p>
+                            </div>
+                            <img width="250px" src="assets/sponsor_logos/cambridge_cider_company.png"
+                                alt="Cambridge Cider Company logo">
+                            <div id="fountain">
+                                <img width="150px" src="assets/sponsor_logos/fountain.png"
+                                    alt="Fountain Hard Seltzer logo">
+                                <div>
+                                    <p><a target="_blank" href="https://hellofountain.co.uk/">Fountain Hard Seltzer</a>.
+                                        Its simple:
+                                        Have fun. Enjoy life. Hang with
+                                        friends.
+                                        Have a
+                                        BBQ. Go out, or stay home. Fly a kite. Knit a scarf. You know what to do. Kick
+                                        back.
+                                        Go hard. Or do whatever you want.
+                                    </p>
+                                    <p>Fountain is a drinks company that is clear, transparent, and pure as water.
+                                        Fountain
+                                        is brewed with a clean alcohol base and a touch of premium all-natural flavours.
+                                        With only 93 calories, natural ingredients, and 5% ABV, Fountain Hard Seltzer
+                                        comes
+                                        in a number of fresh fruit flavours: Watermelon, Mango, Raspberry and
+                                        Passionfruit
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="committee" class="fade-in">
+                <div class="seperator"></div>
+                <div class="section-content-container">
+                    <div class="section-content">
+                        <h1>The Committee</h1>
+                        <div class="committee-grid">
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Rohit.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Rohit.png" alt="Rohit" />
+                                </picture>
+                                <h2>Rohit Kale</h2>
+                                <h3>President</h3>
+                                <a href="mailto:president@jesusmayball.com">president@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Ismaeel.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Ismaeel.png" alt="Ismaeel" />
+                                </picture>
+                                <h2>Ismaeel Zia</h2>
+                                <h3>Vice President</h3>
+                                <a href="mailto:ismaeel@jesusmayball.com">ismaeel@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Hannah.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Hannah.png" alt="Hannah" />
+                                </picture>
+                                <h2>Hannah Lin</h2>
+                                <h3>Vice President</h3>
+                                <a href="mailto:hannah@jesusmayball.com">hannah@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Bella.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Bella.png" alt="Bella" />
+                                </picture>
+                                <h2>Bella Rawson</h2>
+                                <h3>Treasurer</h3>
+                                <a href="mailto:treasurer@jesusmayball.com">treasurer@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Michal.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Michal.png" alt="Michal" />
+                                </picture>
+                                <h2>Michal Chinn</h2>
+                                <h3>Head of Design</h3>
+                                <a href="mailto:michal@jesusmayball.com">michal@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Troy.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Troy.png" alt="Troy" />
+                                </picture>
+                                <h2>Troy Fielder</h2>
+                                <h3>Design</h3>
+                                <a href="mailto:troy@jesusmayball.com">troy@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Jules.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Jules.png" alt="Jules" />
+                                </picture>
+                                <h2>Jules Kardish</h2>
+                                <h3>Design</h3>
+                                <a href="mailto:julianna@jesusmayball.com">julianna@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Fern.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Fern.png" alt="Fern" />
+                                </picture>
+                                <h2>Fern Acheson</h2>
+                                <h3>Design</h3>
+                                <a href="mailto:fern@jesusmayball.com">fern@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Max.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Max.png" alt="Max" />
+                                </picture>
+                                <h2>Max Turner</h2>
+                                <h3>Graphic Design</h3>
+                                <a href="graphics:graphics@jesusmayball.com">graphics@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/James.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/James.png" alt="James" />
+                                </picture>
+                                <h2>James Kane</h2>
+                                <h3>Food</h3>
+                                <a href="mailto:james@jesusmayball.com">james@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Aless.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Aless.png" alt="Aless" />
+                                </picture>
+                                <h2>Aless Catana</h2>
+                                <h3>Food</h3>
+                                <a href="mailto:alessandra@jesusmayball.com">alessandra@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Michael.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Michael.png" alt="Michael" />
+                                </picture>
+                                <h2>Michael Li</h2>
+                                <h3>Drinks</h3>
+                                <a href="mailto:drinks@jesusmayball.com">drinks@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Melissa.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Melissa.png" alt="Melissa" />
+                                </picture>
+                                <h2>Melissa Yuan</h2>
+                                <h3>Infrastructural Logistics</h3>
+                                <a href="mailto:infrastructure@jesusmayball.com">infrastructure@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Sameer.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Sameer.png" alt="Sameer" />
+                                </picture>
+                                <h2>Sameer Aggarwal</h2>
+                                <h3>Technical Logistics</h3>
+                                <a href="mailto:technical@jesusmayball.com">technical@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Kate.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Kate.png" alt="Kate" />
+                                </picture>
+                                <h2>Kate Poteet</h2>
+                                <h3>Main Ents</h3>
+                                <a href="mailto:main-ents@jesusmayball.com">main-ents@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Josh.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Josh.png" alt="Josh" />
+                                </picture>
+                                <h2>Josh Aderanti</h2>
+                                <h3>General Ents</h3>
+                                <a href="mailto:general-ents@jesusmayball.com">general-ents@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Meg.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Meg.png" alt="Meg" />
+                                </picture>
+                                <h2>Megan Robinson</h2>
+                                <h3>Student Ents</h3>
+                                <a href="mailto:student-ents@jesusmayball.com">student-ents@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Anisha.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Anisha.png" alt="Anisha" />
+                                </picture>
+                                <h2>Anisha Bakhai</h2>
+                                <h3>Security</h3>
+                                <a href="mailto:security@jesusmayball.com">security@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Mojola.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Mojola.png" alt="Mojola" />
+                                </picture>
+                                <h2>Mojola Akinyemi</h2>
+                                <h3>Staffing</h3>
+                                <a href="mailto:mojola@jesusmayball.com">mojola@jesusmayball.com</a>
+                            </div>
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Orchid.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Orchid.png" alt="Orchid" />
+                                </picture>
+                                <h2>Orchid Amira Balgobin</h2>
+                                <h3>Staffing</h3>
+                                <a href="mailto:orchid@jesusmayball.com">orchid@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Lewis.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Lewis.png" alt="Lewis" />
+                                </picture>
+                                <h2>Lewis Westwood Flood</h2>
+                                <h3>Ticketing</h3>
+                                <a href="mailto:ticketing@jesusmayball.com">ticketing@jesusmayball.com</a>
+                            </div>
+
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Rafi.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Rafi.png" alt="Rafi" />
+                                </picture>
+                                <h2>Rafi Levy</h2>
+                                <h3>Webmaster</h3>
+                                <a href="mailto:webmaster@jesusmayball.com">webmaster@jesusmayball.com</a>
+                            </div>
+
+                            <!-- 
+                            <div class="committee-member">
+                                <picture>
+                                    <source srcset="assets/committee_photos/Ellie.webp" type="image/webp" /><img
+                                        src="assets/committee_photos/Ellie.png" alt="Ellie" />
+                                </picture>
+                                <h2>Ellie Knox</h2>
+                                <h3>Design</h3>
+                                <a href="mailto:ellie@jesusmayball.com">ellie@jesusmayball.com</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="footer">
+            <p>
+                Website © Jesus College May Ball 2022
+            </p>
         </div>
     </div>
 </body>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </html>

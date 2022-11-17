@@ -1,0 +1,20 @@
+html,
+body {
+  min-height: 100%;
+  width: 100vw;
+  font-size: 12px;
+  background: linear-gradient(150deg,rgba(1, 188, 180, 0.2),
+    rgba(1, 188, 180, 0.75) 20%,
+    rgba(147, 32, 144, 1) 60%,
+    rgb(133, 29, 129) 90%
+  );
+  background-image: -moz-linear-gradient(
+    150deg,
+    rgba(1, 188, 180, 0.2),
+    rgba(1, 188, 180, 0.75) 20%,
+    rgba(147, 32, 144, 1) 60%,
+    rgb(133, 29, 129) 90%
+  );
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
