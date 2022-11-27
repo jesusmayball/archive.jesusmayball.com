@@ -1,0 +1,5 @@
+AuthType Ucam-WebAuth
+    Require user pc410 svg25 ra377 lr342 afh33 wyc30 pah58 jps75 cek38 rc505
+
+#AuthType none
+#Satisfy any 

@@ -1,0 +1,6 @@
+AACookieKey "EVqPPffG0nFdjjBpKHYxqYCSLMvKxc18OGTJMl22WBNj2Z7v"
+AuthType Ucam-WebAuth
+Require user rl630
+
+# Explicitly says that logged in user doesn't need to be a current student/staff
+AARequiredPtags None

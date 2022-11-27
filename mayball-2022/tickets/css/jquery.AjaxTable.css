@@ -1,0 +1,103 @@
+/*
+Portions of this stylesheet have been derived from the Twitter Bootstrap library.
+http://twitter.github.com/bootstrap/
+Twitter Bootstrap is distributed under the Apache 2.0 licence:
+https://github.com/twitter/bootstrap/wiki/License
+*/
+
+div.ajax-table {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #666;
+    display: inline-block;
+}
+
+div.ajax-table div.ajax-table-result-heading {
+  background-color: #2C2C2C;
+  background-image: -moz-linear-gradient(center top , #333333, #222222);
+  background-repeat: repeat-x;
+  border-radius: 4px 4px 0px 0px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+  color: #FFFFFF;
+  padding: 10px;
+}
+
+div.ajax-table div.ajax-table-result {
+  border-color: #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  border-style: solid;
+  border-width: 0 1px 1px;
+  padding: 10px;
+}
+
+/* Investigate
+div.ajax-table div.ajax-table-result:last-of-type {
+  border-radius: 0px 0px 4px 4px;
+}
+*/
+
+div.ajax-table div.ajax-table-result-odd {
+  background-color: #F9F9F9;
+}
+
+div.ajax-table div.ajax-table-result-odd {
+  background-color: #F5F5F5;
+}
+
+div.ajax-table div.ajax-table-results span {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.ajax-table div.ajax-table-pagination {
+    height: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+div.ajax-table div.ajax-table-pagination ul {
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  margin-bottom: 0;
+  margin-left: 0;
+  list-style: disc outside none;
+  padding: 0px;
+}
+
+div.ajax-table div.ajax-table-pagination li {
+  display: inline;
+  line-height: 18px;
+}
+
+div.ajax-table div.ajax-table-pagination a {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #DDDDDD;
+  border-image: none;
+  border-style: solid;
+  border-width: 1px 1px 1px 0;
+  float: left;
+  line-height: 34px;
+  padding: 0 14px;
+  text-decoration: none;
+  color: #0088CC;
+  text-decoration: none;
+}
+
+div.ajax-table div.ajax-table-pagination li:first-child a {
+  border-left-width: 1px;
+  border-radius: 3px 0 0 3px;
+}
+
+div.ajax-table div.ajax-table-pagination li:last-child a {
+  border-radius: 0 3px 3px 0;
+}
+
+div.ajax-table div.ajax-table-pagination a:hover, div.ajax-table div.ajax-table-pagination a.active {
+  background-color: #F5F5F5;
+}

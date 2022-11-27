@@ -1,0 +1,42 @@
+.details-faqs {
+	padding: $lib-spacing-unit 0;
+	border-style: solid none;
+	border-width: 1px;
+	border-color: #444;
+}
+
+.details-faqs__heading {
+	text-transform: uppercase;
+}
+
+.details-faqs__faq-question {
+	@extend h6;
+	// display: block;
+	// font-weight: bold;
+	margin: $lib-spacing-unit 0 $lib-spacing-unit--small;
+}
+.details-faqs__faq-answer {
+	margin: 0;
+}
+
+.details-faqs__payment-deadline-table {
+	margin: $lib-spacing-unit--small 0;
+}
+
+.details-faqs__payment-deadline-table {
+	width: 90%;
+	margin: $lib-spacing-unit--small 5%;
+}
+
+.details-faqs__payment-deadline-table-heading {
+	text-align: left;
+}
+
+.details-faqs__payment-deadline-table-cell {
+	width: 33.333%;
+}
+
+.details-faqs__payment-deadline-table-cell-content {
+	display: inline-block;
+	padding: 0.5em 0;
+}
