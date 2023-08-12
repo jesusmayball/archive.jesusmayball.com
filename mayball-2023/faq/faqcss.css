@@ -1,0 +1,41 @@
+h1 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-left: 2rem;
+}
+
+h2 {
+    font-size: large;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+p {
+    font-weight: 400;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium;
+}
+
+a {
+    color: white;
+}
+
+li {
+    font-weight: 400;
+    margin-top: 0.5rem;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium;
+}
+
+.question {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}

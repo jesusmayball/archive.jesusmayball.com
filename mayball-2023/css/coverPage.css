@@ -1,0 +1,293 @@
+
+
+.animated {
+    pointer-events: none;
+}
+
+.mobileOnly{
+    display: none;
+}
+
+.wrapping {
+    height: 200cm;
+    width: 200cm;
+    z-index: 20;
+    overflow-y: auto;
+}
+
+
+#bgBlock {
+    position: fixed;
+
+    top:0%;
+    height: 100cm;
+    width: 200cm;
+    z-index: -1;
+    background-color: #1d1d1b;
+}
+.block {
+    position: absolute;
+    bottom: 0%;
+
+    height: 100vh;
+    width: 200vw;
+    z-index: 6;
+    background-color: #5f7857;
+}
+#leftBlock{
+    right: 99%; 
+}
+#rightBlock{
+    left: 99%;
+}
+
+#left1 {
+    position: absolute;
+    bottom: 0%;
+    right: 80%;
+
+    height: 100vh;
+    width: 87vh;
+
+    z-index: 7;
+}
+
+#right1 {
+    bottom:0% ;
+    left: 85%;
+    position: absolute;
+    
+    height: 100vh;
+    width: 66vh;
+
+    z-index: 6;
+}
+
+#grass1 {
+    position: absolute;
+    z-index: 3;
+    bottom: 0%;
+    width: 100vw;
+    height: auto;
+}
+#grass2 {
+    position: absolute;
+    height: auto;
+    bottom: 0;
+    width: 100vw;
+    z-index: 7;
+}
+#stars {
+    position:absolute;
+    top: 0px;
+    width:100%;
+    z-index: -1;
+}
+
+#titleContainer{
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    bottom: 75%;
+}
+
+#title {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#characters {
+    position: absolute;
+    z-index: 4;
+    bottom: 5%;
+    left: 30vw;
+    right: 30vw;
+    transform-origin: 50% 0%;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 0.75;
+    background-color: #1d1d1b;
+
+}
+
+.title h2 {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    top: 1rem;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #1d1d1b;
+}
+
+
+
+#navigation {
+    z-index: 100;
+    position: relative;
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+#navigationItems{
+    z-index: 200;
+    position: absolute;
+    list-style-type: none;
+    top: 0;
+    
+    display: flex;
+    justify-content: space-around;
+
+    width: 100%;
+    
+}
+
+#navigationItems a {
+    font-size: 1.3rem;
+    width: 20px;
+    color: white;
+    text-decoration: none;
+    background-color: #1d1d1b;
+
+    display: flex;
+    align-items: stretch; /* Default */
+    justify-content: space-around;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+@media only screen and (max-width: 900px) {
+
+    .mobileOnly{
+        display: block;
+    }
+
+    #left1 {
+
+        bottom: 30%;
+
+        height: 70vh;
+        width: 61vh;
+    }
+
+    #right1 {
+
+        bottom: 30%;
+
+        height: 70vh;
+        width: 46vh;
+    
+    }
+
+    #grass1{
+        display: none;
+    }
+
+    #grass1Mob{
+        position: absolute;
+        bottom: 30%;
+        width: 100%;
+    }
+    
+    #grass2{
+        bottom: 30%;
+    }
+
+    #grass2Extra {
+        position: absolute;
+        background-color: #5f7857;
+        width: 100vw;
+        height: 32vh;
+        bottom: -1vh;
+        z-index: 8;
+    }
+
+
+    #characters {
+        bottom: 40%;
+        left: 10vw;
+        right: 10vw;
+        transform-origin: 50% 0%;
+    }
+
+    #stars {
+        display: none;
+    }
+
+    #starsMob{
+        position: absolute;
+        top: 0%;
+        width:200%;
+        left: -35%;
+
+        z-index: -1;
+    }
+
+    #titleContainer{
+        position: relative;
+        bottom: 0;
+    }
+
+    .title h1{
+        font-size: 4rem;
+        padding-left: 0px;
+        padding-right: 0;
+    }
+    .title h2{
+        font-size: 1rem;
+    }
+
+    #navigationItems a {
+        font-size: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    #navigationItems a {
+        font-size: 0.3rem;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .title h1{
+        font-size: 8rem;
+    }
+    .title h2{
+        font-size: 2rem;
+    }
+
+    #navigationItems a {
+        font-size: 1.8rem;
+    }
+}
